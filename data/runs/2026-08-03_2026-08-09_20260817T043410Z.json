@@ -1,0 +1,433 @@
+{
+  "schemaVersion": "1",
+  "id": "2026-08-03_2026-08-09_20260817T043410Z",
+  "crawl": {
+    "executedAt": "2026-08-17T04:34:10.816516Z",
+    "crawlDate": "2026-08-17",
+    "status": "success",
+    "trigger": "ci"
+  },
+  "window": {
+    "dateStart": "2026-08-03",
+    "dateEnd": "2026-08-09",
+    "preset": "week",
+    "mode": "custom"
+  },
+  "config": {
+    "keywords": "(uav|aerial) & (vlm|llm|mllm) & (rl)",
+    "date_range": {
+      "preset": "week"
+    },
+    "ai": {
+      "model": "glm-5.2",
+      "max_tokens": 12000,
+      "thinking": "disabled"
+    }
+  },
+  "content": {
+    "markdownBody": "## 📄 Arxiv 前沿论文\n\n> **爬取时间**：2026-08-17 04:34:10 UTC\n\n本板块数据来自 arXiv library 后端检索，关键词 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗 2026-08-03 ~ 2026-08-09。本周该检索命中 0 条，表体为空。\n\n| 评分 | 标题 | 说明 | 链接 | 标签 | 发表时间 | 学科类别 |\n|---|---|---|---|---|---|---|\n\n## 🎓 Semantic Scholar\n\n本板块数据来自 Semantic Scholar 检索，关键词 `(uav|aerial) & (vlm|llm|mllm) & (rl)`，时间窗同根配置。本周命中 0 条，表体为空。\n\n| 评分 | 标题 | 说明 | 链接 | 标签 | 发表时间 | 来源/venue | 引用数 |\n|---|---|---|---|---|---|---|---|\n\n## 📚 OpenAlex\n\n本板块数据来自 OpenAlex 检索，关键词 `(uav|aerial) & (vlm|llm|mllm) & (rl)`，时间窗 2026-08-03 ~ 2026-08-09，原始命中 18 条；剔除与主题明显无关条目后收录 13 条，评分侧重当周主题贴合度与新颖度。\n\n| 评分 | 标题 | 说明 | 链接 | 标签 | 发表时间 | 来源/venue | 引用数 |\n|---|---|---|---|---|---|---|---|\n| 9 | CoNav-UAV: Cooperative Dual-Altitude Aerial Navigation via Stackelberg Learning | 双高度无人机协同目标导向视觉-语言导航，采用 Stackelberg 博弈学习框架 | https://openalex.org/W7172557891 | UAV, 视觉语言导航, 多智能体, 博弈学习 | 2026-08-03 | arXiv (Cornell University) | 0 |\n| 8 | A Parameter-Specific Retrieval and Knowledge-Guided Reasoning Framework for LLM-Based GPSR Optimization in FANETs | 面向飞行自组网 GPSR 路由的 LLM 检索增强参数自适应推理框架 | https://openalex.org/W7202230869 | FANET, LLM, 路由优化, 检索增强 | 2026-08-07 | arXiv (Cornell University) | 0 |\n| 8 | RSVideo: Are Your Vision-Language Models Ready for Remote Sensing Videos? | 遥感视频 VLM 基准，考察多模态模型对运动与时序变化的感知能力 | https://openalex.org/W7197054188 | 遥感视频, VLM, 基准测试, 多模态 | 2026-08-03 | arXiv (Cornell University) | 0 |\n| 7 | LLM-Driven Automated Reward Design for Reinforcement Learning-Based Routing in LEO Satellite Networks | 用 LLM 自动设计奖励函数，优化 LEO 卫星网络的强化学习路由 | https://openalex.org/W7172558599 | LLM, 奖励设计, 强化学习, 卫星网络 | 2026-08-03 | arXiv (Cornell University) | 0 |\n| 7 | Toward Intelligent Skies: Signal Processing and AI Foundations of Low-Altitude Wireless Networks | 面向 UAV 低空业务的新型数字基础设施：信号处理与 AI 基础 | https://doi.org/10.48550/arxiv.2608.08225 | 低空网络, UAV, 信号处理, 6G | 2026-08-08 | arXiv (Cornell University) | 0 |\n| 6 | Rigid-Covert GNSS Spoofing of UAV Swarms | 揭示无人机蜂群相对几何校验的结构性盲区，提出绝对锚点防御 | https://openalex.org/W7202230457 | 无人机蜂群, GNSS 欺骗, 安全防御 | 2026-08-07 | arXiv (Cornell University) | 0 |\n| 6 | When Agentic AI Meets Integrated Sensing and Communication | 智能体 AI 驱动通感一体化从物理层功能向目标导向系统演进 | https://openalex.org/W7202005926 | 智能体, ISAC, 通感一体 | 2026-08-06 | arXiv (Cornell University) | 0 |\n| 6 | Deltoris: Enabling Real-time VLA Inference in Embodied AI | 位级稀疏 + 投机推理加速扩散 VLA 模型的实时推理 | https://openalex.org/W7201915010 | VLA, 模型加速, 具身智能, 推理优化 | 2026-08-05 | arXiv (Cornell University) | 0 |\n| 5 | A MARL Centered Reference Architecture for LLM Augmentation in Smart Manufacturing | 以多智能体强化学习为中心、LLM 增强的智能制造参考架构 | https://openalex.org/W7202230990 | MARL, LLM, 智能制造, 参考架构 | 2026-08-07 | arXiv (Cornell University) | 0 |\n| 5 | Embodied Intelligence for Safer Power-System Field Operations | 具身智能用于电力现场作业安全的技术、应用与挑战综述 | https://doi.org/10.3390/ai7080299 | 具身智能, 电力巡检, 机器人, 综述 | 2026-08-04 | AI | 0 |\n| 4 | Object Detection and Scene Perception for CAVs Using LM-JEPA | 潜空间联合嵌入预测架构实现车联网资源高效协同感知 | https://doi.org/10.3390/s26154894 | 协同感知, JEPA, 自动驾驶 | 2026-08-03 | Sensors | 0 |\n| 4 | Tiny Large Language Models for IoT networks | 端侧小型 LLM 在 IoT 网络中的潜力与挑战分析 | https://doi.org/10.1016/j.compeleceng.2026.111406 | 边缘计算, LLM, IoT, 端侧部署 | 2026-08-04 | Computers & Electrical Engineering | 0 |\n| 4 | Online Security Learning in Cooperative Multi-Agent Systems under Hidden Byzantine Attacks | 隐藏拜占庭攻击下多智能体系统的在线安全协同控制 | https://openalex.org/W7202231246 | 多智能体, 拜占庭攻击, 鲁棒性 | 2026-08-06 | arXiv (Cornell University) | 0 |\n\n## 📰 优质资讯/论坛\n\nRSS 信息源在根时间窗（2026-08-03 ~ 2026-08-09）内按标题关键词匹配后无命中条目，原始数据为「(无)」，本周无资讯可报。\n\n| 评分 | 标题 | 说明 | 链接 | 标签 |\n|---|---|---|---|---|\n\n## 🔥 GitHub 周榜\n\n本板块为 **Trending 类 RSS 周榜的原始条目，未按关键词做任何过滤或删减**；`github_trending.keywords` 仅作文风叙述参考。评分侧重本周热度与代表性；原始 RSS 未提供 Star/Fork/主语言，相应列填「-」。\n\n| 评分 | 标题 | 说明 | 链接 | 标签 | Star | Fork | 主语言 |\n|---|---|---|---|---|---|---|---|\n| 9 | unslothai/unsloth | 桌面应用一键本地运行/微调主流 LLM 与扩散模型 | https://github.com/unslothai/unsloth | LLM, 微调, 本地训练, 扩散模型 | - | - | - |\n| 8 | ToolJet/ToolJet | 开源企业级内部工具与 AI 智能体应用生成平台 | https://github.com/ToolJet/ToolJet | 低代码, AI 应用, 内部工具 | - | - | - |\n| 8 | addyosmani/agent-skills | 面向 AI 编程智能体的生产级工程技能包 | https://github.com/addyosmani/agent-skills | AI Agent, 编程智能体, 工程实践 | - | - | - |\n| 8 | 3b1b/manim | 3Blue1Brown 出品的数学解释性动画引擎 | https://github.com/3b1b/manim | 动画, 数学可视化, Python | - | - | - |\n| 7 | PrimeIntellect-ai/prime-agent | 自我改进的 RLM 编码与长任务智能体（PRIME-RL） | https://github.com/PrimeIntellect-ai/prime-agent | RLM, 自我改进, 编程智能体 | - | - | - |\n| 7 | NVIDIA-NeMo/Switchyard | Rust 实现的 LLM 跨模型/跨提供商流量路由代理 | https://github.com/NVIDIA-NeMo/Switchyard | LLM 路由, Rust, API 代理 | - | - | - |\n| 7 | cactus-compute/needle | 45M 参数、14MB 的端侧基础模型，支持工具调用与结构化抽取 | https://github.com/cactus-compute/needle | 端侧模型, 工具调用, 模型压缩 | - | - | - |\n| 7 | Lightricks/LTX-2 | DiT 架构音视频一体化生成模型的官方推理与 LoRA 训练包 | https://github.com/Lightricks/LTX-2 | 视频生成, DiT, LoRA | - | - | - |\n| 6 | cathrynlavery/diagram-design | 为 Claude Code 提供 29 种编辑级自包含 SVG 图表模板 | https://github.com/cathrynlavery/diagram-design | Claude Code, SVG, 图表 | - | - | - |\n| 6 | semantica-agi/semantica | 图原生上下文基础设施，带决策溯源的知识图谱与因果推理 | https://github.com/semantica-agi/semantica | 知识图谱, 因果推理, AI 基础设施 | - | - | - |\n| 6 | megadose/holehe | 通过忘记密码接口检测邮箱注册过的站点 | https://github.com/megadose/holehe | OSINT, 邮箱侦察, 信息收集 | - | - | - |\n| 6 | vitali87/code-graph-rag | Tree-sitter + Memgraph 构建代码知识图谱的多语言 RAG | https://github.com/vitali87/code-graph-rag | RAG, 知识图谱, 代码理解 | - | - | - |\n| 6 | basecamp/omarchy | DHH 出品的现代 opinionated Arch 系 Linux 发行版 | https://github.com/basecamp/omarchy | Linux, 桌面环境, 发行版 | - | - | - |\n| 6 | TencentCloud/TencentDB-Agent-Memory | 团队级智能体记忆中枢，沉淀对话/技能\n",
+    "markdownGeneratedAt": "2026-08-17T04:34:10.816516Z"
+  },
+  "sections": [
+    {
+      "source": "arxiv",
+      "heading": "📄 Arxiv 前沿论文",
+      "summary": "本板块数据来自 arXiv library 后端检索，关键词 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗 2026-08-03 ~ 2026-08-09。本周该检索命中 0 条，表体为空。",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 0,
+      "entries": []
+    },
+    {
+      "source": "semantic_scholar",
+      "heading": "🎓 Semantic Scholar",
+      "summary": "本板块数据来自 Semantic Scholar 检索，关键词 `(uav|aerial) & (vlm|llm|mllm) & (rl)`，时间窗同根配置。本周命中 0 条，表体为空。",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 0,
+      "entries": []
+    },
+    {
+      "source": "openalex",
+      "heading": "📚 OpenAlex",
+      "summary": "本板块数据来自 OpenAlex 检索，关键词 `(uav|aerial) & (vlm|llm|mllm) & (rl)`，时间窗 2026-08-03 ~ 2026-08-09，原始命中 18 条；剔除与主题明显无关条目后收录 13 条，评分侧重当周主题贴合度与新颖度。",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 13,
+      "entries": [
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-openalex-0",
+          "score": 9,
+          "title": "CoNav-UAV: Cooperative Dual-Altitude Aerial Navigation via Stackelberg Learning",
+          "summary": "双高度无人机协同目标导向视觉-语言导航，采用 Stackelberg 博弈学习框架",
+          "link": "https://openalex.org/W7172557891",
+          "tags": "UAV, 视觉语言导航, 多智能体, 博弈学习",
+          "publishedAt": "2026-08-03",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-openalex-1",
+          "score": 8,
+          "title": "A Parameter-Specific Retrieval and Knowledge-Guided Reasoning Framework for LLM-Based GPSR Optimization in FANETs",
+          "summary": "面向飞行自组网 GPSR 路由的 LLM 检索增强参数自适应推理框架",
+          "link": "https://openalex.org/W7202230869",
+          "tags": "FANET, LLM, 路由优化, 检索增强",
+          "publishedAt": "2026-08-07",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-openalex-2",
+          "score": 8,
+          "title": "RSVideo: Are Your Vision-Language Models Ready for Remote Sensing Videos?",
+          "summary": "遥感视频 VLM 基准，考察多模态模型对运动与时序变化的感知能力",
+          "link": "https://openalex.org/W7197054188",
+          "tags": "遥感视频, VLM, 基准测试, 多模态",
+          "publishedAt": "2026-08-03",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-openalex-3",
+          "score": 7,
+          "title": "LLM-Driven Automated Reward Design for Reinforcement Learning-Based Routing in LEO Satellite Networks",
+          "summary": "用 LLM 自动设计奖励函数，优化 LEO 卫星网络的强化学习路由",
+          "link": "https://openalex.org/W7172558599",
+          "tags": "LLM, 奖励设计, 强化学习, 卫星网络",
+          "publishedAt": "2026-08-03",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-openalex-4",
+          "score": 7,
+          "title": "Toward Intelligent Skies: Signal Processing and AI Foundations of Low-Altitude Wireless Networks",
+          "summary": "面向 UAV 低空业务的新型数字基础设施：信号处理与 AI 基础",
+          "link": "https://doi.org/10.48550/arxiv.2608.08225",
+          "tags": "低空网络, UAV, 信号处理, 6G",
+          "publishedAt": "2026-08-08",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-openalex-5",
+          "score": 6,
+          "title": "Rigid-Covert GNSS Spoofing of UAV Swarms",
+          "summary": "揭示无人机蜂群相对几何校验的结构性盲区，提出绝对锚点防御",
+          "link": "https://openalex.org/W7202230457",
+          "tags": "无人机蜂群, GNSS 欺骗, 安全防御",
+          "publishedAt": "2026-08-07",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-openalex-6",
+          "score": 6,
+          "title": "When Agentic AI Meets Integrated Sensing and Communication",
+          "summary": "智能体 AI 驱动通感一体化从物理层功能向目标导向系统演进",
+          "link": "https://openalex.org/W7202005926",
+          "tags": "智能体, ISAC, 通感一体",
+          "publishedAt": "2026-08-06",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-openalex-7",
+          "score": 6,
+          "title": "Deltoris: Enabling Real-time VLA Inference in Embodied AI",
+          "summary": "位级稀疏 + 投机推理加速扩散 VLA 模型的实时推理",
+          "link": "https://openalex.org/W7201915010",
+          "tags": "VLA, 模型加速, 具身智能, 推理优化",
+          "publishedAt": "2026-08-05",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-openalex-8",
+          "score": 5,
+          "title": "A MARL Centered Reference Architecture for LLM Augmentation in Smart Manufacturing",
+          "summary": "以多智能体强化学习为中心、LLM 增强的智能制造参考架构",
+          "link": "https://openalex.org/W7202230990",
+          "tags": "MARL, LLM, 智能制造, 参考架构",
+          "publishedAt": "2026-08-07",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-openalex-9",
+          "score": 5,
+          "title": "Embodied Intelligence for Safer Power-System Field Operations",
+          "summary": "具身智能用于电力现场作业安全的技术、应用与挑战综述",
+          "link": "https://doi.org/10.3390/ai7080299",
+          "tags": "具身智能, 电力巡检, 机器人, 综述",
+          "publishedAt": "2026-08-04",
+          "keywords": "",
+          "extra": {
+            "venue": "AI",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-openalex-10",
+          "score": 4,
+          "title": "Object Detection and Scene Perception for CAVs Using LM-JEPA",
+          "summary": "潜空间联合嵌入预测架构实现车联网资源高效协同感知",
+          "link": "https://doi.org/10.3390/s26154894",
+          "tags": "协同感知, JEPA, 自动驾驶",
+          "publishedAt": "2026-08-03",
+          "keywords": "",
+          "extra": {
+            "venue": "Sensors",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-openalex-11",
+          "score": 4,
+          "title": "Tiny Large Language Models for IoT networks",
+          "summary": "端侧小型 LLM 在 IoT 网络中的潜力与挑战分析",
+          "link": "https://doi.org/10.1016/j.compeleceng.2026.111406",
+          "tags": "边缘计算, LLM, IoT, 端侧部署",
+          "publishedAt": "2026-08-04",
+          "keywords": "",
+          "extra": {
+            "venue": "Computers & Electrical Engineering",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-openalex-12",
+          "score": 4,
+          "title": "Online Security Learning in Cooperative Multi-Agent Systems under Hidden Byzantine Attacks",
+          "summary": "隐藏拜占庭攻击下多智能体系统的在线安全协同控制",
+          "link": "https://openalex.org/W7202231246",
+          "tags": "多智能体, 拜占庭攻击, 鲁棒性",
+          "publishedAt": "2026-08-06",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        }
+      ]
+    },
+    {
+      "source": "rss",
+      "heading": "📰 优质资讯/论坛",
+      "summary": "RSS 信息源在根时间窗（2026-08-03 ~ 2026-08-09）内按标题关键词匹配后无命中条目，原始数据为「(无)」，本周无资讯可报。",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 0,
+      "entries": []
+    },
+    {
+      "source": "github_weekly",
+      "heading": "🔥 GitHub 周榜",
+      "summary": "本板块为 **Trending 类 RSS 周榜的原始条目，未按关键词做任何过滤或删减**；`github_trending.keywords` 仅作文风叙述参考。评分侧重本周热度与代表性；原始 RSS 未提供 Star/Fork/主语言，相应列填「-」。",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 14,
+      "entries": [
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-github_weekly-0",
+          "score": 9,
+          "title": "unslothai/unsloth",
+          "summary": "桌面应用一键本地运行/微调主流 LLM 与扩散模型",
+          "link": "https://github.com/unslothai/unsloth",
+          "tags": "LLM, 微调, 本地训练, 扩散模型",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-github_weekly-1",
+          "score": 8,
+          "title": "ToolJet/ToolJet",
+          "summary": "开源企业级内部工具与 AI 智能体应用生成平台",
+          "link": "https://github.com/ToolJet/ToolJet",
+          "tags": "低代码, AI 应用, 内部工具",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-github_weekly-2",
+          "score": 8,
+          "title": "addyosmani/agent-skills",
+          "summary": "面向 AI 编程智能体的生产级工程技能包",
+          "link": "https://github.com/addyosmani/agent-skills",
+          "tags": "AI Agent, 编程智能体, 工程实践",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-github_weekly-3",
+          "score": 8,
+          "title": "3b1b/manim",
+          "summary": "3Blue1Brown 出品的数学解释性动画引擎",
+          "link": "https://github.com/3b1b/manim",
+          "tags": "动画, 数学可视化, Python",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-github_weekly-4",
+          "score": 7,
+          "title": "PrimeIntellect-ai/prime-agent",
+          "summary": "自我改进的 RLM 编码与长任务智能体（PRIME-RL）",
+          "link": "https://github.com/PrimeIntellect-ai/prime-agent",
+          "tags": "RLM, 自我改进, 编程智能体",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-github_weekly-5",
+          "score": 7,
+          "title": "NVIDIA-NeMo/Switchyard",
+          "summary": "Rust 实现的 LLM 跨模型/跨提供商流量路由代理",
+          "link": "https://github.com/NVIDIA-NeMo/Switchyard",
+          "tags": "LLM 路由, Rust, API 代理",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-github_weekly-6",
+          "score": 7,
+          "title": "cactus-compute/needle",
+          "summary": "45M 参数、14MB 的端侧基础模型，支持工具调用与结构化抽取",
+          "link": "https://github.com/cactus-compute/needle",
+          "tags": "端侧模型, 工具调用, 模型压缩",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-github_weekly-7",
+          "score": 7,
+          "title": "Lightricks/LTX-2",
+          "summary": "DiT 架构音视频一体化生成模型的官方推理与 LoRA 训练包",
+          "link": "https://github.com/Lightricks/LTX-2",
+          "tags": "视频生成, DiT, LoRA",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-github_weekly-8",
+          "score": 6,
+          "title": "cathrynlavery/diagram-design",
+          "summary": "为 Claude Code 提供 29 种编辑级自包含 SVG 图表模板",
+          "link": "https://github.com/cathrynlavery/diagram-design",
+          "tags": "Claude Code, SVG, 图表",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-github_weekly-9",
+          "score": 6,
+          "title": "semantica-agi/semantica",
+          "summary": "图原生上下文基础设施，带决策溯源的知识图谱与因果推理",
+          "link": "https://github.com/semantica-agi/semantica",
+          "tags": "知识图谱, 因果推理, AI 基础设施",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-github_weekly-10",
+          "score": 6,
+          "title": "megadose/holehe",
+          "summary": "通过忘记密码接口检测邮箱注册过的站点",
+          "link": "https://github.com/megadose/holehe",
+          "tags": "OSINT, 邮箱侦察, 信息收集",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-github_weekly-11",
+          "score": 6,
+          "title": "vitali87/code-graph-rag",
+          "summary": "Tree-sitter + Memgraph 构建代码知识图谱的多语言 RAG",
+          "link": "https://github.com/vitali87/code-graph-rag",
+          "tags": "RAG, 知识图谱, 代码理解",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-github_weekly-12",
+          "score": 6,
+          "title": "basecamp/omarchy",
+          "summary": "DHH 出品的现代 opinionated Arch 系 Linux 发行版",
+          "link": "https://github.com/basecamp/omarchy",
+          "tags": "Linux, 桌面环境, 发行版",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-08-03_2026-08-09_20260817T043410Z-github_weekly-13",
+          "score": 6,
+          "title": "TencentCloud/TencentDB-Agent-Memory",
+          "summary": "团队级智能体记忆中枢，沉淀对话/技能",
+          "link": null,
+          "tags": null,
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "entryCount": 27,
+    "sourceCounts": {
+      "openalex": 13,
+      "github_weekly": 14
+    },
+    "emptySections": [
+      "arxiv",
+      "semantic_scholar",
+      "rss"
+    ]
+  }
+}
