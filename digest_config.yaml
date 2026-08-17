@@ -12,10 +12,12 @@
 keywords: "(uav|aerial) & (vlm|llm|mllm) & (rl)"
 
 # AI 汇总（model / max_tokens / fallback_models 在此配置；API Key 与 Base URL 仅环境变量或 GitHub Secrets）
+# 主模型：智谱 Coding Plan GLM-5.2（OPENAI_API_BASE=…/api/coding/paas/v4，密钥 ZHIPU_API_KEY/OPENAI_API_KEY）
 # 主模型失败时依次尝试 fallback_models（需 MINIMAX_API_KEY + MINIMAX_API_BASE）
 ai:
-  model: deepseek-ai/DeepSeek-V3.2
-  max_tokens: 4000
+  model: glm-5.2
+  max_tokens: 12000
+  thinking: disabled
   fallback_models:
     - MiniMax-M2.7
     - MiniMax-M2.5

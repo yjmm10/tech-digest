@@ -159,8 +159,12 @@ def _ai_settings(cfg: dict) -> dict:
 
 
 def _openai_base_url() -> str:
-    """与官方 SDK 一致：base_url 应指向 …/v1（无末尾空格），否则会拼出错误路径导致 404。"""
-    raw = (os.getenv("OPENAI_API_BASE") or "https://api.openai.com/v1").strip()
+    """与官方 SDK 一致：base_url 应指向网关根（智谱 Coding Plan 为 …/coding/paas/v4）。
+    无末尾空格/斜杠，否则会拼出错误路径导致 404。"""
+    raw = (
+        os.getenv("OPENAI_API_BASE")
+        or "https://open.bigmodel.cn/api/coding/paas/v4"
+    ).strip()
     return raw.rstrip("/")
 
 
@@ -191,11 +195,16 @@ def _ai_fallback_models(cfg: dict) -> list[str]:
 def _ai_provider_chain(cfg: dict) -> list[dict]:
     """主网关 + MiniMax 备用模型链（主模型失败时依次尝试）。"""
     ai = _ai_settings(cfg)
+    base_url = _openai_base_url()
+    # 智谱 Coding Plan / BigModel 网关使用 ZHIPU_API_KEY（或兼容的 OPENAI_API_KEY）；
+    # 其余网关走 OPENAI_API_KEY。base_url 含 bigmodel.cn 时按智谱密钥读取。
+    is_zhipu = "bigmodel.cn" in base_url
+    key_env = "ZHIPU_API_KEY" if is_zhipu else "OPENAI_API_KEY"
     chain: list[dict] = [
         {
             "label": "主网关",
-            "api_key": (os.getenv("OPENAI_API_KEY") or "").strip(),
-            "base_url": _openai_base_url(),
+            "api_key": (os.getenv(key_env) or os.getenv("OPENAI_API_KEY") or "").strip(),
+            "base_url": base_url,
             "model": ai["model"],
         }
     ]

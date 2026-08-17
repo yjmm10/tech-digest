@@ -40,18 +40,41 @@ def ranges_overlap(a0: datetime.date, a1: datetime.date, b0: datetime.date, b1: 
     return a0 <= b1 and b0 <= a1
 
 
+def run_is_empty(fpath: Path) -> bool:
+    """判定某 run 是否为「空跑」残留：无条目 / 正文过短（只有爬取时间或报错文案）。
+    返回 True 表示该周内容缺失，应被重新回填覆盖。"""
+    try:
+        import json
+        d = json.loads(fpath.read_text(encoding="utf-8"))
+    except Exception:
+        return True  # 读不到的一律视为需重补
+    stats = d.get("stats") or {}
+    try:
+        entries = int(stats.get("entryCount") or 0)
+    except (TypeError, ValueError):
+        entries = 0
+    if entries <= 0:
+        return True
+    body = (d.get("content") or {}).get("markdownBody") or d.get("markdown") or ""
+    if len(str(body).strip()) < 500:
+        return True
+    return False
+
+
 def week_already_exists(start: str, end: str) -> bool:
     if not DATA_RUNS.is_dir():
         return False
     prefix = f"{start}_{end}"
-    if any(p.stem.startswith(prefix) for p in DATA_RUNS.glob("*.json")):
-        return True
+    for p in DATA_RUNS.glob("*.json"):
+        if p.stem.startswith(prefix):
+            return not run_is_empty(p)  # 恰好落在本窗口的 run：空跑则视为待补
     s0 = datetime.date.fromisoformat(start)
     s1 = datetime.date.fromisoformat(end)
     for p in DATA_RUNS.glob("*.json"):
         w = parse_run_window(p.stem)
-        if w and ranges_overlap(s0, s1, w[0], w[1]):
-            return True
+        if w and ranges_overlap(s0, s1, w[0], w[1]):  # 与已存在周次重叠
+            if not run_is_empty(p):
+                return True
     return False
 
 
