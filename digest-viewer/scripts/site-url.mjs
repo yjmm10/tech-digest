@@ -10,9 +10,9 @@ export function resolveSiteUrl() {
     return base.endsWith("/") ? base : `${base}/`;
   }
 
-  if (base === "/find_everything/" || base === "/find_everything") {
-    return "https://yjmm10.github.io/find_everything/";
+  if (base === "/tech-digest/" || base === "/tech-digest") {
+    return "https://yjmm10.github.io/tech-digest/";
   }
 
-  return "https://yjmm10.github.io/find_everything/";
+  return "https://yjmm10.github.io/tech-digest/";
 }

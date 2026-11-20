@@ -15,7 +15,7 @@
 
 ## 方式一：一键部署（推荐）
 
-1. 将下面按钮链接里的 **`YOUR_USER/YOUR_REPO`** 换成你的 GitHub 仓库路径（例如 `octocat/find_everything`）。
+1. 将下面按钮链接里的 **`YOUR_USER/YOUR_REPO`** 换成你的 GitHub 仓库路径（例如 `octocat/tech-digest`）。
 2. 在浏览器中打开该链接，按 Vercel 提示登录并导入项目。
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FYOUR_USER%2FYOUR_REPO&root-directory=digest-viewer)

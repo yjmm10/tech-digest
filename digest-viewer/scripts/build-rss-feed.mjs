@@ -104,7 +104,7 @@ function buildFeed(payload, siteUrl) {
     <description>${xmlText(FEED_DESC)}</description>
     <language>zh-CN</language>
     <lastBuildDate>${lastBuild}</lastBuildDate>
-    <generator>find_everything digest-viewer</generator>
+    <generator>tech-digest digest-viewer</generator>
     <atom:link href="${xmlText(feedUrl)}" rel="self" type="application/rss+xml" />
     ${items}
   </channel>

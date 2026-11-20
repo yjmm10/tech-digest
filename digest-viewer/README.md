@@ -21,9 +21,9 @@
 
 **GitHub Pages**（项目站地址）：
 
-- 线上：**https://yjmm10.github.io/find_everything/**
+- 线上：**https://yjmm10.github.io/tech-digest/**
 - 配置：仓库 **Settings → Pages** → Branch **`gh-pages`** → **`/(root)`**
-- CI 构建时设 `VITE_BASE=/find_everything/`，保证静态资源与 `viewer-data.json` 路径正确
+- CI 构建时设 `VITE_BASE=/tech-digest/`，保证静态资源与 `viewer-data.json` 路径正确
 
 ## 本地开发
 
@@ -57,7 +57,7 @@ data/
 
 构建时由 `scripts/build-rss-feed.mjs` 生成 **`feed.xml`**，每条 item 对应一期周报的 Markdown 全文（HTML 正文在 `content:encoded`）。
 
-- 订阅地址（GitHub Pages）：**https://yjmm10.github.io/find_everything/feed.xml**
+- 订阅地址（GitHub Pages）：**https://yjmm10.github.io/tech-digest/feed.xml**
 - 页面右上角 **RSS** 链接触发订阅；阅读器也可手动添加上述 URL
 - 自定义站点根 URL：`SITE_URL=https://your.domain/path/`（构建前设置，末尾 `/` 可选）
 

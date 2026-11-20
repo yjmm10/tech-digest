@@ -548,8 +548,9 @@ def send_notification(md_content: str, *, digest_md_relpath: str = "docs/weekly-
         preview = safe_md
         repo = os.getenv("GITHUB_REPOSITORY", "")
         fname = digest_md_relpath.split("/")[-1] if digest_md_relpath else "weekly-digest.md"
+        default_branch = os.getenv("GITHUB_DEFAULT_BRANCH", "master")
         raw_url = (
-            f"https://raw.githubusercontent.com/{repo}/main/{digest_md_relpath}"
+            f"https://raw.githubusercontent.com/{repo}/{default_branch}/{digest_md_relpath}"
             if repo
             else ""
         )
