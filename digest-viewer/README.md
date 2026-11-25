@@ -78,6 +78,16 @@ data/
 
 GitHub Actions 部署：在仓库 **Settings → Secrets and variables → Actions → Variables** 中添加上述变量（可只配一种）。切换 Tab 或 Markdown 期次（hash 变化）时会自动上报 SPA 页面浏览。
 
+## 前端架构与设计系统
+
+- **视图路由**：hash 路由（`#/` 落地页、`#entries` 数据站、`#markdown/<slug>` 原文、`#about` 关于），`src/routeHash.ts` 解析/回写，旧版查询参数链接自动兼容。
+- **设计令牌**：`src/index.css` 集中定义圆角体系（5/8/10px 三级 + 胶囊）、阴影层次（`--shadow-sm/md` 带偏移与柔和模糊）、accent 与各来源色板，深/浅主题双份；组件只引用变量不写死色值。
+- **导航体系**：顶部视图切换与结果区展示方式均为**胶囊分段控件**（`--radius-pill` + 实色 accent 激活态 + SVG 线性图标），定义见 `src/App.css`（`.view-tabs*` / `.results-header__view-btn`）。
+- **日历**：基于开源 [react-day-picker](https://day-picker.dev) v9 深度定制（`src/DigestCalendar.tsx` + `DigestCalendar.css`）：热力方块格（三级底色表达当日条目密度）、抓取日圆点标记、中文月份标题与星期表头、选中态实底 accent；热量按查看月份归一化。
+- **条目卡片**：`src/EntryCard.tsx` 三种布局（list / grid / waterfall，CSS columns 瀑布流）；列表行为「标题 → 来源徽章+元信息 → 摘要两行 → 标签」层级，评分与收藏/复制（SVG 图标）收进右侧栏，指针设备悬停浮现。
+- **布局吸附**：hero 头部 `sticky` 固定，高度经 ResizeObserver 写入 CSS 变量 `--hero-h`；筛选栏 `top: var(--hero-h)` 背景不透明，滚动不穿透。
+- **验证方式**：`npm run build` 为发布门禁（tsc 零错误）；冒烟验证用 headless Chrome + CDP 脚本覆盖落地页/日历交互/卡片结构/三种布局/双主题/响应式（375/768/1280px）。
+
 ## 条目浏览功能
 
 - **排序**：评分 / 发表日 / 标题

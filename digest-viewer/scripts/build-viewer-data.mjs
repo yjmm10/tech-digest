@@ -260,6 +260,17 @@ function main() {
   console.log(
     `build-viewer-data: ${runs.length} runs → ${entries.length} entries → ${OUT}`,
   );
+
+  // 落地页用的轻量统计，避免首页拉取全量 viewer-data.json
+  const stats = {
+    runs: runs.length,
+    entries: entries.length,
+    sources: ALL_SOURCES.filter((s) => entries.some((e) => e.source === s)).length,
+    generatedAt,
+  };
+  const STATS_OUT = path.resolve(path.dirname(OUT), "stats.json");
+  fs.writeFileSync(STATS_OUT, JSON.stringify(stats, null, 2), "utf-8");
+  console.log(`build-viewer-data: stats → ${STATS_OUT}`);
 }
 
 main();

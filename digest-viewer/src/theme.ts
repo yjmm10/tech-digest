@@ -28,12 +28,31 @@ export function resolveTheme(pref: ThemePreference): "light" | "dark" {
   return "dark";
 }
 
+const THEME_COLOR: Record<"light" | "dark", string> = {
+  light: "#fafafa",
+  dark: "#111111",
+};
+
+/** 让浏览器地址栏/状态栏颜色跟随当前主题（含手动切换） */
+function syncThemeColor(resolved: "light" | "dark"): void {
+  const metas = document.querySelectorAll('meta[name="theme-color"]');
+  if (!metas.length) {
+    const meta = document.createElement("meta");
+    meta.name = "theme-color";
+    meta.content = THEME_COLOR[resolved];
+    document.head.appendChild(meta);
+    return;
+  }
+  metas.forEach((m) => m.setAttribute("content", THEME_COLOR[resolved]));
+}
+
 export function applyTheme(pref: ThemePreference): "light" | "dark" {
   const resolved = resolveTheme(pref);
   const root = document.documentElement;
   root.dataset.theme = resolved;
   root.dataset.themePref = pref;
   root.style.colorScheme = resolved;
+  syncThemeColor(resolved);
   return resolved;
 }
 

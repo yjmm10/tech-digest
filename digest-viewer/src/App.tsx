@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { trackPageView } from "./analytics";
+import AboutPage from "./AboutPage";
 import DigestCalendar from "./DigestCalendar";
 import DigestFilterBar from "./DigestFilterBar";
 import EntryCard from "./EntryCard";
 import FilterContextBanner from "./FilterContextBanner";
 import GroupedEntryList from "./GroupedEntryList";
+import LandingPage from "./LandingPage";
 import MarkdownDigestView from "./MarkdownDigestView";
 import ResultsHeader from "./ResultsHeader";
 import RunStrip from "./RunStrip";
@@ -16,7 +18,7 @@ import { countBySource, digestWindowLabel } from "./entryDisplay";
 import { loadFavoriteIds, toggleFavoriteId } from "./favorites";
 import { parseDay } from "./dateUtils";
 import { loadRecentQueries, pushRecentQuery } from "./recentSearch";
-import { parseRouteHash, setRouteHash } from "./routeHash";
+import { parseRouteHash, setRouteHash, type PageView } from "./routeHash";
 import { copyShareUrl, parseFilterFromUrl, syncFilterToUrl } from "./searchUrlState";
 import { digestEntryMatchesSearchTokens, hasSearchQuery, parseSearchTokens } from "./searchQuery";
 import { type SortKey, sortEntries } from "./sortEntries";
@@ -49,6 +51,34 @@ function sourceBadgeClass(s: DigestSource): string {
   return `source-badge source-badge--${s}`;
 }
 
+/* 顶部视图切换小图标（随 currentColor 变色） */
+function TabIcon({ kind }: { kind: "entries" | "markdown" | "about" }) {
+  const p = {
+    viewBox: "0 0 16 16",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.6,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    "aria-hidden": true,
+  };
+  if (kind === "entries") return <svg {...p}><path d="M2.5 4h11M2.5 8h11M2.5 12h7" /></svg>;
+  if (kind === "markdown")
+    return (
+      <svg {...p}>
+        <rect x="2.5" y="2.5" width="11" height="11" rx="1.5" />
+        <path d="M5.5 6h5M5.5 9h5M5.5 12h3" />
+      </svg>
+    );
+  return (
+    <svg {...p}>
+      <circle cx="8" cy="8" r="5.5" />
+      <path d="M8 7.5v3" />
+      <path d="M8 5.2v.1" />
+    </svg>
+  );
+}
+
 function entriesToMarkdownList(entries: DigestEntry[]): string {
   return entries
     .map((e) => {
@@ -60,6 +90,9 @@ function entriesToMarkdownList(entries: DigestEntry[]): string {
 }
 
 const urlInit = typeof window !== "undefined" ? parseFilterFromUrl() : {};
+
+/** 每批渲染的条目数：避免一次挂载上千张卡片拖慢首屏与滚动 */
+const ENTRY_PAGE_SIZE = 60;
 
 export default function App() {
   const [data, setData] = useState<DigestsPayload | null>(null);
@@ -79,9 +112,11 @@ export default function App() {
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(() => loadFavoriteIds());
   const [recentQueries, setRecentQueries] = useState<string[]>(() => loadRecentQueries());
   const [toast, setToast] = useState<string | null>(null);
+  const [visibleCount, setVisibleCount] = useState(ENTRY_PAGE_SIZE);
+  const loadMoreRef = useRef<HTMLButtonElement | null>(null);
   const searchRef = useRef<HTMLInputElement>(null);
   const initialRoute = parseRouteHash();
-  const [pageView, setPageView] = useState<"entries" | "markdown">(initialRoute.view);
+  const [pageView, setPageView] = useState<PageView>(initialRoute.view);
   const [markdownSlug, setMarkdownSlug] = useState(initialRoute.slug);
   const [sources, setSources] = useState<Record<DigestSource, boolean>>({
     arxiv: true,
@@ -101,7 +136,9 @@ export default function App() {
   const feedUrl = `${import.meta.env.BASE_URL}feed.xml`;
 
   useEffect(() => {
-    let link = document.querySelector('link[rel="alternate"][type="application/rss+xml"]');
+    let link = document.querySelector<HTMLLinkElement>(
+      'link[rel="alternate"][type="application/rss+xml"]',
+    );
     if (!link) {
       link = document.createElement("link");
       link.rel = "alternate";
@@ -113,6 +150,8 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    // 落地页不拉取全量数据（~MB 级 JSON），保持首屏轻量；进数据站时再加载
+    if (pageView === "landing" || data) return;
     fetch(`${import.meta.env.BASE_URL}viewer-data.json`)
       .then((r) => {
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
@@ -120,7 +159,7 @@ export default function App() {
       })
       .then((j: DigestsPayload) => setData(j))
       .catch((e) => setLoadError(String(e)));
-  }, []);
+  }, [pageView, data]);
 
   useEffect(() => {
     if (urlInit.day) {
@@ -170,6 +209,48 @@ export default function App() {
   }, [data, selectedDigestSlug]);
 
   const filteredSourceCounts = useMemo(() => countBySource(filtered), [filtered]);
+
+  // 只渲染前 visibleCount 条，筛选变化时从头开始
+  useEffect(() => {
+    setVisibleCount(ENTRY_PAGE_SIZE);
+  }, [filtered]);
+
+  const visibleEntries = useMemo(
+    () => filtered.slice(0, visibleCount),
+    [filtered, visibleCount],
+  );
+  const hasMore = visibleCount < filtered.length;
+
+  // 接近底部时自动追加下一批（无 IntersectionObserver 时仍可手动点击）
+  useEffect(() => {
+    const btn = loadMoreRef.current;
+    if (!btn || !hasMore || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((en) => en.isIntersecting)) {
+          setVisibleCount((c) => Math.min(c + ENTRY_PAGE_SIZE, filtered.length));
+        }
+      },
+      { rootMargin: "600px 0px" },
+    );
+    io.observe(btn);
+    return () => io.disconnect();
+  }, [filtered, hasMore]);
+
+  /* 固定抬头：测量 hero 高度写入 --hero-h，供筛选栏/侧栏 sticky 定位 */
+  const heroRef = useRef<HTMLElement | null>(null);
+  useEffect(() => {
+    const el = heroRef.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+    const setH = () => {
+      const h = Math.round(el.getBoundingClientRect().height);
+      if (h > 0) document.documentElement.style.setProperty("--hero-h", `${h}px`);
+    };
+    setH();
+    const ro = new ResizeObserver(setH);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [pageView, data]);
 
   const digestOptions = useMemo(() => {
     if (!data) return [];
@@ -381,6 +462,17 @@ export default function App() {
     setSources((prev) => ({ ...prev, [s]: !prev[s] }));
   };
 
+  if (pageView === "landing") {
+    return (
+      <LandingPage
+        onEnter={() => {
+          setPageView("entries");
+          setRouteHash("entries");
+        }}
+      />
+    );
+  }
+
   if (loadError) {
     return (
       <div className="page">
@@ -408,17 +500,29 @@ export default function App() {
         </div>
       )}
 
-      <header className="hero hero--compact">
+      <header ref={heroRef} className="hero hero--compact">
         <div className="hero__row">
-          <div>
-            <h1 className="hero__title">技术周报归档</h1>
-            <p className="hero__sub">
-              {data.digests.length} 次抓取 · {data.entries.length} 条
-              {data.generatedAt ? ` · 更新 ${data.generatedAt.slice(0, 10)}` : ""}
-              <span className="hero__kbd-hint"> · / 搜索 · Esc 清除</span>
-            </p>
+          <div className="hero__brand">
+            <img
+              className="hero__logo"
+              src={`${import.meta.env.BASE_URL}favicon.svg`}
+              alt=""
+              width={40}
+              height={40}
+            />
+            <div>
+              <h1 className="hero__title">技术周报归档</h1>
+              <p className="hero__sub">
+                {data.digests.length} 次抓取 · {data.entries.length} 条
+                {data.generatedAt ? ` · 更新 ${data.generatedAt.slice(0, 10)}` : ""}
+                <span className="hero__kbd-hint"> · / 搜索 · Esc 清除</span>
+              </p>
+            </div>
           </div>
           <div className="hero__actions">
+            <a className="home-link" href="#/" title="返回首页">
+              首页
+            </a>
             <a
               className="rss-link"
               href={feedUrl}
@@ -437,6 +541,7 @@ export default function App() {
                   setRouteHash("entries");
                 }}
               >
+                <TabIcon kind="entries" />
                 条目浏览
               </button>
               <button
@@ -449,14 +554,28 @@ export default function App() {
                   setRouteHash("markdown", markdownSlug || selectedDigestSlug || data.updates[0]?.slug);
                 }}
               >
+                <TabIcon kind="markdown" />
                 Markdown 原文
+              </button>
+              <button
+                type="button"
+                className={`view-tabs__btn ${pageView === "about" ? "view-tabs__btn--active" : ""}`}
+                onClick={() => {
+                  setPageView("about");
+                  setRouteHash("about");
+                }}
+              >
+                <TabIcon kind="about" />
+                关于
               </button>
             </nav>
           </div>
         </div>
       </header>
 
-      {pageView === "markdown" ? (
+      {pageView === "about" ? (
+        <AboutPage />
+      ) : pageView === "markdown" ? (
         <MarkdownDigestView
           digests={data.digests}
           updates={allUpdates}
@@ -584,19 +703,35 @@ export default function App() {
                 onTagClick={handleTagClick}
               />
             ) : (
-              <ul className={entryListClass(entryLayout)}>
-                {filtered.map((e) => (
-                  <EntryCard
-                    key={e.id}
-                    entry={e}
-                    showDigest={!selectedDigestSlug}
-                    layout={entryLayout}
-                    isFavorite={favoriteIds.has(e.id)}
-                    onToggleFavorite={handleToggleFavorite}
-                    onTagClick={handleTagClick}
-                  />
-                ))}
-              </ul>
+              <>
+                <ul className={entryListClass(entryLayout)}>
+                  {visibleEntries.map((e) => (
+                    <EntryCard
+                      key={e.id}
+                      entry={e}
+                      showDigest={!selectedDigestSlug}
+                      layout={entryLayout}
+                      isFavorite={favoriteIds.has(e.id)}
+                      onToggleFavorite={handleToggleFavorite}
+                      onTagClick={handleTagClick}
+                    />
+                  ))}
+                </ul>
+                {hasMore && (
+                  <div className="load-more">
+                    <button
+                      type="button"
+                      ref={loadMoreRef}
+                      className="load-more__btn"
+                      onClick={() =>
+                        setVisibleCount((c) => Math.min(c + ENTRY_PAGE_SIZE, filtered.length))
+                      }
+                    >
+                      加载更多 · 已显示 {visibleCount}/{filtered.length}
+                    </button>
+                  </div>
+                )}
+              </>
             )}
 
             {filtered.length === 0 && (

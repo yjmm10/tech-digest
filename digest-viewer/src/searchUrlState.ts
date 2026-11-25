@@ -9,7 +9,7 @@ export interface FilterUrlState {
   mode: DateFilterMode;
   fav: boolean;
   group: boolean;
-  layout: "list" | "grid";
+  layout: "list" | "grid" | "waterfall";
 }
 
 const DEFAULT: FilterUrlState = {
@@ -39,7 +39,7 @@ export function parseFilterFromUrl(): Partial<FilterUrlState> {
   if (p.get("fav") === "1") out.fav = true;
   if (p.get("group") === "1") out.group = true;
   const layout = p.get("layout");
-  if (layout === "list" || layout === "grid") out.layout = layout;
+  if (layout === "list" || layout === "grid" || layout === "waterfall") out.layout = layout;
   return out;
 }
 

@@ -1,6 +1,5 @@
 import type { DigestEntry, DigestSource } from "./types";
 import { formatDateRange } from "./dateUtils";
-import { formatDateRange } from "./dateUtils";
 
 export type ScoreTier = "high" | "mid" | "low" | "none";
 

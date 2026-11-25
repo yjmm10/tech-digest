@@ -18,6 +18,10 @@ name: 📅 Weekly Tech Digest
 #     MINIMAX_API_BASE — 默认 https://api.minimaxi.com/v1
 #   学术检索（可选）：SEMANTIC_SCHOLAR_API_KEY、OPENALEX_API_KEY
 #   GitHub 检索 enrich：使用 workflow 内置 GITHUB_TOKEN（无需额外 Secret）
+#   arXiv 反代（可选，强推推荐）：Actions 出口 IP 被 export.arxiv.org 限流时，
+#     部署 deploy/arxiv-proxy.worker.js（Cloudflare Worker），
+#     Variables 设 ARXIV_API_BASE=https://<worker 地址>，
+#     如 worker 开启了 token 校验，再配 Secret ARXIV_PROXY_TOKEN。
 
 on:
   schedule:
@@ -73,7 +77,13 @@ jobs:
           DIGEST_NO_GIT: "1"
           # 密钥与通知：仅 Secrets / .env，业务配置（含 ai.model）见 digest_config.yaml
           ZHIPU_API_KEY: ${{ secrets.ZHIPU_API_KEY }}
+          # 兼容只配置了 OPENAI_API_KEY secret 的场景（运行步骤此前漏传导致 AI 调用崩溃）
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_API_BASE: ${{ secrets.OPENAI_API_BASE != '' && secrets.OPENAI_API_BASE || 'https://open.bigmodel.cn/api/coding/paas/v4' }}
+          # arXiv 反代（可选）：GitHub Actions 出口 IP 常被 export.arxiv.org 限流（429），
+          # 部署 deploy/arxiv-proxy.worker.js 后，把地址填到仓库 Variable ARXIV_API_BASE 即可绕开
+          ARXIV_API_BASE: ${{ vars.ARXIV_API_BASE }}
+          ARXIV_PROXY_TOKEN: ${{ secrets.ARXIV_PROXY_TOKEN }}
           MINIMAX_API_KEY: ${{ secrets.MINIMAX_API_KEY }}
           MINIMAX_API_BASE: ${{ secrets.MINIMAX_API_BASE != '' && secrets.MINIMAX_API_BASE || 'https://api.minimaxi.com/v1' }}
           GITHUB_TOKEN: ${{ github.token }}

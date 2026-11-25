@@ -10,10 +10,13 @@
     "prebuild": "node scripts/migrate-docs-to-json.mjs && node scripts/build-viewer-data.mjs && node scripts/build-rss-feed.mjs",
     "build": "vite build",
     "dev": "node scripts/migrate-docs-to-json.mjs && node scripts/build-viewer-data.mjs && node scripts/build-rss-feed.mjs && vite",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "verify": "node scripts/verify-ui.cjs",
+    "verify:responsive": "node scripts/verify-responsive.cjs"
   },
   "dependencies": {
     "react": "^19.0.0",
+    "react-day-picker": "^9.14.0",
     "react-dom": "^19.0.0"
   },
   "devDependencies": {

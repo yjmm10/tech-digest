@@ -30,11 +30,28 @@
 | `OPENAI_API_BASE` | OpenAI 兼容网关地址 |
 | `MINIMAX_API_KEY` / `MINIMAX_API_BASE` | 主模型失败时的备用网关 |
 | `SEMANTIC_SCHOLAR_API_KEY` / `OPENALEX_API_KEY` | 学术检索配额提升（可选） |
+| `ARXIV_API_BASE` / `ARXIV_PROXY_TOKEN` | arXiv 反代地址与令牌（可选，Actions 被限流时必配，见下文） |
 | `GITHUB_TOKEN` / `GH_TOKEN` | GitHub 检索 enrich（CI 内置） |
 | `SMTP_SERVER` / `EMAIL_USER` / `EMAIL_PASS` / `RECIPIENT_EMAIL` | 邮件通知（可选） |
 | `WEBHOOK_URL` | 群机器人通知（可选） |
 
 完整样例见 [`.env.example`](.env.example)。CI 中密钥通过 `${{ secrets.* }}` 注入 `env`，不会进入源代码或构建产物。
+
+## arXiv 被 429 限流怎么办
+
+`export.arxiv.org` 对 GitHub Actions 等云平台共享出口 IP 实施严格限流（HTTP 429），
+表现为 CI 里 arXiv 环节稳定失败或返回 0 条，本地却正常。解决办法是给 arXiv 请求换出口 IP：
+
+1. 用 Cloudflare Worker 部署官方 API 反代：源码见 [`deploy/arxiv-proxy.worker.js`](deploy/arxiv-proxy.worker.js)，
+   文件头注释含部署步骤（Dashboard 粘贴或 `npx wrangler deploy` 均可，免费额度足够）。
+2. 仓库 Settings → Secrets and variables → Actions → **Variables** 新增
+   `ARXIV_API_BASE = https://<worker 地址>`；若 worker 开启了 `PROXY_TOKEN` 校验，
+   再在 **Secrets** 新增 `ARXIV_PROXY_TOKEN`。
+3. 无需改代码：`digest_sources/arxiv.py` 会自动读取 `ARXIV_API_BASE`，
+   api / library 双后端都会走代理；未配置时仍直连官方地址。
+
+代码侧已附带三重保护：可识别的 User-Agent、429/5xx 指数退避重试、
+首选后端返回 0 条时自动用备用后端交叉验证，避免静默空结果。
 
 ## 本地运行
 

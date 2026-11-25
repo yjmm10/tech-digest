@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1",
-  "generatedAt": "2026-08-17T04:54:19.858552Z",
+  "generatedAt": "2026-11-25T08:33:47.380930Z",
   "runs": [
     {
       "id": "2026-04-13_2026-04-13_20260817T045403Z",
@@ -731,6 +731,20 @@
         "github_weekly": 8,
         "github_search": 8
       },
+      "hasMarkdown": true
+    },
+    {
+      "id": "2026-04-03_2026-04-09",
+      "jsonUrl": "data/runs/2026-04-03_2026-04-09.json",
+      "crawlDate": "2026-04-10",
+      "executedAt": "2026-04-10T13:30:08Z",
+      "status": "empty",
+      "window": {
+        "dateStart": "2026-04-03",
+        "dateEnd": "2026-04-09"
+      },
+      "entryCount": 0,
+      "sourceCounts": {},
       "hasMarkdown": true
     }
   ]

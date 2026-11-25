@@ -21,6 +21,28 @@ ARXIV_PAPERS_KEY = "arxiv_papers"
 # arXiv API 单次查询 max_results 上限；max_results: -1 时表示「尽量多取」
 _ARXIV_API_MAX_RESULTS = 200
 
+# 默认官方 API 地址。GitHub Actions 等云平台共享出口 IP 常被 export.arxiv.org 限流（HTTP 429），
+# 可通过环境变量 ARXIV_API_BASE 指向自建反代（如 Cloudflare Worker，见 deploy/arxiv-proxy.worker.js）。
+_ARXIV_DEFAULT_API_BASE = "https://export.arxiv.org"
+
+
+def _arxiv_api_base() -> str:
+    base = (os.getenv("ARXIV_API_BASE") or "").strip().rstrip("/")
+    if not base:
+        return _ARXIV_DEFAULT_API_BASE
+    if not base.startswith(("http://", "https://")):
+        log(f"⚠️ [Arxiv] ARXIV_API_BASE={base!r} 缺少 http(s):// 前缀，回退官方地址")
+        return _ARXIV_DEFAULT_API_BASE
+    return base
+
+
+def _arxiv_user_agent() -> str:
+    """arXiv API 规范建议携带可识别的 User-Agent 与联系方式，降低被限流概率。"""
+    return (
+        os.getenv("ARXIV_USER_AGENT")
+        or "tech-digest/1.0 (+https://github.com/yjmm10/tech-digest; mailto:lucas4ai@outlook.com)"
+    )
+
 
 def _arxiv_max_results(raw) -> int:
     n = int(raw)
@@ -38,7 +60,7 @@ def _arxiv_export_api_url(
 ) -> str:
     """与 export.arxiv.org 官方 Atom API 一致的请求 URL（含 URL 编码后的 search_query）。"""
     return (
-        f"https://export.arxiv.org/api/query?search_query={quote(query)}"
+        f"{_arxiv_api_base()}/api/query?search_query={quote(query)}"
         f"&sortBy={quote(sort_by)}&sortOrder={quote(sort_order)}&max_results={max_results}"
     )
 
@@ -193,7 +215,11 @@ def _fetch_arxiv_api(
     log(f"🔗 [Arxiv/api] 请求 URL：{url}")
     connect_s = float(os.getenv("ARXIV_CONNECT_TIMEOUT", "20"))
     read_s = float(os.getenv("ARXIV_READ_TIMEOUT", "120"))
-    resp = http_session().get(url, timeout=(connect_s, read_s))
+    resp = http_session().get(
+        url,
+        timeout=(connect_s, read_s),
+        headers={"User-Agent": _arxiv_user_agent()},
+    )
     resp.raise_for_status()
     log("📥 [Arxiv/api] 官方 API 响应已收到，正在解析 Atom…")
     feed = feedparser.parse(resp.content)
@@ -271,6 +297,11 @@ def _fetch_arxiv_library(
         delay_seconds=delay,
         num_retries=retries,
     )
+    base = _arxiv_api_base()
+    if base != _ARXIV_DEFAULT_API_BASE:
+        # arxiv 库通过 self.query_url_format 拼接请求地址，实例属性覆盖即可走代理
+        client.query_url_format = f"{base}/api/query?{{}}"
+        log(f"🔗 [Arxiv/library] 已将请求地址指向代理：{base}/api/query")
     log("📥 [Arxiv/library] 使用 arxiv 库请求官方 API（分页/限速）…")
     results = []
     for r in progress(client.results(search), desc="Arxiv 解析", unit="条"):
@@ -391,10 +422,14 @@ def _fetch_arxiv_with_fallback(
             log(f"✅ [Arxiv] 由 {backend_name}（{role}）取得 {len(cleaned)} 条有效条目")
             return cleaned
 
-        log(
-            f"ℹ️ [Arxiv/{backend_name}] {role} 返回 0 条（检索窗口内可能无匹配），"
-            "不再为「空结果」切换备用"
-        )
+        # 0 条不再直接判定为「窗口内无匹配」：官方 API 对云平台 IP 偶发静默空响应，
+        # 交叉用另一路再验一次，两路都为空才认定无数据。
+        if i == 0:
+            log(
+                f"ℹ️ [Arxiv/{backend_name}] {role} 返回 0 条，交叉验证另一路…"
+            )
+            continue
+        log(f"ℹ️ [Arxiv/{backend_name}] {role} 返回 0 条（检索窗口内可能无匹配）")
         return []
 
     log("❌ [Arxiv] 两路均失败或不可用，本组关键词无数据")

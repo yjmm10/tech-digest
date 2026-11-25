@@ -1,14 +1,16 @@
 :root {
-  --radius-sm: 4px;
-  --radius: 6px;
-  --radius-lg: 8px;
+  --radius-sm: 5px;
+  --radius: 8px;
+  --radius-lg: 10px;
   --radius-pill: 999px;
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   --font-serif: "LXGW WenKai", "霞鹜文楷", "STKaiti", "KaiTi", serif;
   --font-display: var(--font-sans);
-  --ease-out: ease;
-  --transition-fast: 0.12s var(--ease-out);
-  --transition-base: 0.15s var(--ease-out);
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --transition-fast: 0.14s var(--ease-out);
+  --transition-base: 0.18s var(--ease-out);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.32);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.42);
 }
 
 /* 深色（默认） */
@@ -126,6 +128,8 @@
   --md-read-text: #2a2825;
   --md-quote-bg: rgba(13, 148, 136, 0.06);
   --md-table-head-bg: rgba(13, 148, 136, 0.08);
+  --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 6px 18px rgba(15, 23, 42, 0.1), 0 2px 6px rgba(15, 23, 42, 0.06);
 }
 
 @media (prefers-color-scheme: light) {
@@ -184,6 +188,8 @@
     --md-read-text: #2a2825;
     --md-quote-bg: rgba(13, 148, 136, 0.06);
     --md-table-head-bg: rgba(13, 148, 136, 0.08);
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 6px 18px rgba(15, 23, 42, 0.1), 0 2px 6px rgba(15, 23, 42, 0.06);
   }
 }
 
@@ -261,4 +267,15 @@ select:focus-visible,
 a:focus-visible {
   outline: none;
   box-shadow: var(--focus-ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
 }

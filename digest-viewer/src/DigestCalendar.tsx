@@ -1,13 +1,15 @@
 import { useMemo } from "react";
+import { DayPicker } from "react-day-picker";
+import type {
+  DayButtonProps,
+  MonthCaptionProps,
+} from "react-day-picker";
+import { zhCN } from "date-fns/locale";
 import type { DigestEntry, DigestUpdate } from "./types";
 import type { DateFilterMode } from "./filterUtils";
-import { effectivePublishedDay, entryMatchesDay } from "./filterUtils";
-import {
-  buildMonthGrid,
-  formatDay,
-  monthTitle,
-  parseDay,
-} from "./dateUtils";
+import { effectivePublishedDay } from "./filterUtils";
+import { formatDay, monthTitle, parseDay } from "./dateUtils";
+import "./DigestCalendar.css";
 
 export interface DayActivity {
   entryCount: number;
@@ -25,11 +27,6 @@ export interface DigestCalendarProps {
 }
 
 const CALENDAR_DATE_MODE: DateFilterMode = "published";
-
-function shiftMonth(year: number, month: number, delta: number): [number, number] {
-  const d = new Date(year, month - 1 + delta, 1);
-  return [d.getFullYear(), d.getMonth() + 1];
-}
 
 /** 与筛选逻辑一致：含 GitHub 周榜→周日 */
 export function buildDayActivityMap(
@@ -85,7 +82,8 @@ export function countEntriesOnDay(
   day: string,
   mode: DateFilterMode,
 ): number {
-  return entries.filter((e) => entryMatchesDay(e, day, mode)).length;
+  if (mode !== "published") return 0;
+  return buildDayActivityMap([], entries, mode).get(day)?.entryCount ?? 0;
 }
 
 function heatLevel(count: number): 0 | 1 | 2 | 3 {
@@ -109,29 +107,90 @@ export default function DigestCalendar({
     [updates, entries],
   );
 
-  const weeks = useMemo(
-    () => buildMonthGrid(viewYear, viewMonth),
-    [viewYear, viewMonth],
-  );
+  const counts = useMemo(() => {
+    const m = new Map<string, number>();
+    for (const [day, act] of activity) {
+      if (act.entryCount > 0) m.set(day, act.entryCount);
+    }
+    return m;
+  }, [activity]);
+
+  const crawlDays = useMemo(() => {
+    const s = new Set<string>();
+    for (const [day, act] of activity) {
+      if (act.crawlCount > 0) s.add(day);
+    }
+    return s;
+  }, [activity]);
 
   const monthMax = useMemo(() => {
     let max = 0;
-    for (const week of weeks) {
-      for (const day of week) {
-        if (!day) continue;
-        const d = parseDay(day);
-        if (d.getMonth() + 1 !== viewMonth) continue;
-        const n = countEntriesOnDay(entries, day, CALENDAR_DATE_MODE);
-        if (n > max) max = n;
-      }
+    const prefix = `${viewYear}-${String(viewMonth).padStart(2, "0")}-`;
+    for (const [day, n] of counts) {
+      if (day.startsWith(prefix) && n > max) max = n;
     }
     return max;
-  }, [weeks, entries, viewMonth]);
+  }, [counts, viewYear, viewMonth]);
 
-  const today = formatDay(new Date());
   const selectedCount = selectedDay
-    ? countEntriesOnDay(entries, selectedDay, CALENDAR_DATE_MODE)
+    ? (counts.get(selectedDay) ?? 0)
     : 0;
+
+  const selectedDate = useMemo(
+    () => (selectedDay ? parseDay(selectedDay) : undefined),
+    [selectedDay],
+  );
+  const viewMonthDate = useMemo(() => new Date(viewYear, viewMonth - 1, 1), [viewYear, viewMonth]);
+
+  const handleMonthChange = (d: Date) => {
+    onViewMonthChange(d.getFullYear(), d.getMonth() + 1);
+  };
+
+  const handleSelect = (d: Date | undefined) => {
+    onSelectDay(d ? formatDay(d) : null);
+  };
+
+  /* 日期按钮：单行数字，热度由格子底色表达，计数走 tooltip（闭包共享预计算数据） */
+  const CalDayButton = ({ day, modifiers, ...btnProps }: DayButtonProps) => {
+    const dayStr = formatDay(day.date);
+    const count = counts.get(dayStr) ?? 0;
+    const tier = heatLevel(count);
+    const hasCrawl = crawlDays.has(dayStr);
+    const isSelected = Boolean(modifiers.selected);
+    const isToday = Boolean(modifiers.today);
+    const title = count > 0
+      ? `${dayStr}：${count} 条${hasCrawl ? " · 有抓取" : ""}`
+      : hasCrawl
+        ? `${dayStr}：抓取日`
+        : dayStr;
+
+    return (
+      <button
+        {...btnProps}
+        className={[
+          btnProps.className,
+          "cal-day-btn",
+          tier > 0 ? `cal-day-btn--heat-${tier}` : "",
+          hasCrawl ? "cal-day-btn--crawl" : "",
+          isSelected ? "cal-day-btn--selected" : "",
+          isToday && !isSelected ? "cal-day-btn--today" : "",
+        ]
+          .filter(Boolean)
+          .join(" ")}
+        title={title}
+      >
+        <span className="cal-day-btn__num">{day.date.getDate()}</span>
+        {hasCrawl && <span className="cal-day-btn__dot" aria-hidden />}
+      </button>
+    );
+  };
+
+  /* 月份标题：保持「YYYY 年 M 月」中文格式 */
+  const CalCaption = ({ calendarMonth }: MonthCaptionProps) => (
+    <span className="cal-caption">
+      {monthTitle(calendarMonth.date.getFullYear(), calendarMonth.date.getMonth() + 1)}
+    </span>
+  );
 
   return (
     <section className="calendar" aria-label="日历浏览">
@@ -140,137 +199,65 @@ export default function DigestCalendar({
           <h2 className="calendar__title">日历</h2>
           <p className="calendar__hint">按发表日 · 周榜归周日</p>
         </div>
-        <div className="calendar__nav">
+        <div className="calendar__actions">
           <button
             type="button"
-            className="calendar__nav-btn"
-            aria-label="上一月"
+            className="calendar__today"
             onClick={() => {
-              const [y, m] = shiftMonth(viewYear, viewMonth, -1);
-              onViewMonthChange(y, m);
+              const now = new Date();
+              onViewMonthChange(now.getFullYear(), now.getMonth() + 1);
+              onSelectDay(formatDay(now));
             }}
           >
-            ‹
+            今天
           </button>
-          <span className="calendar__month">{monthTitle(viewYear, viewMonth)}</span>
-          <button
-            type="button"
-            className="calendar__nav-btn"
-            aria-label="下一月"
-            onClick={() => {
-              const [y, m] = shiftMonth(viewYear, viewMonth, 1);
-              onViewMonthChange(y, m);
-            }}
-          >
-            ›
-          </button>
-        </div>
-      </div>
-
-      <div className="calendar__actions">
-        <button
-          type="button"
-          className="calendar__today"
-          onClick={() => {
-            const now = new Date();
-            onViewMonthChange(now.getFullYear(), now.getMonth() + 1);
-            onSelectDay(formatDay(now));
-          }}
-        >
-          今天
-        </button>
-        {selectedDay && (
-          <button
-            type="button"
-            className="calendar__clear-btn"
-            onClick={() => onSelectDay(null)}
-          >
-            清除选日
-          </button>
-        )}
-      </div>
-
-      <div className="calendar__grid">
-        <div className="calendar__weekdays" aria-hidden>
-          {["日", "一", "二", "三", "四", "五", "六"].map((w, i) => (
-            <span
-              key={w}
-              className={`calendar__weekday ${i === 0 ? "calendar__weekday--sun" : ""}`}
+          {selectedDay && (
+            <button
+              type="button"
+              className="calendar__clear-btn"
+              onClick={() => onSelectDay(null)}
             >
-              {w}
-            </span>
-          ))}
-        </div>
-
-        <div className="calendar__weeks">
-          {weeks.map((week, wi) => (
-            <div key={wi} className="calendar__week">
-              {week.map((day, di) => {
-              if (!day) {
-                return (
-                  <span
-                    key={`e-${wi}-${di}`}
-                    className="calendar__cell calendar__cell--empty"
-                    aria-hidden
-                  />
-                );
-              }
-              const dayCount = countEntriesOnDay(entries, day, CALENDAR_DATE_MODE);
-              const act = activity.get(day);
-              const hasCrawl = (act?.crawlCount ?? 0) > 0;
-              const isSelected = selectedDay === day;
-              const isToday = day === today;
-              const isSunday = parseDay(day).getDay() === 0;
-              const inMonth = parseDay(day).getMonth() + 1 === viewMonth;
-              const heat = heatLevel(dayCount);
-
-              return (
-                <button
-                  key={day}
-                  type="button"
-                  className={[
-                    "calendar__day",
-                    inMonth ? "" : "calendar__day--muted",
-                    dayCount > 0 ? "calendar__day--data" : "",
-                    heat > 0 ? `calendar__day--heat-${heat}` : "",
-                    hasCrawl ? "calendar__day--crawl" : "",
-                    isSelected ? "calendar__day--selected" : "",
-                    isToday ? "calendar__day--today" : "",
-                    isSunday && inMonth ? "calendar__day--sun" : "",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
-                  onClick={() => onSelectDay(isSelected ? null : day)}
-                  aria-pressed={isSelected}
-                  title={
-                    dayCount > 0
-                      ? `${day}：${dayCount} 条${hasCrawl ? " · 有抓取" : ""}`
-                      : hasCrawl
-                        ? `${day}：抓取日`
-                        : day
-                  }
-                >
-                  <span className="calendar__day-num">{parseDay(day).getDate()}</span>
-                  {dayCount > 0 && (
-                    <span className="calendar__badge">{dayCount > 99 ? "99+" : dayCount}</span>
-                  )}
-                </button>
-              );
-            })}
-            </div>
-          ))}
+              清除
+            </button>
+          )}
         </div>
       </div>
 
-      <ul className="calendar__legend calendar__legend--compact">
-        <li>
-          <span className="calendar__swatch calendar__swatch--data" /> 有内容
+      <DayPicker
+        mode="single"
+        locale={zhCN}
+        weekStartsOn={0}
+        showOutsideDays={false}
+        month={viewMonthDate}
+        onMonthChange={handleMonthChange}
+        selected={selectedDate}
+        onSelect={handleSelect}
+        modifiers={{
+          data: (day: Date) => counts.has(formatDay(day)),
+          crawl: (day: Date) => crawlDays.has(formatDay(day)),
+        }}
+        modifiersClassNames={{
+          data: "cal-mod-data",
+          crawl: "cal-mod-crawl",
+        }}
+        components={{
+          DayButton: CalDayButton,
+          MonthCaption: CalCaption,
+        }}
+      />
+
+      <ul className="calendar__legend">
+        <li className="calendar__legend-scale" aria-label="热度刻度">
+          <span className="calendar__swatch calendar__swatch--t1" />
+          <span className="calendar__swatch calendar__swatch--t2" />
+          <span className="calendar__swatch calendar__swatch--t3" />
+          <span className="calendar__legend-scale-label">少 → 多</span>
         </li>
         <li>
           <span className="calendar__swatch calendar__swatch--crawl" /> 抓取日
         </li>
         {monthMax > 0 && (
-          <li className="calendar__legend-max">本月单日最多 {monthMax} 条</li>
+          <li className="calendar__legend-max">本月峰值 {monthMax}</li>
         )}
       </ul>
 

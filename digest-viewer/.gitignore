@@ -1,3 +1,7 @@
 node_modules
 dist
 public/digests.json
+
+# UI 验证脚本截图产物
+verify-*.png
+.tmp-chrome-profile/

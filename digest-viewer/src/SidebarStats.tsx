@@ -1,7 +1,6 @@
 import type { DigestEntry, DigestUpdate } from "./types";
 import { countBySource } from "./entryDisplay";
 import { formatDateRange } from "./dateUtils";
-import { formatDateRange } from "./dateUtils";
 
 export interface SidebarStatsProps {
   updates: DigestUpdate[];

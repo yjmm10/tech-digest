@@ -34,6 +34,38 @@ function EntryTitle({ entry: e }: { entry: DigestEntry }) {
   return <>{title}</>;
 }
 
+const StarIcon = ({ filled }: { filled: boolean }) => (
+  <svg
+    viewBox="0 0 16 16"
+    width="14"
+    height="14"
+    fill={filled ? "currentColor" : "none"}
+    stroke="currentColor"
+    strokeWidth="1.3"
+    strokeLinejoin="round"
+    aria-hidden
+  >
+    <path d="M8 2l1.83 3.7 4.09.6-2.96 2.88.7 4.07L8 11.33 4.34 13.25l.7-4.07L2.08 6.3l4.09-.6z" />
+  </svg>
+);
+
+const CopyIcon = () => (
+  <svg
+    viewBox="0 0 16 16"
+    width="14"
+    height="14"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.3"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden
+  >
+    <rect x="5.5" y="5.5" width="8" height="8" rx="1.5" />
+    <path d="M10.5 3.5h-6a1 1 0 0 0-1 1v6" />
+  </svg>
+);
+
 function EntryActions({
   entry: e,
   isFavorite,
@@ -63,7 +95,7 @@ function EntryActions({
           aria-label={isFavorite ? "取消收藏" : "收藏"}
           aria-pressed={isFavorite}
         >
-          {isFavorite ? "★" : "☆"}
+          <StarIcon filled={isFavorite} />
         </button>
       )}
       {e.link && (
@@ -74,7 +106,7 @@ function EntryActions({
           title="复制链接"
           aria-label="复制链接"
         >
-          ⎘
+          <CopyIcon />
         </button>
       )}
     </div>
@@ -137,9 +169,9 @@ export default function EntryCard({
     e.star ? `★ ${e.star}` : null,
   ].filter(Boolean);
 
-  if (layout === "grid") {
+  if (layout === "grid" || layout === "waterfall") {
     return (
-      <li className={`card card--grid card--${e.source}`}>
+      <li className={`card ${layout === "waterfall" ? "card--waterfall" : "card--grid"} card--${e.source}`}>
         <div className="card__grid-head">
           <span className={`source-badge source-badge--${e.source}`}>
             {SOURCE_LABEL[e.source]}
@@ -176,26 +208,31 @@ export default function EntryCard({
 
   return (
     <li className={`card card--list card--${e.source}`}>
-      <span className={`source-badge source-badge--${e.source}`}>
-        {SOURCE_LABEL[e.source]}
-      </span>
       <div className="card__list-main">
         <h2 className="card__title card__title--list">
           <EntryTitle entry={e} />
         </h2>
-        {metaParts.length > 0 && <p className="card__meta-line">{metaParts.join(" · ")}</p>}
-        <EntryTagList items={tags} onTagClick={onTagClick} max={4} ariaLabel="标签" />
+        <div className="card__meta-row">
+          <span className={`source-badge source-badge--${e.source}`}>
+            {SOURCE_LABEL[e.source]}
+          </span>
+          {metaParts.length > 0 && <p className="card__meta-line">{metaParts.join(" · ")}</p>}
+        </div>
+        {e.summary ? <p className="card__summary--list">{e.summary}</p> : null}
+        <EntryTagList items={keywordItems} onTagClick={onTagClick} max={4} ariaLabel="标签" />
       </div>
-      {tier !== "none" && e.score != null && (
-        <span className={`score-badge score-badge--${tier}`} title="AI 相关性评分">
-          {e.score}
-        </span>
-      )}
-      <EntryActions
-        entry={e}
-        isFavorite={isFavorite}
-        onToggleFavorite={onToggleFavorite}
-      />
+      <div className="card__list-side">
+        {tier !== "none" && e.score != null && (
+          <span className={`score-badge score-badge--${tier}`} title="AI 相关性评分">
+            {e.score}
+          </span>
+        )}
+        <EntryActions
+          entry={e}
+          isFavorite={isFavorite}
+          onToggleFavorite={onToggleFavorite}
+        />
+      </div>
     </li>
   );
 }
