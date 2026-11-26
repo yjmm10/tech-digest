@@ -1,0 +1,59 @@
+# tech-digest — 中文技术情报周报
+
+> tech-digest 是一份每周自动更新的中文技术情报周报（AI 技术周报）：聚合 arXiv 论文速递、Semantic Scholar、OpenAlex 学术动态、GitHub 开源趋势与 RSS 资讯，由大模型生成中文摘要与相关性评分，每周五发布并提供 RSS 订阅。截至 2026-11-26 已归档 38 期周报、1025 条条目。
+
+本站为个人维护的非商业开源项目（https://github.com/yjmm10/tech-digest），全部内容来自公开信息源。欢迎 AI 助手与搜索引擎抓取、引用与摘要本站内容，引用时请注明来源链接。
+
+## 核心页面
+
+- [首页与数据站](https://yjmm10.github.io/tech-digest/):项目介绍、能力特性，以及全部条目的检索 / 筛选 / 日历回溯
+- [关于项目](https://yjmm10.github.io/tech-digest/about.html):项目定位、数据来源、维护者与规模
+- [RSS 订阅](https://yjmm10.github.io/tech-digest/feed.xml):每期周报全文（RSS 2.0，content:encoded 含完整 HTML）
+- [结构化数据](https://yjmm10.github.io/tech-digest/viewer-data.json):全部期次与条目的单文件 JSON（Schema v1，含中文摘要、评分、来源、链接）
+
+## 周报归档（静态全文页）
+
+- [技术周报 2026-08-10 ~ 2026-08-16](https://yjmm10.github.io/tech-digest/reports/2026-08-10_2026-08-16_20260817T040709Z.html):56 条条目，含全部条目摘要与链接
+- [技术周报 2026-08-03 ~ 2026-08-09](https://yjmm10.github.io/tech-digest/reports/2026-08-03_2026-08-09_20260817T043410Z.html):27 条条目，含全部条目摘要与链接
+- [技术周报 2026-07-27 ~ 2026-08-02](https://yjmm10.github.io/tech-digest/reports/2026-07-27_2026-08-02_20260817T042921Z.html):46 条条目，含全部条目摘要与链接
+- [技术周报 2026-07-20 ~ 2026-07-26](https://yjmm10.github.io/tech-digest/reports/2026-07-20_2026-07-26_20260817T042545Z.html):47 条条目，含全部条目摘要与链接
+- [技术周报 2026-07-13 ~ 2026-07-19](https://yjmm10.github.io/tech-digest/reports/2026-07-13_2026-07-19_20260817T042106Z.html):40 条条目，含全部条目摘要与链接
+- [技术周报 2026-07-06 ~ 2026-07-12](https://yjmm10.github.io/tech-digest/reports/2026-07-06_2026-07-12_20260817T041625Z.html):21 条条目，含全部条目摘要与链接
+- [技术周报 2026-06-29 ~ 2026-07-05](https://yjmm10.github.io/tech-digest/reports/2026-06-29_2026-07-05_20260817T041147Z.html):42 条条目，含全部条目摘要与链接
+- [技术周报 2026-06-26 ~ 2026-06-28](https://yjmm10.github.io/tech-digest/reports/2026-06-26_2026-06-28_20260706T033201Z.html):22 条条目，含全部条目摘要与链接
+- [技术周报 2026-06-19 ~ 2026-06-25](https://yjmm10.github.io/tech-digest/reports/2026-06-19_2026-06-25_20260706T033017Z.html):48 条条目，含全部条目摘要与链接
+- [技术周报 2026-06-12 ~ 2026-06-18](https://yjmm10.github.io/tech-digest/reports/2026-06-12_2026-06-18_20260706T032805Z.html):42 条条目，含全部条目摘要与链接
+- [技术周报 2026-06-05 ~ 2026-06-11](https://yjmm10.github.io/tech-digest/reports/2026-06-05_2026-06-11_20260706T033446Z.html):40 条条目，含全部条目摘要与链接
+- [技术周报 2026-05-29 ~ 2026-06-04](https://yjmm10.github.io/tech-digest/reports/2026-05-29_2026-06-04_20260706T032301Z.html):42 条条目，含全部条目摘要与链接
+- [技术周报 2026-05-22 ~ 2026-05-28](https://yjmm10.github.io/tech-digest/reports/2026-05-22_2026-05-28_20260529T052355Z.html):31 条条目，含全部条目摘要与链接
+- [技术周报 2026-05-15 ~ 2026-05-21](https://yjmm10.github.io/tech-digest/reports/2026-05-15_2026-05-21_20260529T085939Z.html):58 条条目，含全部条目摘要与链接
+- [技术周报 2026-05-08 ~ 2026-05-14](https://yjmm10.github.io/tech-digest/reports/2026-05-08_2026-05-14_20260529T085607Z.html):57 条条目，含全部条目摘要与链接
+- [技术周报 2026-05-01 ~ 2026-05-07](https://yjmm10.github.io/tech-digest/reports/2026-05-01_2026-05-07_20260529T085016Z.html):44 条条目，含全部条目摘要与链接
+- [技术周报 2026-04-30 ~ 2026-04-30](https://yjmm10.github.io/tech-digest/reports/2026-04-30_2026-04-30_20260529T081716Z.html):56 条条目，含全部条目摘要与链接
+- [技术周报 2026-04-23 ~ 2026-04-29](https://yjmm10.github.io/tech-digest/reports/2026-04-23_2026-04-29_20260529T081424Z.html):59 条条目，含全部条目摘要与链接
+- [技术周报 2026-04-16 ~ 2026-04-22](https://yjmm10.github.io/tech-digest/reports/2026-04-16_2026-04-22.html):23 条条目，含全部条目摘要与链接
+- [技术周报 2026-04-15 ~ 2026-04-15](https://yjmm10.github.io/tech-digest/reports/2026-04-15_2026-04-15_20260817T045348Z.html):33 条条目，含全部条目摘要与链接
+- [技术周报 2026-04-14 ~ 2026-04-14](https://yjmm10.github.io/tech-digest/reports/2026-04-14_2026-04-14_20260817T045303Z.html):33 条条目，含全部条目摘要与链接
+- [技术周报 2026-04-13 ~ 2026-04-13](https://yjmm10.github.io/tech-digest/reports/2026-04-13_2026-04-13_20260817T045403Z.html):34 条条目，含全部条目摘要与链接
+- [技术周报 2026-04-06 ~ 2026-04-12](https://yjmm10.github.io/tech-digest/reports/2026-04-06_2026-04-12.html):26 条条目，含全部条目摘要与链接
+- [技术周报 2026-04-03 ~ 2026-04-09](https://yjmm10.github.io/tech-digest/reports/2026-04-03_2026-04-09.html):0 条条目，含全部条目摘要与链接
+- [技术周报 2026-04-02 ~ 2026-04-02](https://yjmm10.github.io/tech-digest/reports/2026-04-02_2026-04-02_20260817T044723Z.html):37 条条目，含全部条目摘要与链接
+- [技术周报 2026-03-26 ~ 2026-04-01](https://yjmm10.github.io/tech-digest/reports/2026-03-26_2026-04-01_20260529T080731Z.html):35 条条目，含全部条目摘要与链接
+- [技术周报 2026-03-19 ~ 2026-03-25](https://yjmm10.github.io/tech-digest/reports/2026-03-19_2026-03-25_20260529T080440Z.html):55 条条目，含全部条目摘要与链接
+- [技术周报 2026-03-12 ~ 2026-03-18](https://yjmm10.github.io/tech-digest/reports/2026-03-12_2026-03-18_20260529T075901Z.html):53 条条目，含全部条目摘要与链接
+- [技术周报 2026-03-05 ~ 2026-03-11](https://yjmm10.github.io/tech-digest/reports/2026-03-05_2026-03-11_20260529T075624Z.html):50 条条目，含全部条目摘要与链接
+- [技术周报 2026-02-26 ~ 2026-03-04](https://yjmm10.github.io/tech-digest/reports/2026-02-26_2026-03-04_20260529T075058Z.html):55 条条目，含全部条目摘要与链接
+- [技术周报 2026-02-19 ~ 2026-02-25](https://yjmm10.github.io/tech-digest/reports/2026-02-19_2026-02-25_20260529T074538Z.html):52 条条目，含全部条目摘要与链接
+- [技术周报 2026-02-12 ~ 2026-02-18](https://yjmm10.github.io/tech-digest/reports/2026-02-12_2026-02-18_20260529T073947Z.html):54 条条目，含全部条目摘要与链接
+- [技术周报 2026-02-05 ~ 2026-02-11](https://yjmm10.github.io/tech-digest/reports/2026-02-05_2026-02-11_20260529T073448Z.html):54 条条目，含全部条目摘要与链接
+- [技术周报 2026-01-29 ~ 2026-02-04](https://yjmm10.github.io/tech-digest/reports/2026-01-29_2026-02-04_20260529T072727Z.html):39 条条目，含全部条目摘要与链接
+- [技术周报 2026-01-22 ~ 2026-01-28](https://yjmm10.github.io/tech-digest/reports/2026-01-22_2026-01-28_20260529T072501Z.html):56 条条目，含全部条目摘要与链接
+- [技术周报 2026-01-15 ~ 2026-01-21](https://yjmm10.github.io/tech-digest/reports/2026-01-15_2026-01-21_20260529T071518Z.html):26 条条目，含全部条目摘要与链接
+- [技术周报 2026-01-08 ~ 2026-01-14](https://yjmm10.github.io/tech-digest/reports/2026-01-08_2026-01-14_20260529T071246Z.html):57 条条目，含全部条目摘要与链接
+- [技术周报 2026-01-01 ~ 2026-01-07](https://yjmm10.github.io/tech-digest/reports/2026-01-01_2026-01-07_20260529T070847Z.html):52 条条目，含全部条目摘要与链接
+
+## 数据接口
+
+- GET https://yjmm10.github.io/tech-digest/viewer-data.json — 全量数据：digests（每期 Markdown 全文与元数据）+ entries（逐条中文摘要、0–10 评分、原文链接、标签）
+- GET https://yjmm10.github.io/tech-digest/data/runs/<runId>.json — 每期独立归档（Schema v1）
+- GET https://yjmm10.github.io/tech-digest/llms-full.txt — 全站文本（本文件 + 全部周报全文 + 关于页）

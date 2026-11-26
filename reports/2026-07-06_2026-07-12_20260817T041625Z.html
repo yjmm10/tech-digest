@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>技术周报 2026-07-06 ~ 2026-07-12 · tech-digest</title>
+<meta name="description" content="Multi-Agent Reinforcement Learning for SLA-Aware Network Slicing in UAV-Enabled MEC：用多智能体强化学习在无人机边缘计算中做 SLA 感知的网络切片调度。；UniRef-UAV: A Multimodal Benchmark for Universal Referring in UAV Imagery：无人机影像「通用指称」多模态基准，评测多样指令下的视觉目标定位能力。；End-to-End LLM Flight Planning with RAG-based Memory（本期共 21 条）" />
+<link rel="canonical" href="https://yjmm10.github.io/tech-digest/reports/2026-07-06_2026-07-12_20260817T041625Z.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="技术周报 2026-07-06 ~ 2026-07-12" />
+<meta property="og:description" content="Multi-Agent Reinforcement Learning for SLA-Aware Network Slicing in UAV-Enabled MEC：用多智能体强化学习在无人机边缘计算中做 SLA 感知的网络切片调度。；UniRef-UAV: A Multimodal Benchmark for Universal Referring in UAV Imagery：无人机影像「通用指称」多模态基准，评测多样指令下的视觉目标定位能力。；End-to-End LLM Flight Planning with RAG-based Memory（本期共 21 条）" />
+<meta property="og:url" content="https://yjmm10.github.io/tech-digest/reports/2026-07-06_2026-07-12_20260817T041625Z.html" />
+<meta property="og:image" content="https://yjmm10.github.io/tech-digest/icon-512.png" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="article:published_time" content="2026-07-12" />
+<meta property="article:modified_time" content="2026-08-17" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"技术周报 2026-07-06 ~ 2026-07-12","description":"Multi-Agent Reinforcement Learning for SLA-Aware Network Slicing in UAV-Enabled MEC：用多智能体强化学习在无人机边缘计算中做 SLA 感知的网络切片调度。；UniRef-UAV: A Multimodal Benchmark for Universal Referring in UAV Imagery：无人机影像「通用指称」多模态基准，评测多样指令下的视觉目标定位能力。；End-to-End LLM Flight Planning with RAG-based Memory（本期共 21 条）","datePublished":"2026-07-12","dateModified":"2026-08-17","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://yjmm10.github.io/tech-digest/reports/2026-07-06_2026-07-12_20260817T041625Z.html"},"author":{"@type":"Organization","name":"tech-digest","url":"https://yjmm10.github.io/tech-digest/"},"publisher":{"@type":"Organization","name":"tech-digest","logo":{"@type":"ImageObject","url":"https://yjmm10.github.io/tech-digest/icon-512.png"}},"image":"https://yjmm10.github.io/tech-digest/icon-512.png","isPartOf":{"@id":"https://yjmm10.github.io/tech-digest/#website"}}</script>
+<style>
+:root { color-scheme: dark light; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #111; color: #f0f0f0; font: 16px/1.75 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif; }
+@media (prefers-color-scheme: light) { body { background: #fafafa; color: #1c1c1c; } }
+.wrap { max-width: 880px; margin: 0 auto; padding: 32px 20px 64px; }
+.crumb { font-size: 14px; margin-bottom: 20px; }
+.crumb a { color: #3dd6c3; text-decoration: none; }
+.crumb a:hover { text-decoration: underline; }
+h1 { font-size: 1.7em; line-height: 1.3; margin: 0 0 8px; }
+.meta { color: #8b9bab; font-size: 14px; margin-bottom: 28px; }
+.meta span { margin-right: 14px; }
+.article h2 { font-size: 1.35em; margin: 2em 0 .6em; border-bottom: 1px solid rgba(128,128,128,.25); padding-bottom: .3em; }
+.article h3 { font-size: 1.15em; margin: 1.6em 0 .5em; }
+.article p { margin: .7em 0; overflow-wrap: break-word; }
+.article a { color: #3dd6c3; }
+.article blockquote { margin: 1em 0; padding: .6em 1em; border-left: 3px solid #3dd6c3; background: rgba(128,128,128,.08); border-radius: 4px; color: rgba(200,210,220,.9); }
+@media (prefers-color-scheme: light) { .article blockquote { color: #4a5560; } }
+.article table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 1em 0; display: block; overflow-x: auto; }
+.article th, .article td { border: 1px solid rgba(128,128,128,.3); padding: 6px 10px; text-align: left; vertical-align: top; }
+.article th { background: rgba(128,128,128,.1); }
+.article code { background: rgba(128,128,128,.15); padding: 1px 5px; border-radius: 4px; font-size: .9em; }
+.article hr { border: none; border-top: 1px solid rgba(128,128,128,.25); margin: 2em 0; }
+.foot { margin-top: 48px; padding-top: 20px; border-top: 1px solid rgba(128,128,128,.2); color: #8b9bab; font-size: 14px; }
+.foot a { color: #3dd6c3; text-decoration: none; }
+.foot a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="crumb"><a href="https://yjmm10.github.io/tech-digest/">← tech-digest · 技术周报归档</a></p>
+  <h1>技术周报 2026-07-06 ~ 2026-07-12</h1>
+  <p class="meta"><span>时间窗 2026-07-06 ~ 2026-07-12</span><span>21 条条目</span><span>抓取于 2026-08-17</span><span>OpenAlex 13</span><span>GitHub 周榜 1</span><span>arXiv 1</span></p>
+  <article class="article">
+<h2>📄 Arxiv 前沿论文</h2>
+
+<blockquote><strong>爬取时间</strong>：2026-08-17 04:16:25 UTC</blockquote>
+
+<blockquote>数据来自 arXiv library 检索，关键词组 <code>(uav|aerial) &amp; (vlm|llm|mllm) &amp; (rl|reinforcement learning)</code>，时间窗 2026-07-06 ~ 2026-07-12；本周命中 1 篇，评分侧重与当周主题贴合度与新颖度。</blockquote>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%">
+<thead><tr><th>评分</th><th>标题</th><th>说明</th><th>链接</th><th>标签</th><th>发表时间</th><th>学科类别</th></tr></thead><tbody>
+<tr><td>7</td><td>Towards Reliable Aerial Ground Vehicle Collaboration: An Integrated Planning and Autonomy Framework for Field Deployment</td><td>针对无人机长时任务续航受限，提出空-地车辆协同的一体化规划与自主框架，并完成野外部署验证。</td><td><a href="http://arxiv.org/abs/2607.07350v1" target="_blank" rel="noreferrer">http://arxiv.org/abs/2607.07350v1</a></td><td>UAV, 空地协同, 任务规划, 现场部署</td><td>2026-07-07</td><td>cs.RO</td></tr>
+</tbody>
+</table>
+
+<h2>🎓 Semantic Scholar</h2>
+
+<blockquote>数据来自 Semantic Scholar API，关键词组 <code>(uav|aerial) &amp; (vlm|llm|mllm) &amp; (rl)</code>；本周窗口内命中 0 条，表体为空。</blockquote>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%">
+<thead><tr><th>评分</th><th>标题</th><th>说明</th><th>链接</th><th>标签</th><th>发表时间</th><th>来源/venue</th><th>引用数</th></tr></thead><tbody>
+</tbody>
+</table>
+
+<h2>📚 OpenAlex</h2>
+
+<blockquote>数据来自 OpenAlex，关键词组 <code>(uav|aerial) &amp; (vlm|llm|mllm) &amp; (rl)</code>，时间窗 2026-07-06 ~ 2026-07-12，共 13 条；部分条目仅弱命中关键词（如纯教育 RL、区块链智能体），按贴合度给分并降序排列。</blockquote>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%">
+<thead><tr><th>评分</th><th>标题</th><th>说明</th><th>链接</th><th>标签</th><th>发表时间</th><th>来源/venue</th><th>引用数</th></tr></thead><tbody>
+<tr><td>9</td><td>UniRef-UAV: A Multimodal Benchmark for Universal Referring in UAV Imagery</td><td>无人机影像「通用指称」多模态基准，评测多样指令下的视觉目标定位能力。</td><td><a href="https://openalex.org/W7168054034" target="_blank" rel="noreferrer">https://openalex.org/W7168054034</a></td><td>UAV, 多模态基准, 视觉定位, referring</td><td>2026-07-09</td><td>arXiv (Cornell University)</td><td>0</td></tr>
+<tr><td>9</td><td>Multi-Agent Reinforcement Learning for SLA-Aware Network Slicing in UAV-Enabled MEC</td><td>用多智能体强化学习在无人机边缘计算中做 SLA 感知的网络切片调度。</td><td><a href="https://openalex.org/W7168328844" target="_blank" rel="noreferrer">https://openalex.org/W7168328844</a></td><td>MARL, 网络切片, 无人机边缘计算, SLA</td><td>2026-07-10</td><td>arXiv (Cornell University)</td><td>0</td></tr>
+<tr><td>8</td><td>End-to-End LLM Flight Planning with RAG-based Memory and Multi-modal Coach Agent</td><td>面向 eVTOL 的端到端 LLM 飞行规划，结合 RAG 记忆与多模态「教练」智能体衔接人类飞行意图。</td><td><a href="https://openalex.org/W7167981202" target="_blank" rel="noreferrer">https://openalex.org/W7167981202</a></td><td>LLM, 飞行规划, eVTOL, RAG, 智能体</td><td>2026-07-08</td><td>arXiv (Cornell University)</td><td>0</td></tr>
+<tr><td>7</td><td>WeaveEarth: Structured Evidence Construction and Reasoning for Training-Free UHR Remote Sensing Understanding</td><td>免训练的超高分辨率遥感理解：结构化证据构建+推理，兼顾全局布局与局部细节。</td><td><a href="https://openalex.org/W7168432872" target="_blank" rel="noreferrer">https://openalex.org/W7168432872</a></td><td>VLM, 遥感, 免训练, 证据推理</td><td>2026-07-11</td><td>arXiv (Cornell University)</td><td>0</td></tr>
+<tr><td>6</td><td>From Intent to Infrastructure: LLM-Driven Agent Compilers for ISAC Networks</td><td>LLM 驱动「智能体编译器」，把 6G ISAC 网络意图描述自动编译为系统级部署。</td><td><a href="https://openalex.org/W7170111655" target="_blank" rel="noreferrer">https://openalex.org/W7170111655</a></td><td>LLM, ISAC, 6G, 智能体编译</td><td>2026-07-07</td><td>arXiv (Cornell University)</td><td>0</td></tr>
+<tr><td>6</td><td>Scalable and Trustworthy Earth Observation Foundation Models</td><td>讨论地球观测基础模型的可扩展性与可信度构建路线。</td><td><a href="https://openalex.org/W7168054080" target="_blank" rel="noreferrer">https://openalex.org/W7168054080</a></td><td>基础模型, 地球观测, 可信AI</td><td>2026-07-08</td><td>arXiv (Cornell University)</td><td>0</td></tr>
+<tr><td>5</td><td>LLM-driven behavior generation and negotiation for collective robotic construction</td><td>LLM 生成并协商集体机器人建造行为，用于涌现过程仿真。</td><td><a href="https://doi.org/10.1007/s41693-026-00216-x" target="_blank" rel="noreferrer">https://doi.org/10.1007/s41693-026-00216-x</a></td><td>LLM, 群体机器人, 行为生成, 仿真</td><td>2026-07-10</td><td>Construction Robotics</td><td>0</td></tr>
+<tr><td>5</td><td>Communication-Efficient Digital-Twin Coordination for Heterogeneous LLM Embodied Agents over Computing Power Networks</td><td>算力网上异构 LLM 具身智能体的高效通信数字孪生协同。</td><td><a href="https://openalex.org/W7168329093" target="_blank" rel="noreferrer">https://openalex.org/W7168329093</a></td><td>LLM智能体, 数字孪生, 算力网络, 通信效率</td><td>2026-07-10</td><td>arXiv (Cornell University)</td><td>0</td></tr>
+<tr><td>4</td><td>Claim-Level Rubric Rewards for Video Caption Reinforcement Learning</td><td>提出声明级评分奖励框架，缓解视频描述 RL 的奖励设计瓶颈。</td><td><a href="https://openalex.org/W7167747431" target="_blank" rel="noreferrer">https://openalex.org/W7167747431</a></td><td>强化学习, 视频描述, 奖励设计</td><td>2026-07-06</td><td>arXiv (Cornell University)</td><td>0</td></tr>
+<tr><td>3</td><td>Decentralized AI Agents and Blockchain: Architectures, Coordination Mechanisms, and Governance Frameworks</td><td>去中心化 AI 智能体与区块链的架构、协同与治理综述（弱相关）。</td><td><a href="https://doi.org/10.3390/fi18070352" target="_blank" rel="noreferrer">https://doi.org/10.3390/fi18070352</a></td><td>去中心化智能体, 区块链, 治理</td><td>2026-07-06</td><td>Future Internet</td><td>0</td></tr>
+<tr><td>3</td><td>Exploring robotic autonomous systems: a survey of foundational technology in mining applications</td><td>矿业场景机器人自主系统基础技术综述（弱相关）。</td><td><a href="https://doi.org/10.1016/j.robot.2026.105626" target="_blank" rel="noreferrer">https://doi.org/10.1016/j.robot.2026.105626</a></td><td>机器人, 矿业, 综述</td><td>2026-07-07</td><td>Robotics and Autonomous Systems</td><td>0</td></tr>
+<tr><td>3</td><td>Personalized learning path recommendation for middle school students based on joint optimization of deep reinforcement learning and knowledge tracing</td><td>深度强化学习+知识追踪联合优化的学习路径推荐（教育场景，弱相关）。</td><td><a href="https://doi.org/10.1038/s41598-026-61166-6" target="_blank" rel="noreferrer">https://doi.org/10.1038/s41598-026-61166-6</a></td><td>深度强化学习, 知识追踪, 教育推荐</td><td>2026-07-10</td><td>Scientific Reports</td><td>0</td></tr>
+<tr><td>3</td><td>Prior-aware and Context-guided Group Sampling for Active Probabilistic Subsampling</td><td>先验感知+上下文引导的主动概率子采样，降低测量与传输开销（弱相关）。</td><td><a href="https://openalex.org/W7167981030" target="_blank" rel="noreferrer">https://openalex.org/W7167981030</a></td><td>子采样, 概率建模, 主动采样</td><td>2026-07-08</td><td>arXiv (Cornell University)</td><td>0</td></tr>
+</tbody>
+</table>
+
+<h2>📰 优质资讯/论坛</h2>
+
+<blockquote>本周各 RSS 资讯源原始数据为「(无)」，未抓取到可用条目，表体为空。</blockquote>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%">
+<thead><tr><th>评分</th><th>标题</th><th>说明</th><th>链接</th><th>标签</th></tr></thead><tbody>
+</tbody>
+</table>
+
+<h2>🔥 GitHub 周榜</h2>
+
+<blockquote>本表为 <strong>Trending 类 RSS 榜单原始条目</strong>，按配置<strong>不做</strong>关键词过滤或删减；评分侧重本周热度与代表性。</blockquote>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%">
+<thead><tr><th>评分</th><th>标题</th><th>说明</th><th>链接</th><th>标签</th><th>Star</th><th>Fork</th><th>主语言</th></tr></thead><tbody>
+<tr><td>9</td><td>3b1b/manim</td><td>3Blue1Brown 出品的精确数学科普动画引擎。</td><td><a href="https://github.com/3b1b/manim" target="_blank" rel="noreferrer">https://github.com/3b1b/manim</a></td><td>动画, 数学可视化, Python</td><td>91383</td><td>7556</td><td>Python</td></tr>
+<tr><td>9</td><td>addyosmani/agent-skills</td><td>面向 AI 编码智能体的生产级工程技能包（计划/构建/验证/评审）。</td><td><a href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noreferrer">https://github.com/addyosmani/agent-skills</a></td><td>AI智能体, 编码技能, 工程实践</td><td>87814</td><td>9408</td><td>JavaScript</td></tr>
+<tr><td>9</td><td>paperclipai/paperclip</td><td>开源 AI 智能体团队编排平台，统一管理工作场景多智能体。</td><td><a href="https://github.com/paperclipai/paperclip" target="_blank" rel="noreferrer">https://github.com/paperclipai/paperclip</a></td><td>智能体编排, 开源, 团队协作</td><td>78557</td><td>14390</td><td>TypeScript</td></tr>
+<tr><td>9</td><td>unslothai/unsloth</td><td>桌面端本地运行与微调 LLM/扩散模型（Qwen、Gemma、FLUX 等）。</td><td><a href="https://github.com/unslothai/unsloth" target="_blank" rel="noreferrer">https://github.com/unslothai/unsloth</a></td><td>LLM微调, 本地训练, 扩散模型</td><td>72732</td><td>6556</td><td>Python</td></tr>
+<tr><td>8</td><td>ToolJet/ToolJet</td><td>AI 原生企业内部工具/看板/工作流低代码构建平台。</td><td><a href="https://github.com/ToolJet/ToolJet" target="_blank" rel="noreferrer">https://github.com/ToolJet/ToolJet</a></td><td>低代码, 内部工具, AI应用</td><td>40155</td><td>5335</td><td>JavaScript</td></tr>
+<tr><td>8</td><td>basecamp/omarchy</td><td>DHH 出品的现代化 opinionated Arch Linux 发行版。</td><td><a href="https://github.com/basecamp/omarchy" target="_blank" rel="noreferrer">https://github.com/basecamp/omarchy</a></td><td>Linux, 桌面环境, 发行版</td><td>25527</td><td>2601</td><td>Shell</td></tr>
+</tbody>
+</table>
+<p>| 8 | TencentCloud/TencentDB-Agent-Memory | 智能体团队级记忆中枢：对话/技能/LLM-Wiki/代码图四类可复用记忆资产。 | <a href="https://github.com/T" target="_blank" rel="noreferrer">https://github.com/T</a></p>
+
+  </article>
+  <div class="foot">
+    <p>本文为 <a href="https://yjmm10.github.io/tech-digest/">技术周报归档（tech-digest）</a>的周报存档全文（21 条条目）。每周五自动更新，
+    可通过 <a href="https://yjmm10.github.io/tech-digest/feed.xml">RSS 订阅</a>获取每期全文，或在 <a href="https://yjmm10.github.io/tech-digest/#entries">数据站</a>检索全部历史条目。</p>
+    <p>引用请注明来源：<a href="https://yjmm10.github.io/tech-digest/reports/2026-07-06_2026-07-12_20260817T041625Z.html">https://yjmm10.github.io/tech-digest/reports/2026-07-06_2026-07-12_20260817T041625Z.html</a></p>
+  </div>
+</div>
+</body>
+</html>

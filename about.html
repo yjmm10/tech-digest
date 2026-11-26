@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>关于 tech-digest（技术周报归档）· 项目介绍</title>
+<meta name="description" content="关于 tech-digest：每周自动更新的中文 AI 技术周报与开源情报管线，聚合 arXiv、Semantic Scholar、OpenAlex、GitHub 等六类信息源，已归档 38 期 1025 条。" />
+<link rel="canonical" href="https://yjmm10.github.io/tech-digest/about.html" />
+<meta property="og:type" content="profile" />
+<meta property="og:title" content="关于 tech-digest（技术周报归档）" />
+<meta property="og:description" content="tech-digest 是一份每周自动更新的中文技术情报周报（AI 技术周报）：聚合 arXiv 论文速递、Semantic Scholar、OpenAlex 学术动态、GitHub 开源趋势与 RSS 资讯，由大模型生成中文摘要与相关性评分，每周五发布并提供 RSS 订阅。" />
+<meta property="og:url" content="https://yjmm10.github.io/tech-digest/about.html" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"AboutPage","@id":"https://yjmm10.github.io/tech-digest/about.html#aboutpage","url":"https://yjmm10.github.io/tech-digest/about.html","name":"关于 tech-digest","inLanguage":"zh-CN","mainEntity":{"@id":"https://yjmm10.github.io/tech-digest/#org"},"isPartOf":{"@id":"https://yjmm10.github.io/tech-digest/#website"}},{"@type":"Organization","@id":"https://yjmm10.github.io/tech-digest/#org","name":"tech-digest","url":"https://yjmm10.github.io/tech-digest/","logo":{"@type":"ImageObject","url":"https://yjmm10.github.io/tech-digest/icon-512.png"},"description":"tech-digest 是一份每周自动更新的中文技术情报周报（AI 技术周报）：聚合 arXiv 论文速递、Semantic Scholar、OpenAlex 学术动态、GitHub 开源趋势与 RSS 资讯，由大模型生成中文摘要与相关性评分，每周五发布并提供 RSS 订阅。","sameAs":["https://github.com/yjmm10/tech-digest"]}]}</script>
+<style>
+:root { color-scheme: dark light; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #111; color: #f0f0f0; font: 16px/1.75 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif; }
+@media (prefers-color-scheme: light) { body { background: #fafafa; color: #1c1c1c; } }
+.wrap { max-width: 880px; margin: 0 auto; padding: 32px 20px 64px; }
+.crumb { font-size: 14px; margin-bottom: 20px; }
+.crumb a { color: #3dd6c3; text-decoration: none; }
+.crumb a:hover { text-decoration: underline; }
+h1 { font-size: 1.7em; line-height: 1.3; margin: 0 0 8px; }
+.meta { color: #8b9bab; font-size: 14px; margin-bottom: 28px; }
+.meta span { margin-right: 14px; }
+.article h2 { font-size: 1.35em; margin: 2em 0 .6em; border-bottom: 1px solid rgba(128,128,128,.25); padding-bottom: .3em; }
+.article h3 { font-size: 1.15em; margin: 1.6em 0 .5em; }
+.article p { margin: .7em 0; overflow-wrap: break-word; }
+.article a { color: #3dd6c3; }
+.article blockquote { margin: 1em 0; padding: .6em 1em; border-left: 3px solid #3dd6c3; background: rgba(128,128,128,.08); border-radius: 4px; color: rgba(200,210,220,.9); }
+@media (prefers-color-scheme: light) { .article blockquote { color: #4a5560; } }
+.article table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 1em 0; display: block; overflow-x: auto; }
+.article th, .article td { border: 1px solid rgba(128,128,128,.3); padding: 6px 10px; text-align: left; vertical-align: top; }
+.article th { background: rgba(128,128,128,.1); }
+.article code { background: rgba(128,128,128,.15); padding: 1px 5px; border-radius: 4px; font-size: .9em; }
+.article hr { border: none; border-top: 1px solid rgba(128,128,128,.25); margin: 2em 0; }
+.foot { margin-top: 48px; padding-top: 20px; border-top: 1px solid rgba(128,128,128,.2); color: #8b9bab; font-size: 14px; }
+.foot a { color: #3dd6c3; text-decoration: none; }
+.foot a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="crumb"><a href="https://yjmm10.github.io/tech-digest/">← tech-digest · 技术周报归档</a></p>
+
+<h1>关于 tech-digest（技术周报归档）</h1>
+<p class="lead">tech-digest 是一份每周自动更新的中文技术情报周报（AI 技术周报）：聚合 arXiv 论文速递、Semantic Scholar、OpenAlex 学术动态、GitHub 开源趋势与 RSS 资讯，由大模型生成中文摘要与相关性评分，每周五发布并提供 RSS 订阅。</p>
+<h2>项目定位</h2>
+<p>tech-digest 是一个开源的自动化技术情报管线与中文 AI 技术周报档案站：Python 完成多源采集与 GLM 摘要评分，条目按 Schema v1 落盘为 JSON 归档，React 档案站提供检索 / 日历 / Markdown 阅读，GitHub Actions 定时构建并发布至 GitHub Pages。</p>
+<h2>数据来源</h2>
+<ul>
+  <li>arXiv —— 前沿论文速递（按关键词与时间窗检索）</li>
+  <li>Semantic Scholar —— 学术论文与引用数据</li>
+  <li>OpenAlex —— 开放学术数据</li>
+  <li>GitHub Trending —— 开源项目周榜趋势</li>
+  <li>GitHub Search —— 关键词仓库检索</li>
+  <li>RSS —— 自定义技术资讯订阅源</li>
+</ul>
+<h2>产出与规模</h2>
+<p>截至 2026-11-26，已归档 <strong>38</strong> 期周报、<strong>1025</strong> 条情报条目，覆盖 6 类公开信息源；每周五 UTC 12:00 自动更新。</p>
+<h2>维护者</h2>
+<p>个人维护的非商业开源项目（GitHub：<a href="https://github.com/yjmm10/tech-digest">yjmm10/tech-digest</a>）。条目均来自公开信息源，AI 摘要与评分由大模型生成、仅供参考。</p>
+<h2>入口</h2>
+<ul>
+  <li><a href="https://yjmm10.github.io/tech-digest/">首页与数据站</a></li>
+  <li><a href="https://yjmm10.github.io/tech-digest/feed.xml">RSS 订阅（每期全文）</a></li>
+  <li><a href="https://yjmm10.github.io/tech-digest/viewer-data.json">结构化数据 viewer-data.json（Schema v1）</a></li>
+  <li><a href="https://yjmm10.github.io/tech-digest/llms.txt">llms.txt（AI 上下文文件）</a></li>
+</ul>
+
+  <div class="foot"><p>引用本站内容请注明来源：<a href="https://yjmm10.github.io/tech-digest/">https://yjmm10.github.io/tech-digest/</a></p></div>
+</div>
+</body>
+</html>

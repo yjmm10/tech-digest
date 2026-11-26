@@ -1,0 +1,394 @@
+{
+  "schemaVersion": "1",
+  "id": "2026-07-06_2026-07-12_20260817T041625Z",
+  "crawl": {
+    "executedAt": "2026-08-17T04:16:25.715124Z",
+    "crawlDate": "2026-08-17",
+    "status": "success",
+    "trigger": "ci"
+  },
+  "window": {
+    "dateStart": "2026-07-06",
+    "dateEnd": "2026-07-12",
+    "preset": "week",
+    "mode": "custom"
+  },
+  "config": {
+    "keywords": "(uav|aerial) & (vlm|llm|mllm) & (rl)",
+    "date_range": {
+      "preset": "week"
+    },
+    "ai": {
+      "model": "glm-5.2",
+      "max_tokens": 12000,
+      "thinking": "disabled"
+    }
+  },
+  "content": {
+    "markdownBody": "## 📄 Arxiv 前沿论文\n\n> **爬取时间**：2026-08-17 04:16:25 UTC\n\n> 数据来自 arXiv library 检索，关键词组 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗 2026-07-06 ~ 2026-07-12；本周命中 1 篇，评分侧重与当周主题贴合度与新颖度。\n\n| 评分 | 标题 | 说明 | 链接 | 标签 | 发表时间 | 学科类别 |\n|---|---|---|---|---|---|---|\n| 7 | Towards Reliable Aerial Ground Vehicle Collaboration: An Integrated Planning and Autonomy Framework for Field Deployment | 针对无人机长时任务续航受限，提出空-地车辆协同的一体化规划与自主框架，并完成野外部署验证。 | http://arxiv.org/abs/2607.07350v1 | UAV, 空地协同, 任务规划, 现场部署 | 2026-07-07 | cs.RO |\n\n## 🎓 Semantic Scholar\n\n> 数据来自 Semantic Scholar API，关键词组 `(uav|aerial) & (vlm|llm|mllm) & (rl)`；本周窗口内命中 0 条，表体为空。\n\n| 评分 | 标题 | 说明 | 链接 | 标签 | 发表时间 | 来源/venue | 引用数 |\n|---|---|---|---|---|---|---|---|\n\n## 📚 OpenAlex\n\n> 数据来自 OpenAlex，关键词组 `(uav|aerial) & (vlm|llm|mllm) & (rl)`，时间窗 2026-07-06 ~ 2026-07-12，共 13 条；部分条目仅弱命中关键词（如纯教育 RL、区块链智能体），按贴合度给分并降序排列。\n\n| 评分 | 标题 | 说明 | 链接 | 标签 | 发表时间 | 来源/venue | 引用数 |\n|---|---|---|---|---|---|---|---|\n| 9 | UniRef-UAV: A Multimodal Benchmark for Universal Referring in UAV Imagery | 无人机影像「通用指称」多模态基准，评测多样指令下的视觉目标定位能力。 | https://openalex.org/W7168054034 | UAV, 多模态基准, 视觉定位, referring | 2026-07-09 | arXiv (Cornell University) | 0 |\n| 9 | Multi-Agent Reinforcement Learning for SLA-Aware Network Slicing in UAV-Enabled MEC | 用多智能体强化学习在无人机边缘计算中做 SLA 感知的网络切片调度。 | https://openalex.org/W7168328844 | MARL, 网络切片, 无人机边缘计算, SLA | 2026-07-10 | arXiv (Cornell University) | 0 |\n| 8 | End-to-End LLM Flight Planning with RAG-based Memory and Multi-modal Coach Agent | 面向 eVTOL 的端到端 LLM 飞行规划，结合 RAG 记忆与多模态「教练」智能体衔接人类飞行意图。 | https://openalex.org/W7167981202 | LLM, 飞行规划, eVTOL, RAG, 智能体 | 2026-07-08 | arXiv (Cornell University) | 0 |\n| 7 | WeaveEarth: Structured Evidence Construction and Reasoning for Training-Free UHR Remote Sensing Understanding | 免训练的超高分辨率遥感理解：结构化证据构建+推理，兼顾全局布局与局部细节。 | https://openalex.org/W7168432872 | VLM, 遥感, 免训练, 证据推理 | 2026-07-11 | arXiv (Cornell University) | 0 |\n| 6 | From Intent to Infrastructure: LLM-Driven Agent Compilers for ISAC Networks | LLM 驱动「智能体编译器」，把 6G ISAC 网络意图描述自动编译为系统级部署。 | https://openalex.org/W7170111655 | LLM, ISAC, 6G, 智能体编译 | 2026-07-07 | arXiv (Cornell University) | 0 |\n| 6 | Scalable and Trustworthy Earth Observation Foundation Models | 讨论地球观测基础模型的可扩展性与可信度构建路线。 | https://openalex.org/W7168054080 | 基础模型, 地球观测, 可信AI | 2026-07-08 | arXiv (Cornell University) | 0 |\n| 5 | LLM-driven behavior generation and negotiation for collective robotic construction | LLM 生成并协商集体机器人建造行为，用于涌现过程仿真。 | https://doi.org/10.1007/s41693-026-00216-x | LLM, 群体机器人, 行为生成, 仿真 | 2026-07-10 | Construction Robotics | 0 |\n| 5 | Communication-Efficient Digital-Twin Coordination for Heterogeneous LLM Embodied Agents over Computing Power Networks | 算力网上异构 LLM 具身智能体的高效通信数字孪生协同。 | https://openalex.org/W7168329093 | LLM智能体, 数字孪生, 算力网络, 通信效率 | 2026-07-10 | arXiv (Cornell University) | 0 |\n| 4 | Claim-Level Rubric Rewards for Video Caption Reinforcement Learning | 提出声明级评分奖励框架，缓解视频描述 RL 的奖励设计瓶颈。 | https://openalex.org/W7167747431 | 强化学习, 视频描述, 奖励设计 | 2026-07-06 | arXiv (Cornell University) | 0 |\n| 3 | Decentralized AI Agents and Blockchain: Architectures, Coordination Mechanisms, and Governance Frameworks | 去中心化 AI 智能体与区块链的架构、协同与治理综述（弱相关）。 | https://doi.org/10.3390/fi18070352 | 去中心化智能体, 区块链, 治理 | 2026-07-06 | Future Internet | 0 |\n| 3 | Exploring robotic autonomous systems: a survey of foundational technology in mining applications | 矿业场景机器人自主系统基础技术综述（弱相关）。 | https://doi.org/10.1016/j.robot.2026.105626 | 机器人, 矿业, 综述 | 2026-07-07 | Robotics and Autonomous Systems | 0 |\n| 3 | Personalized learning path recommendation for middle school students based on joint optimization of deep reinforcement learning and knowledge tracing | 深度强化学习+知识追踪联合优化的学习路径推荐（教育场景，弱相关）。 | https://doi.org/10.1038/s41598-026-61166-6 | 深度强化学习, 知识追踪, 教育推荐 | 2026-07-10 | Scientific Reports | 0 |\n| 3 | Prior-aware and Context-guided Group Sampling for Active Probabilistic Subsampling | 先验感知+上下文引导的主动概率子采样，降低测量与传输开销（弱相关）。 | https://openalex.org/W7167981030 | 子采样, 概率建模, 主动采样 | 2026-07-08 | arXiv (Cornell University) | 0 |\n\n## 📰 优质资讯/论坛\n\n> 本周各 RSS 资讯源原始数据为「(无)」，未抓取到可用条目，表体为空。\n\n| 评分 | 标题 | 说明 | 链接 | 标签 |\n|---|---|---|---|---|\n\n## 🔥 GitHub 周榜\n\n> 本表为 **Trending 类 RSS 榜单原始条目**，按配置**不做**关键词过滤或删减；评分侧重本周热度与代表性。\n\n| 评分 | 标题 | 说明 | 链接 | 标签 | Star | Fork | 主语言 |\n|---|---|---|---|---|---|---|---|\n| 9 | 3b1b/manim | 3Blue1Brown 出品的精确数学科普动画引擎。 | https://github.com/3b1b/manim | 动画, 数学可视化, Python | 91383 | 7556 | Python |\n| 9 | addyosmani/agent-skills | 面向 AI 编码智能体的生产级工程技能包（计划/构建/验证/评审）。 | https://github.com/addyosmani/agent-skills | AI智能体, 编码技能, 工程实践 | 87814 | 9408 | JavaScript |\n| 9 | paperclipai/paperclip | 开源 AI 智能体团队编排平台，统一管理工作场景多智能体。 | https://github.com/paperclipai/paperclip | 智能体编排, 开源, 团队协作 | 78557 | 14390 | TypeScript |\n| 9 | unslothai/unsloth | 桌面端本地运行与微调 LLM/扩散模型（Qwen、Gemma、FLUX 等）。 | https://github.com/unslothai/unsloth | LLM微调, 本地训练, 扩散模型 | 72732 | 6556 | Python |\n| 8 | ToolJet/ToolJet | AI 原生企业内部工具/看板/工作流低代码构建平台。 | https://github.com/ToolJet/ToolJet | 低代码, 内部工具, AI应用 | 40155 | 5335 | JavaScript |\n| 8 | basecamp/omarchy | DHH 出品的现代化 opinionated Arch Linux 发行版。 | https://github.com/basecamp/omarchy | Linux, 桌面环境, 发行版 | 25527 | 2601 | Shell |\n| 8 | TencentCloud/TencentDB-Agent-Memory | 智能体团队级记忆中枢：对话/技能/LLM-Wiki/代码图四类可复用记忆资产。 | https://github.com/T\n",
+    "markdownGeneratedAt": "2026-08-17T04:16:25.715124Z"
+  },
+  "sections": [
+    {
+      "source": "arxiv",
+      "heading": "📄 Arxiv 前沿论文",
+      "summary": "",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 1,
+      "entries": [
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-arxiv-0",
+          "score": 7,
+          "title": "Towards Reliable Aerial Ground Vehicle Collaboration: An Integrated Planning and Autonomy Framework for Field Deployment",
+          "summary": "针对无人机长时任务续航受限，提出空-地车辆协同的一体化规划与自主框架，并完成野外部署验证。",
+          "link": "http://arxiv.org/abs/2607.07350v1",
+          "tags": "UAV, 空地协同, 任务规划, 现场部署",
+          "publishedAt": "2026-07-07",
+          "keywords": "",
+          "extra": {
+            "subject": "cs.RO"
+          }
+        }
+      ]
+    },
+    {
+      "source": "semantic_scholar",
+      "heading": "🎓 Semantic Scholar",
+      "summary": "",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 0,
+      "entries": []
+    },
+    {
+      "source": "openalex",
+      "heading": "📚 OpenAlex",
+      "summary": "",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 13,
+      "entries": [
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-openalex-0",
+          "score": 9,
+          "title": "UniRef-UAV: A Multimodal Benchmark for Universal Referring in UAV Imagery",
+          "summary": "无人机影像「通用指称」多模态基准，评测多样指令下的视觉目标定位能力。",
+          "link": "https://openalex.org/W7168054034",
+          "tags": "UAV, 多模态基准, 视觉定位, referring",
+          "publishedAt": "2026-07-09",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-openalex-1",
+          "score": 9,
+          "title": "Multi-Agent Reinforcement Learning for SLA-Aware Network Slicing in UAV-Enabled MEC",
+          "summary": "用多智能体强化学习在无人机边缘计算中做 SLA 感知的网络切片调度。",
+          "link": "https://openalex.org/W7168328844",
+          "tags": "MARL, 网络切片, 无人机边缘计算, SLA",
+          "publishedAt": "2026-07-10",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-openalex-2",
+          "score": 8,
+          "title": "End-to-End LLM Flight Planning with RAG-based Memory and Multi-modal Coach Agent",
+          "summary": "面向 eVTOL 的端到端 LLM 飞行规划，结合 RAG 记忆与多模态「教练」智能体衔接人类飞行意图。",
+          "link": "https://openalex.org/W7167981202",
+          "tags": "LLM, 飞行规划, eVTOL, RAG, 智能体",
+          "publishedAt": "2026-07-08",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-openalex-3",
+          "score": 7,
+          "title": "WeaveEarth: Structured Evidence Construction and Reasoning for Training-Free UHR Remote Sensing Understanding",
+          "summary": "免训练的超高分辨率遥感理解：结构化证据构建+推理，兼顾全局布局与局部细节。",
+          "link": "https://openalex.org/W7168432872",
+          "tags": "VLM, 遥感, 免训练, 证据推理",
+          "publishedAt": "2026-07-11",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-openalex-4",
+          "score": 6,
+          "title": "From Intent to Infrastructure: LLM-Driven Agent Compilers for ISAC Networks",
+          "summary": "LLM 驱动「智能体编译器」，把 6G ISAC 网络意图描述自动编译为系统级部署。",
+          "link": "https://openalex.org/W7170111655",
+          "tags": "LLM, ISAC, 6G, 智能体编译",
+          "publishedAt": "2026-07-07",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-openalex-5",
+          "score": 6,
+          "title": "Scalable and Trustworthy Earth Observation Foundation Models",
+          "summary": "讨论地球观测基础模型的可扩展性与可信度构建路线。",
+          "link": "https://openalex.org/W7168054080",
+          "tags": "基础模型, 地球观测, 可信AI",
+          "publishedAt": "2026-07-08",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-openalex-6",
+          "score": 5,
+          "title": "LLM-driven behavior generation and negotiation for collective robotic construction",
+          "summary": "LLM 生成并协商集体机器人建造行为，用于涌现过程仿真。",
+          "link": "https://doi.org/10.1007/s41693-026-00216-x",
+          "tags": "LLM, 群体机器人, 行为生成, 仿真",
+          "publishedAt": "2026-07-10",
+          "keywords": "",
+          "extra": {
+            "venue": "Construction Robotics",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-openalex-7",
+          "score": 5,
+          "title": "Communication-Efficient Digital-Twin Coordination for Heterogeneous LLM Embodied Agents over Computing Power Networks",
+          "summary": "算力网上异构 LLM 具身智能体的高效通信数字孪生协同。",
+          "link": "https://openalex.org/W7168329093",
+          "tags": "LLM智能体, 数字孪生, 算力网络, 通信效率",
+          "publishedAt": "2026-07-10",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-openalex-8",
+          "score": 4,
+          "title": "Claim-Level Rubric Rewards for Video Caption Reinforcement Learning",
+          "summary": "提出声明级评分奖励框架，缓解视频描述 RL 的奖励设计瓶颈。",
+          "link": "https://openalex.org/W7167747431",
+          "tags": "强化学习, 视频描述, 奖励设计",
+          "publishedAt": "2026-07-06",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-openalex-9",
+          "score": 3,
+          "title": "Decentralized AI Agents and Blockchain: Architectures, Coordination Mechanisms, and Governance Frameworks",
+          "summary": "去中心化 AI 智能体与区块链的架构、协同与治理综述（弱相关）。",
+          "link": "https://doi.org/10.3390/fi18070352",
+          "tags": "去中心化智能体, 区块链, 治理",
+          "publishedAt": "2026-07-06",
+          "keywords": "",
+          "extra": {
+            "venue": "Future Internet",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-openalex-10",
+          "score": 3,
+          "title": "Exploring robotic autonomous systems: a survey of foundational technology in mining applications",
+          "summary": "矿业场景机器人自主系统基础技术综述（弱相关）。",
+          "link": "https://doi.org/10.1016/j.robot.2026.105626",
+          "tags": "机器人, 矿业, 综述",
+          "publishedAt": "2026-07-07",
+          "keywords": "",
+          "extra": {
+            "venue": "Robotics and Autonomous Systems",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-openalex-11",
+          "score": 3,
+          "title": "Personalized learning path recommendation for middle school students based on joint optimization of deep reinforcement learning and knowledge tracing",
+          "summary": "深度强化学习+知识追踪联合优化的学习路径推荐（教育场景，弱相关）。",
+          "link": "https://doi.org/10.1038/s41598-026-61166-6",
+          "tags": "深度强化学习, 知识追踪, 教育推荐",
+          "publishedAt": "2026-07-10",
+          "keywords": "",
+          "extra": {
+            "venue": "Scientific Reports",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-openalex-12",
+          "score": 3,
+          "title": "Prior-aware and Context-guided Group Sampling for Active Probabilistic Subsampling",
+          "summary": "先验感知+上下文引导的主动概率子采样，降低测量与传输开销（弱相关）。",
+          "link": "https://openalex.org/W7167981030",
+          "tags": "子采样, 概率建模, 主动采样",
+          "publishedAt": "2026-07-08",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        }
+      ]
+    },
+    {
+      "source": "rss",
+      "heading": "📰 优质资讯/论坛",
+      "summary": "",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 0,
+      "entries": []
+    },
+    {
+      "source": "github_weekly",
+      "heading": "🔥 GitHub 周榜",
+      "summary": "",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 7,
+      "entries": [
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-github_weekly-0",
+          "score": 9,
+          "title": "3b1b/manim",
+          "summary": "3Blue1Brown 出品的精确数学科普动画引擎。",
+          "link": "https://github.com/3b1b/manim",
+          "tags": "动画, 数学可视化, Python",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "91383",
+            "fork": "7556",
+            "language": "Python"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-github_weekly-1",
+          "score": 9,
+          "title": "addyosmani/agent-skills",
+          "summary": "面向 AI 编码智能体的生产级工程技能包（计划/构建/验证/评审）。",
+          "link": "https://github.com/addyosmani/agent-skills",
+          "tags": "AI智能体, 编码技能, 工程实践",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "87814",
+            "fork": "9408",
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-github_weekly-2",
+          "score": 9,
+          "title": "paperclipai/paperclip",
+          "summary": "开源 AI 智能体团队编排平台，统一管理工作场景多智能体。",
+          "link": "https://github.com/paperclipai/paperclip",
+          "tags": "智能体编排, 开源, 团队协作",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "78557",
+            "fork": "14390",
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-github_weekly-3",
+          "score": 9,
+          "title": "unslothai/unsloth",
+          "summary": "桌面端本地运行与微调 LLM/扩散模型（Qwen、Gemma、FLUX 等）。",
+          "link": "https://github.com/unslothai/unsloth",
+          "tags": "LLM微调, 本地训练, 扩散模型",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "72732",
+            "fork": "6556",
+            "language": "Python"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-github_weekly-4",
+          "score": 8,
+          "title": "ToolJet/ToolJet",
+          "summary": "AI 原生企业内部工具/看板/工作流低代码构建平台。",
+          "link": "https://github.com/ToolJet/ToolJet",
+          "tags": "低代码, 内部工具, AI应用",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "40155",
+            "fork": "5335",
+            "language": "JavaScript"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-github_weekly-5",
+          "score": 8,
+          "title": "basecamp/omarchy",
+          "summary": "DHH 出品的现代化 opinionated Arch Linux 发行版。",
+          "link": "https://github.com/basecamp/omarchy",
+          "tags": "Linux, 桌面环境, 发行版",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "25527",
+            "fork": "2601",
+            "language": "Shell"
+          }
+        },
+        {
+          "id": "2026-07-06_2026-07-12_20260817T041625Z-github_weekly-6",
+          "score": 8,
+          "title": "TencentCloud/TencentDB-Agent-Memory",
+          "summary": "智能体团队级记忆中枢：对话/技能/LLM-Wiki/代码图四类可复用记忆资产。",
+          "link": "https://github.com/T",
+          "tags": null,
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "entryCount": 21,
+    "sourceCounts": {
+      "arxiv": 1,
+      "openalex": 13,
+      "github_weekly": 7
+    },
+    "emptySections": [
+      "semantic_scholar",
+      "rss"
+    ]
+  }
+}

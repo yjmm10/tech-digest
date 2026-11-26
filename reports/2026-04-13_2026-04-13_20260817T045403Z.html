@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>技术周报 2026-04-13 ~ 2026-04-13 · tech-digest</title>
+<meta name="description" content="uf-mil/mil：佛罗里达大学机器智能实验室 monorepo，涵盖无人系统自主感知与控制全栈；v1taaa/YOLOv8-UAV-detection：基于 YOLOv8s 的无人机检测毕设，含 PyQt5 界面与 UAV 数据集；kudgey/uav-swarm：浏览器端 GPS 拒止环境无人机集群仿真器，面向研究场景（本期共 34 条）" />
+<link rel="canonical" href="https://yjmm10.github.io/tech-digest/reports/2026-04-13_2026-04-13_20260817T045403Z.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="技术周报 2026-04-13 ~ 2026-04-13" />
+<meta property="og:description" content="uf-mil/mil：佛罗里达大学机器智能实验室 monorepo，涵盖无人系统自主感知与控制全栈；v1taaa/YOLOv8-UAV-detection：基于 YOLOv8s 的无人机检测毕设，含 PyQt5 界面与 UAV 数据集；kudgey/uav-swarm：浏览器端 GPS 拒止环境无人机集群仿真器，面向研究场景（本期共 34 条）" />
+<meta property="og:url" content="https://yjmm10.github.io/tech-digest/reports/2026-04-13_2026-04-13_20260817T045403Z.html" />
+<meta property="og:image" content="https://yjmm10.github.io/tech-digest/icon-512.png" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="article:published_time" content="2026-04-13" />
+<meta property="article:modified_time" content="2026-08-17" />
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"技术周报 2026-04-13 ~ 2026-04-13","description":"uf-mil/mil：佛罗里达大学机器智能实验室 monorepo，涵盖无人系统自主感知与控制全栈；v1taaa/YOLOv8-UAV-detection：基于 YOLOv8s 的无人机检测毕设，含 PyQt5 界面与 UAV 数据集；kudgey/uav-swarm：浏览器端 GPS 拒止环境无人机集群仿真器，面向研究场景（本期共 34 条）","datePublished":"2026-04-13","dateModified":"2026-08-17","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://yjmm10.github.io/tech-digest/reports/2026-04-13_2026-04-13_20260817T045403Z.html"},"author":{"@type":"Organization","name":"tech-digest","url":"https://yjmm10.github.io/tech-digest/"},"publisher":{"@type":"Organization","name":"tech-digest","logo":{"@type":"ImageObject","url":"https://yjmm10.github.io/tech-digest/icon-512.png"}},"image":"https://yjmm10.github.io/tech-digest/icon-512.png","isPartOf":{"@id":"https://yjmm10.github.io/tech-digest/#website"}}</script>
+<style>
+:root { color-scheme: dark light; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #111; color: #f0f0f0; font: 16px/1.75 system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif; }
+@media (prefers-color-scheme: light) { body { background: #fafafa; color: #1c1c1c; } }
+.wrap { max-width: 880px; margin: 0 auto; padding: 32px 20px 64px; }
+.crumb { font-size: 14px; margin-bottom: 20px; }
+.crumb a { color: #3dd6c3; text-decoration: none; }
+.crumb a:hover { text-decoration: underline; }
+h1 { font-size: 1.7em; line-height: 1.3; margin: 0 0 8px; }
+.meta { color: #8b9bab; font-size: 14px; margin-bottom: 28px; }
+.meta span { margin-right: 14px; }
+.article h2 { font-size: 1.35em; margin: 2em 0 .6em; border-bottom: 1px solid rgba(128,128,128,.25); padding-bottom: .3em; }
+.article h3 { font-size: 1.15em; margin: 1.6em 0 .5em; }
+.article p { margin: .7em 0; overflow-wrap: break-word; }
+.article a { color: #3dd6c3; }
+.article blockquote { margin: 1em 0; padding: .6em 1em; border-left: 3px solid #3dd6c3; background: rgba(128,128,128,.08); border-radius: 4px; color: rgba(200,210,220,.9); }
+@media (prefers-color-scheme: light) { .article blockquote { color: #4a5560; } }
+.article table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 1em 0; display: block; overflow-x: auto; }
+.article th, .article td { border: 1px solid rgba(128,128,128,.3); padding: 6px 10px; text-align: left; vertical-align: top; }
+.article th { background: rgba(128,128,128,.1); }
+.article code { background: rgba(128,128,128,.15); padding: 1px 5px; border-radius: 4px; font-size: .9em; }
+.article hr { border: none; border-top: 1px solid rgba(128,128,128,.25); margin: 2em 0; }
+.foot { margin-top: 48px; padding-top: 20px; border-top: 1px solid rgba(128,128,128,.2); color: #8b9bab; font-size: 14px; }
+.foot a { color: #3dd6c3; text-decoration: none; }
+.foot a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="crumb"><a href="https://yjmm10.github.io/tech-digest/">← tech-digest · 技术周报归档</a></p>
+  <h1>技术周报 2026-04-13 ~ 2026-04-13</h1>
+  <p class="meta"><span>时间窗 2026-04-13 ~ 2026-04-13</span><span>34 条条目</span><span>抓取于 2026-08-17</span><span>GitHub 检索 16</span><span>OpenAlex 2</span></p>
+  <article class="article">
+<h2>📄 Arxiv 前沿论文</h2>
+
+<blockquote><strong>爬取时间</strong>：2026-08-17 04:54:03 UTC</blockquote>
+
+<blockquote>数据来自 arXiv（library 后端），按关键词 <code>(uav|aerial) &amp; (vlm|llm|mllm) &amp; (rl|reinforcement learning)</code> 在 2026-04-13 ~ 2026-04-13 时间窗检索；本期命中 0 条，仅保留表头。</blockquote>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%">
+<thead><tr><th>评分</th><th>标题</th><th>说明</th><th>链接</th><th>标签</th><th>发表时间</th><th>学科类别</th></tr></thead><tbody>
+</tbody>
+</table>
+
+<h2>🎓 Semantic Scholar</h2>
+
+<blockquote>数据来自 Semantic Scholar API，按关键词 <code>(uav|aerial) &amp; (vlm|llm|mllm) &amp; (rl)</code> 在同一时间窗检索；本期命中 0 条，仅保留表头。</blockquote>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%">
+<thead><tr><th>评分</th><th>标题</th><th>说明</th><th>链接</th><th>标签</th><th>发表时间</th><th>来源/venue</th><th>引用数</th></tr></thead><tbody>
+</tbody>
+</table>
+
+<h2>📚 OpenAlex</h2>
+
+<blockquote>数据来自 OpenAlex，关键词 <code>(uav|aerial) &amp; (vlm|llm|mllm) &amp; (rl)</code>；本期命中 2 条，均为 2026-04-13 的 arXiv 预印本，仅部分契合主题（涉及 LLM/VLM 或 RL，无无人机侧内容），评分据此下调。</blockquote>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%">
+<thead><tr><th>评分</th><th>标题</th><th>说明</th><th>链接</th><th>标签</th><th>发表时间</th><th>来源/venue</th><th>引用数</th></tr></thead><tbody>
+<tr><td>5</td><td>Back to the Barn with LLAMAS: Evolving Pretrained LLM Backbones in Finetuning Vision Language Models</td><td>提出在 VLM 微调阶段用进化方法演化预训练 LLM 推理骨干，替代固定 backbone</td><td><a href="https://openalex.org/W7154540561" target="_blank" rel="noreferrer">https://openalex.org/W7154540561</a></td><td>VLM, LLM骨干, 微调, 进化算法</td><td>2026-04-13</td><td>arXiv (Cornell University)</td><td>0</td></tr>
+<tr><td>4</td><td>Deep Learning for Sequential Decision Making under Uncertainty: Foundations, Frameworks, and Frontiers</td><td>综述不确定动态环境下深度序贯决策的基础、框架与前沿，与 RL 决策范式直接相关</td><td><a href="https://openalex.org/W7154540273" target="_blank" rel="noreferrer">https://openalex.org/W7154540273</a></td><td>序贯决策, 深度学习, 不确定性, 综述</td><td>2026-04-13</td><td>arXiv (Cornell University)</td><td>0</td></tr>
+</tbody>
+</table>
+
+<h2>📰 优质资讯/论坛</h2>
+
+<blockquote>本期 RSS 资讯源抓取结果为空（原始数据为「(无)」），无可呈现条目，仅保留表头。</blockquote>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%">
+<thead><tr><th>评分</th><th>标题</th><th>说明</th><th>链接</th><th>标签</th></tr></thead><tbody>
+</tbody>
+</table>
+
+<h2>🔥 GitHub 周榜</h2>
+
+<blockquote>数据为 Trending 类 RSS 榜单的<strong>原始条目</strong>，按配置<strong>不做</strong>关键词过滤或删减；评分侧重热度与代表性。榜单原始数据未含 Star/Fork/语言信息，相应列以「-」占位。</blockquote>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%">
+<thead><tr><th>评分</th><th>标题</th><th>说明</th><th>链接</th><th>标签</th><th>Star</th><th>Fork</th><th>主语言</th></tr></thead><tbody>
+<tr><td>9</td><td>unslothai/unsloth</td><td>首个桌面端 LLM/扩散模型本地运行与训练应用，支持 Qwen、DeepSeek、FLUX 等主流模型</td><td><a href="https://github.com/unslothai/unsloth" target="_blank" rel="noreferrer">https://github.com/unslothai/unsloth</a></td><td>LLM微调, 本地训练, 桌面应用</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>8</td><td>3b1b/manim</td><td>3Blue1Brown 出品的精确可编程数学动画引擎，解释型教学视频标准工具</td><td><a href="https://github.com/3b1b/manim" target="_blank" rel="noreferrer">https://github.com/3b1b/manim</a></td><td>数学动画, Python, 可视化</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>8</td><td>Lightricks/LTX-2</td><td>首个 DiT 架构音视频一体生成基础模型，官方推理与 LoRA 训练包</td><td><a href="https://github.com/Lightricks/LTX-2" target="_blank" rel="noreferrer">https://github.com/Lightricks/LTX-2</a></td><td>视频生成, DiT, LoRA, 音视频同步</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>8</td><td>PrimeIntellect-ai/prime-agent</td><td>自我改进的 RLM 编码/长任务智能体，上下文即变量并基于 PRIME-RL 持续进化</td><td><a href="https://github.com/PrimeIntellect-ai/prime-agent" target="_blank" rel="noreferrer">https://github.com/PrimeIntellect-ai/prime-agent</a></td><td>智能体, RLM, 自我改进, 强化学习</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>8</td><td>cactus-compute/needle</td><td>45M 参数、仅 14MB 的端侧基础模型，支持工具调用与结构化抽取，28MB 内存可跑完整会话</td><td><a href="https://github.com/cactus-compute/needle" target="_blank" rel="noreferrer">https://github.com/cactus-compute/needle</a></td><td>端侧模型, 模型压缩, 工具调用, 边缘计算</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>7</td><td>NVIDIA-NeMo/Switchyard</td><td>Rust 实现的 LLM 流量代理，跨模型/厂商路由并兼容 OpenAI 与 Anthropic API</td><td><a href="https://github.com/NVIDIA-NeMo/Switchyard" target="_blank" rel="noreferrer">https://github.com/NVIDIA-NeMo/Switchyard</a></td><td>LLM路由, Rust, 网关代理, 成本优化</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>7</td><td>semantica-agi/semantica</td><td>图原生基础设施：构建 Context Graph/知识图谱并做因果推理，定位为 AI Agent 版开源 Palantir</td><td><a href="https://github.com/semantica-agi/semantica" target="_blank" rel="noreferrer">https://github.com/semantica-agi/semantica</a></td><td>知识图谱, 因果推理, Agent基础设施, 可解释AI</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>7</td><td>vitali87/code-graph-rag</td><td>Tree-sitter 解析多语言 monorepo 并在 Memgraph 建知识图谱，支持自然语言查询与编辑代码</td><td><a href="https://github.com/vitali87/code-graph-rag" target="_blank" rel="noreferrer">https://github.com/vitali87/code-graph-rag</a></td><td>RAG, 代码知识图谱, monorepo, AI编程</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>7</td><td>addyosmani/agent-skills</td><td>面向 AI 编码智能体的生产级工程技能包，覆盖定义-规划-构建-验证-评审全流程</td><td><a href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noreferrer">https://github.com/addyosmani/agent-skills</a></td><td>AI编程, Agent技能, 工程实践</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>7</td><td>ToolJet/ToolJet</td><td>企业内部工具/AI Agent 应用生成平台的开源底座，可视化拖拽构建</td><td><a href="https://github.com/ToolJet/ToolJet" target="_blank" rel="noreferrer">https://github.com/ToolJet/ToolJet</a></td><td>低代码, 内部工具, AI Agent, 开源</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>7</td><td>TencentCloud/TencentDB-Agent-Memory</td><td>团队级 AI Agent 记忆中枢，把对话/文档/代码沉淀为四类可治理共享记忆资产</td><td><a href="https://github.com/TencentCloud/TencentDB-Agent-Memory" target="_blank" rel="noreferrer">https://github.com/TencentCloud/TencentDB-Agent-Memory</a></td><td>Agent记忆, 知识管理, 腾讯云, 多智能体</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>7</td><td>basecamp/omarchy</td><td>DHH 出品的现代极简 Linux 发行版，附权威官方手册</td><td><a href="https://github.com/basecamp/omarchy" target="_blank" rel="noreferrer">https://github.com/basecamp/omarchy</a></td><td>Linux发行版, Arch, 桌面环境</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>6</td><td>cathrynlavery/diagram-design</td><td>为 Claude Code 提供 29 种编辑级图表，自包含 HTML+SVG、风格克制</td><td><a href="https://github.com/cathrynlavery/diagram-design" target="_blank" rel="noreferrer">https://github.com/cathrynlavery/diagram-design</a></td><td>图表设计, SVG, Claude Code</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>6</td><td>megadose/holehe</td><td>经典 OSINT 工具：经忘记密码接口批量检测邮箱在 Twitter/Instagram 等站的注册情况</td><td><a href="https://github.com/megadose/holehe" target="_blank" rel="noreferrer">https://github.com/megadose/holehe</a></td><td>OSINT, 邮箱侦察, 信息收集</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>6</td><td>macro-inc/macro</td><td>邮件、聊天、文档、任务、Agent、CRM 一体的团队工作区，共享 AI 记忆</td><td><a href="https://github.com/macro-inc/macro" target="_blank" rel="noreferrer">https://github.com/macro-inc/macro</a></td><td>协作工具, AI工作区, CRM</td><td>-</td><td>-</td><td>-</td></tr>
+<tr><td>6</td><td>paperclipai/paperclip</td><td>开源多 Agent 编排应用：像运营公司一样编排一支 AI Agent 团队处理业务</td><td><a href="https://github.com/paperclipai/paperclip" target="_blank" rel="noreferrer">https://github.com/paperclipai/paperclip</a></td><td>Agent编排, Node.js, 工作流</td><td>-</td><td>-</td><td>-</td></tr>
+</tbody>
+</table>
+
+<h2>🔎 GitHub 指定日期检索</h2>
+
+<blockquote>数据来自 GitHub 官方 <code>search/repositories</code>，在全站公开仓库内按关键词 <code>uav &amp; (rl|llm)</code> + <code>pushed:</code> 日期窗（2026-04-13）检索，<strong>非</strong> Trending 周榜/日榜。评分侧重与检索关键词及时间条件的契合度；已略去多条「No description」且与关键词无明显关联的低信息仓库。</blockquote>
+
+<table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse;width:100%">
+<thead><tr><th>评分</th><th>标题</th><th>说明</th><th>链接</th><th>标签</th><th>Star</th><th>Fork</th><th>主语言</th></tr></thead><tbody>
+<tr><td>8</td><td>uf-mil/mil</td><td>佛罗里达大学机器智能实验室 monorepo，涵盖无人系统自主感知与控制全栈</td><td><a href="https://github.com/uf-mil/mil" target="_blank" rel="noreferrer">https://github.com/uf-mil/mil</a></td><td>机器人, 自主导航, monorepo, 科研</td><td>58</td><td>27</td><td>Python</td></tr>
+<tr><td>7</td><td>v1taaa/YOLOv8-UAV-detection</td><td>基于 YOLOv8s 的无人机检测毕设，含 PyQt5 界面与 UAV 数据集</td><td><a href="https://github.com/v1taaa/YOLOv8-UAV-detection" target="_blank" rel="noreferrer">https://github.com/v1taaa/YOLOv8-UAV-detection</a></td><td>目标检测, YOLOv8, 无人机检测, PyQt</td><td>6</td><td>1</td><td>Python</td></tr>
+<tr><td>6</td><td>kudgey/uav-swarm</td><td>浏览器端 GPS 拒止环境无人机集群仿真器，面向研究场景</td><td><a href="https://github.com/kudgey/uav-swarm" target="_blank" rel="noreferrer">https://github.com/kudgey/uav-swarm</a></td><td>集群仿真, GPS拒止, 无人机</td><td>0</td><td>0</td><td>TypeScript</td></tr>
+<tr><td>6</td><td>LingyiWang-Ricky/UAV_Navigation_WM</td><td>基于世界模型（World Model）的无人机导航项目，契合 RL/生成式导航方向</td><td><a href="https://github.com/LingyiWang-Ricky/UAV_Navigation_WM" target="_blank" rel="noreferrer">https://github.com/LingyiWang-Ricky/UAV_Navigation_WM</a></td><td>世界模型, 无人机导航, 具身智能</td><td>0</td><td>0</td><td>Python</td></tr>
+<tr><td>5</td><td>Sanmopre/Simple_GCS</td><td>C++/ImGui 编写的轻量无人机地面站，用于远程控制</td><td><a href="https://github.com/Sanmopre/Simple_GCS" target="_blank" rel="noreferrer">https://github.com/Sanmopre/Simple_GCS</a></td><td>地面站, GCS, C++, ImGui</td><td>6</td><td>1</td><td>C++</td></tr>
+<tr><td>5</td><td>d0nk66/UAV-ISAC-Planning</td><td>无人机通感一体化（ISAC）规划毕设项目</td><td><a href="https://github.com/d0nk66/UAV-ISAC-Planning" target="_blank" rel="noreferrer">https://github.com/d0nk66/UAV-ISAC-Planning</a></td><td>ISAC, 路径规划, 无人机通信</td><td>1</td><td>0</td><td>Python</td></tr>
+<tr><td>5</td><td>Kou-JY/uav_estimator</td><td>深度学习辅助的迎角（AoA）估计器，面向飞行状态感知</td><td><a href="https://github.com/Kou-JY/uav_estimator" target="_blank" rel="noreferrer">https://github.com/Kou-JY/uav_estimator</a></td><td>深度学习, 迎角估计, 飞控</td><td>0</td><td>0</td><td>Python</td></tr>
+<tr><td>5</td><td>Deepak-212/UAV-Path-Planning</td><td>用 A*、CSP 与时空 A* 求解静态/动态障碍下的无人机路径规划</td><td><a href="https://github.com/Deepak-212/UAV-Path-Planning" target="_blank" rel="noreferrer">https://github.com/Deepak-212/UAV-Path-Planning</a></td><td>路径规划, A*, CSP</td><td>0</td><td>0</td><td>Jupyter Notebook</td></tr>
+<tr><td>4</td><td>mbari-org/KelpCoverage</td><td>从无人机影像计算海带覆盖率的海洋生态遥感分析</td><td><a href="https://github.com/mbari-org/KelpCoverage" target="_blank" rel="noreferrer">https://github.com/mbari-org/KelpCoverage</a></td><td>遥感, 海洋生态, 图像分析</td><td>3</td><td>0</td><td>Python</td></tr>
+<tr><td>4</td><td>Pratikw369/uav_ws</td><td>面向 drone code 的 ROS2 无人机工作区</td><td><a href="https://github.com/Pratikw369/uav_ws" target="_blank" rel="noreferrer">https://github.com/Pratikw369/uav_ws</a></td><td>ROS2, 无人机, workspace</td><td>1</td><td>0</td><td>Python</td></tr>
+<tr><td>4</td><td>Wenfeng-Wu/d-cc-isac-uav</td><td>无人机通感一体化（ISAC）研究代码</td><td><a href="https://github.com/Wenfeng-Wu/d-cc-isac-uav" target="_blank" rel="noreferrer">https://github.com/Wenfeng-Wu/d-cc-isac-uav</a></td><td>ISAC, 无人机通信</td><td>1</td><td>0</td><td>Python</td></tr>
+<tr><td>4</td><td>nishantkumar2001/UAV-Secure-Multipath-Fragmentation</td><td>无人机多链路安全多径分片通信代码</td><td><a href="https://github.com/nishantkumar2001/UAV-Secure-Multipath-Fragmentation" target="_blank" rel="noreferrer">https://github.com/nishantkumar2001/UAV-Secure-Multipath-Fragmentation</a></td><td>多链路通信, 安全传输</td><td>1</td><td>0</td><td>Python</td></tr>
+<tr><td>4</td><td>rintukumar52588-code/UAV-simulator-</td><td>纯 Python 实现的无人机仿真代码</td><td><a href="https://github.com/rintukumar52588-code/UAV-simulator-" target="_blank" rel="noreferrer">https://github.com/rintukumar52588-code/UAV-simulator-</a></td><td>仿真, Python</td><td>1</td><td>0</td><td>Python</td></tr>
+<tr><td>4</td><td>dan-od/uav-anomaly</td><td>无人机数据异常检测 Notebook 项目</td><td><a href="https://github.com/dan-od/uav-anomaly" target="_blank" rel="noreferrer">https://github.com/dan-od/uav-anomaly</a></td><td>异常检测, Jupyter</td><td>0</td><td>0</td><td>Jupyter Notebook</td></tr>
+<tr><td>4</td><td>SundarS007/aerosim-uav-planner</td><td>基于 AeroSim 的无人机规划器项目</td><td><a href="https://github.com/SundarS007/aerosim-uav-planner" target="_blank" rel="noreferrer">https://github.com/SundarS007/aerosim-uav-planner</a></td><td>仿真, 任务规划</td><td>0</td><td>0</td><td>Python</td></tr>
+<tr><td>4</td><td>hrishiagarwal1-png/UAV-analysis</td><td>MATLAB 固定翼气动分析：升阻力、推力配平与最小性能条件求解</td><td><a href="https://github.com/hrishiagarwal1-png/UAV-analysis" target="_blank" rel="noreferrer">https://github.com/hrishiagarwal1-png/UAV-analysis</a></td><td>固定翼, 气动分析, MATLAB</td><td>0</td><td>0</td><td>MATLAB</td></tr>
+</tbody>
+</table>
+
+<blockquote>注：另有约 14 条无简介或与 <code>uav &amp; (rl|llm)</code> 关联极弱的仓库（多为课程作业/空仓库）已按低质项略去。</blockquote>
+
+  </article>
+  <div class="foot">
+    <p>本文为 <a href="https://yjmm10.github.io/tech-digest/">技术周报归档（tech-digest）</a>的周报存档全文（34 条条目）。每周五自动更新，
+    可通过 <a href="https://yjmm10.github.io/tech-digest/feed.xml">RSS 订阅</a>获取每期全文，或在 <a href="https://yjmm10.github.io/tech-digest/#entries">数据站</a>检索全部历史条目。</p>
+    <p>引用请注明来源：<a href="https://yjmm10.github.io/tech-digest/reports/2026-04-13_2026-04-13_20260817T045403Z.html">https://yjmm10.github.io/tech-digest/reports/2026-04-13_2026-04-13_20260817T045403Z.html</a></p>
+  </div>
+</div>
+</body>
+</html>

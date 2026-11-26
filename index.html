@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>tech-digest · 中文 AI 技术周报与多源技术情报归档</title>
+    <meta
+      name="description"
+      content="tech-digest 每周五自动聚合 arXiv 论文速递、Semantic Scholar、OpenAlex 学术动态、GitHub 开源趋势与 RSS 资讯六大来源，GLM 生成中文摘要与相关性评分，提供全文检索、日历回溯与 RSS 订阅的中文技术情报周报归档。"
+    />
+    <link rel="alternate" type="application/rss+xml" title="技术周报 RSS" href="https://yjmm10.github.io/tech-digest/feed.xml" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./icon-192.png" type="image/png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111111" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fafafa" />
+    <script>
+      (function () {
+        try {
+          var p = localStorage.getItem("digest-viewer-theme");
+          var light =
+            p === "light" ||
+            (p !== "dark" && window.matchMedia("(prefers-color-scheme: light)").matches);
+          document.documentElement.dataset.theme = light ? "light" : "dark";
+          if (p) document.documentElement.dataset.themePref = p;
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-web@1.7.0/style.css"
+    />
+    <script type="module" crossorigin src="/tech-digest/assets/index-xmFtdPg3.js"></script>
+    <link rel="stylesheet" crossorigin href="/tech-digest/assets/index-DNg7D392.css">
+  <!--seo-head-start-->
+<link rel="canonical" href="https://yjmm10.github.io/tech-digest/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="技术周报归档 tech-digest" />
+<meta property="og:title" content="tech-digest · 中文 AI 技术周报与多源技术情报归档" />
+<meta property="og:description" content="tech-digest 是一份每周自动更新的中文技术情报周报（AI 技术周报）：聚合 arXiv 论文速递、Semantic Scholar、OpenAlex 学术动态、GitHub 开源趋势与 RSS 资讯，由大模型生成中文摘要与相关性评分，每周五发布并提供 RSS 订阅。" />
+<meta property="og:url" content="https://yjmm10.github.io/tech-digest/" />
+<meta property="og:image" content="https://yjmm10.github.io/tech-digest/icon-512.png" />
+<meta property="og:locale" content="zh_CN" />
+<meta name="twitter:card" content="summary" />
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://yjmm10.github.io/tech-digest/#website",
+   "url": "https://yjmm10.github.io/tech-digest/",
+   "name": "技术周报归档（tech-digest）",
+   "alternateName": "tech-digest",
+   "description": "tech-digest 是一份每周自动更新的中文技术情报周报（AI 技术周报）：聚合 arXiv 论文速递、Semantic Scholar、OpenAlex 学术动态、GitHub 开源趋势与 RSS 资讯，由大模型生成中文摘要与相关性评分，每周五发布并提供 RSS 订阅。",
+   "inLanguage": "zh-CN",
+   "publisher": {
+    "@id": "https://yjmm10.github.io/tech-digest/#org"
+   },
+   "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://yjmm10.github.io/tech-digest/#entries?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+   }
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://yjmm10.github.io/tech-digest/#org",
+   "name": "tech-digest",
+   "url": "https://yjmm10.github.io/tech-digest/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://yjmm10.github.io/tech-digest/icon-512.png"
+   },
+   "description": "多源技术情报抓取与 AI 汇总的开源自动化管线：Python 完成采集与 GLM 摘要评分，条目按 Schema v1 落盘为 JSON 归档，React 档案站提供检索 / 日历 / Markdown 阅读，GitHub Actions 定时构建并发布至 GitHub Pages。",
+   "sameAs": [
+    "https://github.com/yjmm10/tech-digest"
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://yjmm10.github.io/tech-digest/#faq",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "tech-digest 是什么？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "tech-digest 是一份每周自动生成的中文技术情报周报与配套开源管线：聚合六类公开信息源，由 GLM 大模型生成中文摘要与相关性评分，三级去重后结构化归档，支持全文检索、日历回溯与 RSS 订阅。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "周报覆盖哪些数据来源？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "arXiv 前沿论文、Semantic Scholar、OpenAlex 学术数据、GitHub Trending 周榜、GitHub 关键词检索与自定义 RSS 订阅源，共用关键词与时间窗配置，一次运行全量覆盖。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "周报多久更新一次？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "每周五 UTC 12:00 由 GitHub Actions 定时触发，抓取完成后自动构建发布到 GitHub Pages，并同步生成 RSS 订阅源与 JSON 归档。"
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "如何订阅或引用本站内容？",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "通过 feed.xml 订阅 RSS 可获取每期全文；本站内容公开，欢迎引用，引用时请注明来源链接 https://yjmm10.github.io/tech-digest/。"
+     }
+    }
+   ]
+  }
+ ]
+}</script>
+<!--seo-head-end-->
+  </head>
+  <body>
+    <div id="root">
+    
+<!--seo-static-start（构建期注入，React 挂载后无缝替换；勿手工编辑）-->
+<div class="landing">
+  <main>
+    <section class="landing__hero">
+      <div class="landing__aurora" aria-hidden="true">
+        <span class="landing__aurora-blob landing__aurora-blob--a"></span>
+        <span class="landing__aurora-blob landing__aurora-blob--b"></span>
+      </div>
+      <div class="landing__hero-copy">
+        <span class="landing__badge"><span class="landing__badge-dot" aria-hidden="true"></span>开源项目 · 每周五自动更新</span>
+        <h1>把散落的技术情报<br />收进<em>一份周报</em></h1>
+        <p class="landing__lead">基于 GitHub Actions 定时抓取 arXiv、Semantic Scholar、OpenAlex、GitHub 趋势/检索与 RSS 六类公开信息源，由 GLM 大模型生成中文摘要与相关性评分，经三级去重后结构化归档，支持全文检索、日历回溯与 RSS 订阅。</p>
+        <p class="landing__seo-def">tech-digest 是一份每周自动更新的中文技术情报周报（AI 技术周报）：聚合 arXiv 论文速递、Semantic Scholar、OpenAlex 学术动态、GitHub 开源趋势与 RSS 资讯，由大模型生成中文摘要与相关性评分，每周五发布并提供 RSS 订阅。</p>
+        <div class="landing__actions">
+          <a class="landing__cta" href="#entries">进入数据站</a>
+          <a class="landing__cta landing__cta--ghost" href="https://yjmm10.github.io/tech-digest/feed.xml">订阅 RSS</a>
+        </div>
+        <p class="landing__fact">已归档 <strong>38</strong> 期 · <strong>1025</strong> 条 · 覆盖 <strong>6</strong> 类来源</p>
+        <p class="landing__fact"><a href="https://yjmm10.github.io/tech-digest/reports/2026-08-10_2026-08-16_20260817T040709Z.html">最新一期：技术周报 2026-08-10 ~ 2026-08-16</a></p>
+      </div>
+      <div class="landing__frame" aria-hidden="true">
+        <div class="af">
+          <div class="af__bar"><span class="af__dot"></span><span class="af__dot"></span><span class="af__dot"></span><span class="af__title">技术周报归档 · 数据站</span></div>
+          <div class="af__filter"><span class="af__search">搜索条目、标签、仓库…</span><span class="af__chip">评分</span><span class="af__chip af__chip--on">全部</span></div>
+          <div class="af__rows">
+          <div class="af__row">
+            <div class="af__row-top">
+              <span class="af__src af__src--github_weekly">GH 周榜</span>
+              <span class="af__score">10</span>
+            </div>
+            <div class="af__row-title">3b1b/manim</div>
+            <div class="af__row-desc">精确程序化数字动画引擎，3Blue1Brown 出品</div>
+            <div class="af__row-tags"><span>数学动画</span><span>Python</span><span>可视化</span></div>
+          </div>
+          <div class="af__row">
+            <div class="af__row-top">
+              <span class="af__src af__src--openalex">OpenAlex</span>
+              <span class="af__score">10</span>
+            </div>
+            <div class="af__row-title">RecoverFly: A Failure-Aware Reinforcement Learning Post-…</div>
+            <div class="af__row-desc">面向 UAV 视觉-语言导航的失败感知 RL 后训练框架，让智能体从执行错误中恢复</div>
+            <div class="af__row-tags"><span>UAV</span><span>VLN</span><span>强化学习</span></div>
+          </div>
+          <div class="af__row">
+            <div class="af__row-top">
+              <span class="af__src af__src--github_search">GH 检索</span>
+              <span class="af__score">9</span>
+            </div>
+            <div class="af__row-title">alexpalms/deeprl-counter-uav-swarm</div>
+            <div class="af__row-desc">强化学习框架，用于决策级无人机集群拦截优先级排序</div>
+            <div class="af__row-tags"><span>无人机集群</span><span>RL</span><span>拦截决策</span></div>
+          </div>
+          <div class="af__row">
+            <div class="af__row-top">
+              <span class="af__src af__src--arxiv">Arxiv</span>
+              <span class="af__score">9</span>
+            </div>
+            <div class="af__row-title">FIRE-VLM: A Vision-Language-Driven Reinforcement Learning…</div>
+            <div class="af__row-desc">视觉-语言模型驱动的强化学习新范式</div>
+            <div class="af__row-tags"><span>视觉语言</span><span>强化学习</span></div>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="landing__marquee" aria-hidden="true">
+      <div class="landing__marquee-track">
+        <div class="landing__marquee-group"><span class="landing__source-chip landing__source-chip--arxiv">arXiv</span><span class="landing__source-chip landing__source-chip--semantic">Semantic Scholar</span><span class="landing__source-chip landing__source-chip--openalex">OpenAlex</span><span class="landing__source-chip landing__source-chip--github_weekly">GitHub Trending</span><span class="landing__source-chip landing__source-chip--github_search">GitHub Search</span><span class="landing__source-chip landing__source-chip--rss">RSS 订阅源</span></div>
+        <div class="landing__marquee-group"><span class="landing__source-chip landing__source-chip--arxiv">arXiv</span><span class="landing__source-chip landing__source-chip--semantic">Semantic Scholar</span><span class="landing__source-chip landing__source-chip--openalex">OpenAlex</span><span class="landing__source-chip landing__source-chip--github_weekly">GitHub Trending</span><span class="landing__source-chip landing__source-chip--github_search">GitHub Search</span><span class="landing__source-chip landing__source-chip--rss">RSS 订阅源</span></div>
+      </div>
+    </div>
+
+    <section id="features" class="landing__section">
+      <div class="landing__section-head"><h2>能力特性</h2><p class="landing__section-sub">一套可自部署的技术情报自动化管线</p></div>
+      <div class="landing__grid">
+            <article class="landing__card">
+              <span class="landing__card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="m3 13 9 5 9-5" opacity="0.55"/></svg></span>
+              <h3>六源统一调度</h3>
+              <p>arXiv、Semantic Scholar、OpenAlex、GitHub Trending / 检索与 RSS 订阅源，共用关键词与时间窗配置，一次运行全量覆盖。</p>
+            </article>
+
+            <article class="landing__card">
+              <span class="landing__card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="7" width="16" height="12" rx="3"/><path d="M12 3v4M9 13h.01M15 13h.01M9.5 16.5h5"/></svg></span>
+              <h3>AI 摘要与评分</h3>
+              <p>GLM 大模型为每条条目生成中文摘要与 0–10 相关性评分；主模型异常时自动切换备用网关，产出不中断。</p>
+            </article>
+
+            <article class="landing__card">
+              <span class="landing__card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12"/><path d="m3 5 2 2 3-3" opacity="0.8"/><path d="m3 16 2 2 3-3" opacity="0.5"/></svg></span>
+              <h3>三级去重清洗</h3>
+              <p>同期次、单期内与跨期按链接三级去重，跨期保留最早记录，确保归档条目唯一、可追溯。</p>
+            </article>
+
+            <article class="landing__card">
+              <span class="landing__card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16l-6.5 8v6l-3-1.5V13L4 5Z"/></svg></span>
+              <h3>多维检索回溯</h3>
+              <p>关键词、来源、评分、时间窗与日历自由组合筛选，数据一次加载、全量在客户端完成，交互零延迟。</p>
+            </article>
+
+            <article class="landing__card">
+              <span class="landing__card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="8" ry="2.8"/><path d="M4 5.5v13c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8v-13"/><path d="M4 12c0 1.5 3.6 2.8 8 2.8s8-1.3 8-2.8"/></svg></span>
+              <h3>Schema v1 结构化归档</h3>
+              <p>每期落盘为独立 JSON（含 Markdown 原文与元数据），历史数据可恢复、可迁移、可二次加工。</p>
+            </article>
+
+            <article class="landing__card">
+              <span class="landing__card-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11"/><path d="m7 9 5-6 5 6"/><path d="M4 15v4a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-4"/></svg></span>
+              <h3>自动发布与订阅</h3>
+              <p>CI 自动构建 GitHub Pages 档案站并生成 RSS 源，抓取完成即上线，全程无需手动运维。</p>
+            </article></div>
+    </section>
+
+    <section id="how" class="landing__section">
+      <div class="landing__section-head"><h2>运作方式</h2><p class="landing__section-sub">从信息源到归档发布，全流程由 CI 自动完成</p></div>
+      <ol class="landing__steps">
+              <li class="landing__step">
+                <span class="landing__step-n">01</span>
+                <h3>定时抓取</h3>
+                <p>GitHub Actions 每周五 UTC 12:00 定时触发，多源并发拉取最新内容</p>
+              </li>
+
+              <li class="landing__step">
+                <span class="landing__step-n">02</span>
+                <h3>清洗去重</h3>
+                <p>同期次 / 单期内 / 跨期三级去重，过滤无效与重复条目</p>
+              </li>
+
+              <li class="landing__step">
+                <span class="landing__step-n">03</span>
+                <h3>AI 摘要评分</h3>
+                <p>GLM 生成中文摘要与相关性评分，备用模型自动接管异常</p>
+              </li>
+
+              <li class="landing__step">
+                <span class="landing__step-n">04</span>
+                <h3>归档发布</h3>
+                <p>按 Schema v1 落盘，CI 构建 Pages 站点与 RSS 并推送上线</p>
+              </li>
+      </ol>
+    </section>
+
+    <section class="landing__band-wrap">
+      <div class="landing__band">
+        <div class="landing__band-item"><strong>38</strong><span>期定时抓取</span></div>
+        <div class="landing__band-item"><strong>1025</strong><span>条情报条目</span></div>
+        <div class="landing__band-item"><strong>6</strong><span>类公开信息源</span></div>
+        <div class="landing__band-item"><strong>每周</strong><span>定时更新</span></div>
+      </div>
+    </section>
+
+    <section id="faq" class="landing__section">
+      <div class="landing__section-head"><h2>常见问题</h2><p class="landing__section-sub">关于本项目的快速答案</p></div>
+      <div class="landing__grid">
+            <article class="landing__card landing__faq-card">
+              <h3>tech-digest 是什么？</h3>
+              <p>tech-digest 是一份每周自动生成的中文技术情报周报与配套开源管线：聚合六类公开信息源，由 GLM 大模型生成中文摘要与相关性评分，三级去重后结构化归档，支持全文检索、日历回溯与 RSS 订阅。</p>
+            </article>
+
+            <article class="landing__card landing__faq-card">
+              <h3>周报覆盖哪些数据来源？</h3>
+              <p>arXiv 前沿论文、Semantic Scholar、OpenAlex 学术数据、GitHub Trending 周榜、GitHub 关键词检索与自定义 RSS 订阅源，共用关键词与时间窗配置，一次运行全量覆盖。</p>
+            </article>
+
+            <article class="landing__card landing__faq-card">
+              <h3>周报多久更新一次？</h3>
+              <p>每周五 UTC 12:00 由 GitHub Actions 定时触发，抓取完成后自动构建发布到 GitHub Pages，并同步生成 RSS 订阅源与 JSON 归档。</p>
+            </article>
+
+            <article class="landing__card landing__faq-card">
+              <h3>如何订阅或引用本站内容？</h3>
+              <p>通过 feed.xml 订阅 RSS 可获取每期全文；本站内容公开，欢迎引用，引用时请注明来源链接 https://yjmm10.github.io/tech-digest/。</p>
+            </article></div>
+    </section>
+
+    <section class="landing__final">
+      <h2>本周的技术动向，已经帮你整理好了</h2>
+      <p>打开数据站按评分浏览、按日历回溯，或在阅读器里订阅每周 RSS。</p>
+      <div class="landing__actions landing__actions--center">
+        <a class="landing__cta" href="#entries">进入数据站</a>
+        <a class="landing__cta landing__cta--ghost" href="https://github.com/yjmm10/tech-digest" rel="noreferrer">查看 GitHub 仓库</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="landing__footer">
+    <div class="landing__footer-main">
+      <div class="landing__footer-brand">
+        <img class="landing__footer-logo" src="https://yjmm10.github.io/tech-digest/favicon.svg" alt="" width="28" height="28" />
+        <div><strong>技术周报归档</strong><span class="landing__footer-en">tech-digest</span></div>
+      </div>
+      <p class="landing__footer-desc">多源技术情报抓取与 AI 汇总的开源自动化管线：Python 完成采集与 GLM 摘要评分，条目按 Schema v1 落盘为 JSON 归档，React 档案站提供检索 / 日历 / Markdown 阅读，GitHub Actions 定时构建并发布至 GitHub Pages。</p>
+    </div>
+    <div class="landing__footer-cols">
+      <nav class="landing__footer-col" aria-label="产品入口">
+        <h4>产品</h4>
+        <a href="#entries">数据站 · 条目检索</a>
+        <a href="#markdown">Markdown 周报</a>
+        <a href="https://yjmm10.github.io/tech-digest/about.html">关于本项目</a>
+        <a href="https://yjmm10.github.io/tech-digest/feed.xml">RSS 订阅源</a>
+      </nav>
+      <nav class="landing__footer-col" aria-label="项目资源">
+        <h4>资源</h4>
+        <a href="https://github.com/yjmm10/tech-digest" rel="noreferrer">GitHub 仓库</a>
+        <a href="https://yjmm10.github.io/tech-digest/reports/2026-08-10_2026-08-16_20260817T040709Z.html">最新一期周报</a>
+        <a href="https://yjmm10.github.io/tech-digest/llms.txt">llms.txt</a>
+        <a href="https://yjmm10.github.io/tech-digest/llms-full.txt">llms-full.txt</a>
+        <a href="https://yjmm10.github.io/tech-digest/sitemap.xml">sitemap.xml</a>
+        <a href="https://yjmm10.github.io/tech-digest/viewer-data.json">viewer-data.json</a>
+      </nav>
+      <div class="landing__footer-col">
+        <h4>说明</h4>
+        <p>条目均来自公开信息源，AI 摘要与评分由大模型生成、仅供参考；项目为个人维护的非商业开源项目。</p>
+      </div>
+    </div>
+    <div class="landing__footer-bottom">
+      <span>© 2026 tech-digest</span>
+      <span>GitHub Actions 每周五自动构建 · GitHub Pages 托管</span>
+    </div>
+  </footer>
+</div>
+<!--seo-static-end-->
+  </div>
+  </body>
+</html>

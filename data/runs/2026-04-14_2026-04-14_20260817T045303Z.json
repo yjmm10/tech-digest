@@ -1,0 +1,536 @@
+{
+  "schemaVersion": "1",
+  "id": "2026-04-14_2026-04-14_20260817T045303Z",
+  "crawl": {
+    "executedAt": "2026-08-17T04:53:03.303931Z",
+    "crawlDate": "2026-08-17",
+    "status": "success",
+    "trigger": "ci"
+  },
+  "window": {
+    "dateStart": "2026-04-14",
+    "dateEnd": "2026-04-14",
+    "preset": "week",
+    "mode": "custom"
+  },
+  "config": {
+    "keywords": "(uav|aerial) & (vlm|llm|mllm) & (rl)",
+    "date_range": {
+      "preset": "week"
+    },
+    "ai": {
+      "model": "glm-5.2",
+      "max_tokens": 12000,
+      "thinking": "disabled"
+    }
+  },
+  "content": {
+    "markdownBody": "## 📄 Arxiv 前沿论文\n\n> **爬取时间**：2026-08-17 04:53:03 UTC\n\n> 数据来自 Arxiv（library 后端）检索，关键词 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗 2026-04-14 ~ 2026-04-14。本窗口未命中任何论文，故表体为空。\n\n| 评分 | 标题 | 说明 | 发表时间 | 学科类别 | 链接 | 标签 |\n|---|---|---|---|---|---|---|\n\n## 🎓 Semantic Scholar\n\n> 数据来自 Semantic Scholar 检索，关键词 `(uav|aerial) & (vlm|llm|mllm) & (rl)`，时间窗 2026-04-14 ~ 2026-04-14。本窗口返回 0 条，故表体为空。\n\n| 评分 | 标题 | 说明 | 发表时间 | 来源/venue | 引用数 | 链接 | 标签 |\n|---|---|---|---|---|---|---|---|\n\n## 📚 OpenAlex\n\n> 数据来自 OpenAlex 检索，关键词 `(uav|aerial) & (vlm|llm|mllm) & (rl)`，时间窗 2026-04-14 ~ 2026-04-14，共 3 条；本周命中结果与无人机/RL 主题贴合度一般，评分侧重主题相关性与新颖度。\n\n| 评分 | 标题 | 说明 | 发表时间 | 来源/venue | 引用数 | 链接 | 标签 |\n|---|---|---|---|---|---|---|---|\n| 6 | LLM-Driven Large-Scale Spectrum Access | 用 LLM 应对大规模无线网络频谱接入中爆炸性动作空间与计算不可解难题 | 2026-04-14 | arXiv (Cornell University) | 0 | https://openalex.org/W7154789810 | LLM, 频谱接入, 无线网络, 决策优化 |\n| 4 | Hybrid GNN-Centric Architectures for AI-Native 6G Wireless Networks: A Comprehensive Survey | 综述面向 AI 原生 6G 的混合 GNN 中心架构与数据驱动网络设计 | 2026-04-14 | White Rose Research Online (University of Leeds, The University of Sheffield, University of York) | 0 | https://openalex.org/W7154922058 | GNN, 6G, AI-native, 综述 |\n| 3 | Deep Learning in the Architecture, Engineering, and Construction (AEC) Industry: Methods, Challenges, and Emerging Opportunities | 系统梳理深度学习在建筑/工程/建造行业的方法、挑战与新兴机会 | 2026-04-14 | Buildings | 0 | https://doi.org/10.3390/buildings16081546 | deep learning, AEC, 综述, 智能建造 |\n\n## 📰 优质资讯/论坛\n\n> 本板块原始数据为「(无)」：配置的 RSS 源在本时间窗内未返回任何条目，故表体为空。\n\n| 评分 | 标题 | 说明 | 链接 | 标签 |\n|---|---|---|---|---|\n\n## 🔥 GitHub 周榜\n\n> 本表为 **Trending 类 RSS 榜单的原始条目**（本周共 16 条），按配置**未做任何关键词或时间窗过滤**；评分侧重榜单热度与代表性。原始榜单未附 Star/Fork/语言信息，相应列以「-」占位。\n\n| 评分 | 标题 | 说明 | 链接 | 标签 | Star | Fork | 主语言 |\n|---|---|---|---|---|---|---|---|\n| 9 | 3b1b/manim | 面向数学解释视频的精确程序化动画引擎，教育可视化标杆 | https://github.com/3b1b/manim | 动画引擎, 数学可视化, Python | - | - | - |\n| 9 | unslothai/unsloth | 首个本地桌面应用：一键运行/微调主流 LLM 与扩散模型 | https://github.com/unslothai/unsloth | LLM 微调, 端侧训练, 桌面应用 | - | - | - |\n| 8 | ToolJet/ToolJet | 开源低代码底座，AI 原生构建内部工具、工作流与智能体 | https://github.com/ToolJet/ToolJet | 低代码, AI agents, 内部工具 | - | - | - |\n| 8 | Lightricks/LTX-2 | DiT 音视频一体生成基础模型的官方推理与 LoRA 训练包 | https://github.com/Lightricks/LTX-2 | 视频生成, DiT, LoRA, 生成模型 | - | - | - |\n| 8 | PrimeIntellect-ai/prime-agent | 自我改进的 RLM 编码智能体，长时自主任务 + prompt-as-a-variable | https://github.com/PrimeIntellect-ai/prime-agent | 自主智能体, RLM, coding agent, 自我改进 | - | - | - |\n| 7 | NVIDIA-NeMo/Switchyard | Rust 版 LLM 流量代理：跨厂商路由并兼容 OpenAI/Anthropic API | https://github.com/NVIDIA-NeMo/Switchyard | LLM 路由, 反向代理, Rust, 成本优化 | - | - | - |\n| 7 | megadose/holehe | 借「忘记密码」接口检测邮箱注册站点的经典 OSINT 工具 | https://github.com/megadose/holehe | OSINT, 邮箱枚举, 信息收集 | - | - | - |\n| 7 | cactus-compute/needle | 45M 参数、14MB 的端侧基础模型：工具调用 + 结构化抽取 | https://github.com/cactus-compute/needle | 端侧模型, 模型压缩, tool calling | - | - | - |\n| 7 | addyosmani/agent-skills | 给 AI 编码智能体用的生产级工程技能包（计划/构建/验证/交付） | https://github.com/addyosmani/agent-skills | AI agents, 工程实践, coding agent | - | - | - |\n| 7 | basecamp/omarchy | DHH 出品的现代、有主见的 Linux 发行版（Arch 系） | https://github.com/basecamp/omarchy | Linux 发行版, 桌面环境, 开发者工具 | - | - | - |\n| 6 | cathrynlavery/diagram-design | 29 种编辑级 HTML+SVG 图表模板，供 Claude Code 直接使用 | https://github.com/cathrynlavery/diagram-design | 图表模板, Claude Code, SVG | - | - | - |\n| 6 | semantica-agi/semantica | 图原生基础设施：上下文图 + 知识图谱 + 因果推理与决策溯源 | https://github.com/semantica-agi/semantica | 知识图谱, 因果推理, AI infrastructure | - | - | - |\n| 6 | macro-inc/macro | 邮件/文档/任务/CRM/智能体一体化团队工作区，共享 AI 记忆 | https://github.com/macro-inc/macro | 协作工作区, AI memory, team SaaS | - | - | - |\n| 6 | vitali87/code-graph-rag | Tree-sitter + Memgraph 构建代码知识图谱，monorepo 级 RAG | https://github.com/vitali87/code-graph-rag | RAG, 代码图谱, Tree-sitter, Memgraph | - | - | - |\n| 6 | TencentCloud/TencentDB-Agent-Memory | 团队级 Agent 记忆中枢：会话/技能/LLM-Wiki/代码图四类资产 | https://github.com/TencentCloud/TencentDB-Agent-Memory | agent memory, 知识管理, 多智能体 | - | - | - |\n| 6 | paperclipai/paperclip | 开源多智能体编排：像管理“员工”一样调度团队 AI agents | https://github.com/paperclipai/paperclip | 多智能体编排, agent 管理平台 | - | - | - |\n\n## 🔎 GitHub 指定日期检索\n\n> 本表来自 **GitHub 官方 `search/repositories` 在全站公开仓库**内按关键词 `uav & (rl|llm)` 并附带 `pushed:` 日期窗（2026-04-14 ~ 2026-04-14）检索的结果，**不是** Trending 周榜/日榜；评分侧重与关键词及时间条件的匹配度。已略去无描述且零星的低信息量条目。\n\n| 评分 | 标题 | 说明 | 链接 | 标签 | Star | Fork | 主语言 |\n|---|---|---|---|---|---|---|---|\n| 9 | liukejia121/AirVLN | AerialVLN：无人机视觉-语言导航任务的数据集与基准代码 | https://github.com/liukejia121/AirVLN | UAV, 视觉语言导航, VLN, 基准数据集 | 1 | 0 | Python |\n| 9 | thaiphu05/Implement-of-multi-agent-reinforcement-learning-for-UAV-BS-fleet | 多智能体强化学习协同优化空天地一体网中 UAV-BS 机队轨迹 | https://github.com/thaiphu05/Implement-of-multi-agent-reinforcement-learning-for-UAV-BS-fleet | UAV, multi-agent RL, 轨迹优化, 通信基站 | 1 | 0 | Python |\n| 7 | mistybeep/UAV-Active-RIS-Anti-Jamming | 无人机 + 主动 RIS 抗干扰研究代码（MATLAB），本批检索星数最高 | https://github.com/mistybeep/UAV-Active-RIS-Anti-Jamming | UAV, RIS, 抗干扰, 无线通信 | 5 | 1 | MATLAB |\n| 6 | 123asdc-it/improved-yolov11-uav | NWD 损失 + SimAM 注意力 + 轻量特征融合改进的 UAV 小目标检测 | https://github.com/123asdc-it/improved-yolov11-uav | YOLOv11, 小目标检测, UAV, 注意力机制 | 4 | 1 | Python |\n| 6 | Robotsix-UAV/rs_isaac_uav_sim | ROS2 + Isaac Sim + PX4 的无人机仿真环境 | https://github.com/Robotsix-UAV/rs_isaac_uav_sim | 仿真, Isaac Sim, PX4, ROS2 | 1 | 0 | Python |\n| 6 | Firat17aze/MAVLINK-Nvdia-Jetson | Jetson 机载边缘 AI + MAVLink 链路的无人机自主方案 | https://github.com/Firat17aze/MAVLINK-Nvdia-Jetson | 边缘计算, Jetson, MAVLink, UAV 自主 | 1 | 0 | Python |\n| 5 | KapilRatan/Intelligent-Drone-Detection-System | CNN 分析微多普勒特征，杂波/恶劣天气下的实时无人机检测分类 | https://github.com/KapilRatan/Intelligent-Drone-Detection-System | 无人机探测, CNN, Micro-Doppler, 目标分类 | 2 | 0 | Python |\n| 5 | gugu-2/Quantum-Multi-UAV-Swarm-Coordinator | 多无人机集群协同协调器（TypeScript 实现，无描述） | https://github.com/gugu-2/Quantum-Multi-UAV-Swarm-Coordinator | 集群协同, multi-UAV, 任务协调 | 3 | 0 | TypeScript |\n| 5 | shubh2104/uav-vio-gps-denied | GPS 拒止环境无人机视觉惯性里程计，含 EKF/UKF 滤波对比 | https://github.com/shubh2104/uav-vio-gps-denied | VIO, GPS 拒止, EKF, UKF, 状态估计 | 0 | 0 | Python |\n| 5 | Y-XT/uav-sfm-depth | UAV-SfM-Depth：基于 SfM 的无人机单目 RGB-深度数据集发布页 | https://github.com/Y-XT/uav-sfm-depth | 数据集, SfM, 单目深度, UAV | 0 | 0 | - |\n| 4 | VanTienDL/RL_UAV | 仓名直指 RL+UAV 主题的 Jupyter 实现仓库（无描述） | https://github.com/VanTienDL/RL_UAV | 强化学习, UAV, Jupyter | 0 | 0 | Jupyter Notebook |\n| 4 | catomartens/UAV_Corridor_Routing | 无人机空中走廊路径规划 Notebook（无描述） | https://github.com/catomartens/UAV_Corridor_Routing | 航路规划, UAV corridor, Jupyter | 0 | 0 | Jupyter Notebook |\n| 4 | MattiaDiMauro/Model-identification-for-multirotor-UAV | 四旋翼纵向动力学频域灰箱辨识 + 蒙特卡洛不确定度量化 | https://github.com/MattiaDiMauro/Model-identification-for-multirotor-UAV | 系统辨识, 四旋翼, Simulink, 不确定度量化 | 1 | 1 | MATLAB |\n| 3 | Arnas15555/UAV-Mapper | OpenCV 拼接 + ML 检测的无人机视频转地图项目 | https://github.com/Arnas15555/UAV-Mapper | 图像拼接, 视频建图, OpenCV | 0 | 0 | Python |\n",
+    "markdownGeneratedAt": "2026-08-17T04:53:03.303931Z"
+  },
+  "sections": [
+    {
+      "source": "arxiv",
+      "heading": "📄 Arxiv 前沿论文",
+      "summary": "",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 0,
+      "entries": []
+    },
+    {
+      "source": "semantic_scholar",
+      "heading": "🎓 Semantic Scholar",
+      "summary": "",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 0,
+      "entries": []
+    },
+    {
+      "source": "openalex",
+      "heading": "📚 OpenAlex",
+      "summary": "",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 3,
+      "entries": [
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-openalex-0",
+          "score": 6,
+          "title": "LLM-Driven Large-Scale Spectrum Access",
+          "summary": "用 LLM 应对大规模无线网络频谱接入中爆炸性动作空间与计算不可解难题",
+          "link": "https://openalex.org/W7154789810",
+          "tags": "LLM, 频谱接入, 无线网络, 决策优化",
+          "publishedAt": "2026-04-14",
+          "keywords": "",
+          "extra": {
+            "venue": "arXiv (Cornell University)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-openalex-1",
+          "score": 4,
+          "title": "Hybrid GNN-Centric Architectures for AI-Native 6G Wireless Networks: A Comprehensive Survey",
+          "summary": "综述面向 AI 原生 6G 的混合 GNN 中心架构与数据驱动网络设计",
+          "link": "https://openalex.org/W7154922058",
+          "tags": "GNN, 6G, AI-native, 综述",
+          "publishedAt": "2026-04-14",
+          "keywords": "",
+          "extra": {
+            "venue": "White Rose Research Online (University of Leeds, The University of Sheffield, University of York)",
+            "citationCount": "0"
+          }
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-openalex-2",
+          "score": 3,
+          "title": "Deep Learning in the Architecture, Engineering, and Construction (AEC) Industry: Methods, Challenges, and Emerging Opportunities",
+          "summary": "系统梳理深度学习在建筑/工程/建造行业的方法、挑战与新兴机会",
+          "link": "https://doi.org/10.3390/buildings16081546",
+          "tags": "deep learning, AEC, 综述, 智能建造",
+          "publishedAt": "2026-04-14",
+          "keywords": "",
+          "extra": {
+            "venue": "Buildings",
+            "citationCount": "0"
+          }
+        }
+      ]
+    },
+    {
+      "source": "rss",
+      "heading": "📰 优质资讯/论坛",
+      "summary": "",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 0,
+      "entries": []
+    },
+    {
+      "source": "github_weekly",
+      "heading": "🔥 GitHub 周榜",
+      "summary": "",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 16,
+      "entries": [
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-0",
+          "score": 9,
+          "title": "3b1b/manim",
+          "summary": "面向数学解释视频的精确程序化动画引擎，教育可视化标杆",
+          "link": "https://github.com/3b1b/manim",
+          "tags": "动画引擎, 数学可视化, Python",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-1",
+          "score": 9,
+          "title": "unslothai/unsloth",
+          "summary": "首个本地桌面应用：一键运行/微调主流 LLM 与扩散模型",
+          "link": "https://github.com/unslothai/unsloth",
+          "tags": "LLM 微调, 端侧训练, 桌面应用",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-2",
+          "score": 8,
+          "title": "ToolJet/ToolJet",
+          "summary": "开源低代码底座，AI 原生构建内部工具、工作流与智能体",
+          "link": "https://github.com/ToolJet/ToolJet",
+          "tags": "低代码, AI agents, 内部工具",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-3",
+          "score": 8,
+          "title": "Lightricks/LTX-2",
+          "summary": "DiT 音视频一体生成基础模型的官方推理与 LoRA 训练包",
+          "link": "https://github.com/Lightricks/LTX-2",
+          "tags": "视频生成, DiT, LoRA, 生成模型",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-4",
+          "score": 8,
+          "title": "PrimeIntellect-ai/prime-agent",
+          "summary": "自我改进的 RLM 编码智能体，长时自主任务 + prompt-as-a-variable",
+          "link": "https://github.com/PrimeIntellect-ai/prime-agent",
+          "tags": "自主智能体, RLM, coding agent, 自我改进",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-5",
+          "score": 7,
+          "title": "NVIDIA-NeMo/Switchyard",
+          "summary": "Rust 版 LLM 流量代理：跨厂商路由并兼容 OpenAI/Anthropic API",
+          "link": "https://github.com/NVIDIA-NeMo/Switchyard",
+          "tags": "LLM 路由, 反向代理, Rust, 成本优化",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-6",
+          "score": 7,
+          "title": "megadose/holehe",
+          "summary": "借「忘记密码」接口检测邮箱注册站点的经典 OSINT 工具",
+          "link": "https://github.com/megadose/holehe",
+          "tags": "OSINT, 邮箱枚举, 信息收集",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-7",
+          "score": 7,
+          "title": "cactus-compute/needle",
+          "summary": "45M 参数、14MB 的端侧基础模型：工具调用 + 结构化抽取",
+          "link": "https://github.com/cactus-compute/needle",
+          "tags": "端侧模型, 模型压缩, tool calling",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-8",
+          "score": 7,
+          "title": "addyosmani/agent-skills",
+          "summary": "给 AI 编码智能体用的生产级工程技能包（计划/构建/验证/交付）",
+          "link": "https://github.com/addyosmani/agent-skills",
+          "tags": "AI agents, 工程实践, coding agent",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-9",
+          "score": 7,
+          "title": "basecamp/omarchy",
+          "summary": "DHH 出品的现代、有主见的 Linux 发行版（Arch 系）",
+          "link": "https://github.com/basecamp/omarchy",
+          "tags": "Linux 发行版, 桌面环境, 开发者工具",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-10",
+          "score": 6,
+          "title": "cathrynlavery/diagram-design",
+          "summary": "29 种编辑级 HTML+SVG 图表模板，供 Claude Code 直接使用",
+          "link": "https://github.com/cathrynlavery/diagram-design",
+          "tags": "图表模板, Claude Code, SVG",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-11",
+          "score": 6,
+          "title": "semantica-agi/semantica",
+          "summary": "图原生基础设施：上下文图 + 知识图谱 + 因果推理与决策溯源",
+          "link": "https://github.com/semantica-agi/semantica",
+          "tags": "知识图谱, 因果推理, AI infrastructure",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-12",
+          "score": 6,
+          "title": "macro-inc/macro",
+          "summary": "邮件/文档/任务/CRM/智能体一体化团队工作区，共享 AI 记忆",
+          "link": "https://github.com/macro-inc/macro",
+          "tags": "协作工作区, AI memory, team SaaS",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-13",
+          "score": 6,
+          "title": "vitali87/code-graph-rag",
+          "summary": "Tree-sitter + Memgraph 构建代码知识图谱，monorepo 级 RAG",
+          "link": "https://github.com/vitali87/code-graph-rag",
+          "tags": "RAG, 代码图谱, Tree-sitter, Memgraph",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-14",
+          "score": 6,
+          "title": "TencentCloud/TencentDB-Agent-Memory",
+          "summary": "团队级 Agent 记忆中枢：会话/技能/LLM-Wiki/代码图四类资产",
+          "link": "https://github.com/TencentCloud/TencentDB-Agent-Memory",
+          "tags": "agent memory, 知识管理, 多智能体",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_weekly-15",
+          "score": 6,
+          "title": "paperclipai/paperclip",
+          "summary": "开源多智能体编排：像管理“员工”一样调度团队 AI agents",
+          "link": "https://github.com/paperclipai/paperclip",
+          "tags": "多智能体编排, agent 管理平台",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {}
+        }
+      ]
+    },
+    {
+      "source": "github_search",
+      "heading": "🔎 GitHub 指定日期检索",
+      "summary": "",
+      "keywords": "",
+      "dateStart": "",
+      "dateEnd": "",
+      "entryCount": 14,
+      "entries": [
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_search-0",
+          "score": 9,
+          "title": "liukejia121/AirVLN",
+          "summary": "AerialVLN：无人机视觉-语言导航任务的数据集与基准代码",
+          "link": "https://github.com/liukejia121/AirVLN",
+          "tags": "UAV, 视觉语言导航, VLN, 基准数据集",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "1",
+            "fork": "0",
+            "language": "Python"
+          }
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_search-1",
+          "score": 9,
+          "title": "thaiphu05/Implement-of-multi-agent-reinforcement-learning-for-UAV-BS-fleet",
+          "summary": "多智能体强化学习协同优化空天地一体网中 UAV-BS 机队轨迹",
+          "link": "https://github.com/thaiphu05/Implement-of-multi-agent-reinforcement-learning-for-UAV-BS-fleet",
+          "tags": "UAV, multi-agent RL, 轨迹优化, 通信基站",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "1",
+            "fork": "0",
+            "language": "Python"
+          }
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_search-2",
+          "score": 7,
+          "title": "mistybeep/UAV-Active-RIS-Anti-Jamming",
+          "summary": "无人机 + 主动 RIS 抗干扰研究代码（MATLAB），本批检索星数最高",
+          "link": "https://github.com/mistybeep/UAV-Active-RIS-Anti-Jamming",
+          "tags": "UAV, RIS, 抗干扰, 无线通信",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "5",
+            "fork": "1",
+            "language": "MATLAB"
+          }
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_search-3",
+          "score": 6,
+          "title": "123asdc-it/improved-yolov11-uav",
+          "summary": "NWD 损失 + SimAM 注意力 + 轻量特征融合改进的 UAV 小目标检测",
+          "link": "https://github.com/123asdc-it/improved-yolov11-uav",
+          "tags": "YOLOv11, 小目标检测, UAV, 注意力机制",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "4",
+            "fork": "1",
+            "language": "Python"
+          }
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_search-4",
+          "score": 6,
+          "title": "Robotsix-UAV/rs_isaac_uav_sim",
+          "summary": "ROS2 + Isaac Sim + PX4 的无人机仿真环境",
+          "link": "https://github.com/Robotsix-UAV/rs_isaac_uav_sim",
+          "tags": "仿真, Isaac Sim, PX4, ROS2",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "1",
+            "fork": "0",
+            "language": "Python"
+          }
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_search-5",
+          "score": 6,
+          "title": "Firat17aze/MAVLINK-Nvdia-Jetson",
+          "summary": "Jetson 机载边缘 AI + MAVLink 链路的无人机自主方案",
+          "link": "https://github.com/Firat17aze/MAVLINK-Nvdia-Jetson",
+          "tags": "边缘计算, Jetson, MAVLink, UAV 自主",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "1",
+            "fork": "0",
+            "language": "Python"
+          }
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_search-6",
+          "score": 5,
+          "title": "KapilRatan/Intelligent-Drone-Detection-System",
+          "summary": "CNN 分析微多普勒特征，杂波/恶劣天气下的实时无人机检测分类",
+          "link": "https://github.com/KapilRatan/Intelligent-Drone-Detection-System",
+          "tags": "无人机探测, CNN, Micro-Doppler, 目标分类",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "2",
+            "fork": "0",
+            "language": "Python"
+          }
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_search-7",
+          "score": 5,
+          "title": "gugu-2/Quantum-Multi-UAV-Swarm-Coordinator",
+          "summary": "多无人机集群协同协调器（TypeScript 实现，无描述）",
+          "link": "https://github.com/gugu-2/Quantum-Multi-UAV-Swarm-Coordinator",
+          "tags": "集群协同, multi-UAV, 任务协调",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "3",
+            "fork": "0",
+            "language": "TypeScript"
+          }
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_search-8",
+          "score": 5,
+          "title": "shubh2104/uav-vio-gps-denied",
+          "summary": "GPS 拒止环境无人机视觉惯性里程计，含 EKF/UKF 滤波对比",
+          "link": "https://github.com/shubh2104/uav-vio-gps-denied",
+          "tags": "VIO, GPS 拒止, EKF, UKF, 状态估计",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "0",
+            "fork": "0",
+            "language": "Python"
+          }
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_search-9",
+          "score": 5,
+          "title": "Y-XT/uav-sfm-depth",
+          "summary": "UAV-SfM-Depth：基于 SfM 的无人机单目 RGB-深度数据集发布页",
+          "link": "https://github.com/Y-XT/uav-sfm-depth",
+          "tags": "数据集, SfM, 单目深度, UAV",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "0",
+            "fork": "0"
+          }
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_search-10",
+          "score": 4,
+          "title": "VanTienDL/RL_UAV",
+          "summary": "仓名直指 RL+UAV 主题的 Jupyter 实现仓库（无描述）",
+          "link": "https://github.com/VanTienDL/RL_UAV",
+          "tags": "强化学习, UAV, Jupyter",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "0",
+            "fork": "0",
+            "language": "Jupyter Notebook"
+          }
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_search-11",
+          "score": 4,
+          "title": "catomartens/UAV_Corridor_Routing",
+          "summary": "无人机空中走廊路径规划 Notebook（无描述）",
+          "link": "https://github.com/catomartens/UAV_Corridor_Routing",
+          "tags": "航路规划, UAV corridor, Jupyter",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "0",
+            "fork": "0",
+            "language": "Jupyter Notebook"
+          }
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_search-12",
+          "score": 4,
+          "title": "MattiaDiMauro/Model-identification-for-multirotor-UAV",
+          "summary": "四旋翼纵向动力学频域灰箱辨识 + 蒙特卡洛不确定度量化",
+          "link": "https://github.com/MattiaDiMauro/Model-identification-for-multirotor-UAV",
+          "tags": "系统辨识, 四旋翼, Simulink, 不确定度量化",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "1",
+            "fork": "1",
+            "language": "MATLAB"
+          }
+        },
+        {
+          "id": "2026-04-14_2026-04-14_20260817T045303Z-github_search-13",
+          "score": 3,
+          "title": "Arnas15555/UAV-Mapper",
+          "summary": "OpenCV 拼接 + ML 检测的无人机视频转地图项目",
+          "link": "https://github.com/Arnas15555/UAV-Mapper",
+          "tags": "图像拼接, 视频建图, OpenCV",
+          "publishedAt": null,
+          "keywords": "",
+          "extra": {
+            "star": "0",
+            "fork": "0",
+            "language": "Python"
+          }
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "entryCount": 33,
+    "sourceCounts": {
+      "openalex": 3,
+      "github_weekly": 16,
+      "github_search": 14
+    },
+    "emptySections": [
+      "arxiv",
+      "semantic_scholar",
+      "rss"
+    ]
+  }
+}
