@@ -38,33 +38,19 @@
   box-shadow: var(--shadow-sm), 0 0 0 1px var(--border);
 }
 
-.landing__links {
-  display: flex;
-  gap: 1.1rem;
+/* 站点导航（与数据站共用 ViewTabs 组件）：贴右侧，与操作区相邻 */
+.landing__tabs {
   margin-left: auto;
 }
 
-.landing__links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 500;
-  transition: color var(--transition-fast);
-}
-
-.landing__links a:hover {
-  color: var(--accent);
+.landing__tabs + .landing__nav-actions {
+  margin-left: 0;
 }
 
 .landing__nav-actions {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-left: auto;
-}
-
-.landing__links + .landing__nav-actions {
-  margin-left: 0;
 }
 
 /* --- 按钮 --- */
@@ -615,7 +601,18 @@
 }
 
 @media (max-width: 720px) {
-  .landing__links {
-    display: none;
+  /* 窄屏：导航 tabs 换行到第二行占满，避免拥挤 */
+  .landing__nav {
+    flex-wrap: wrap;
+    gap: 0.5rem 0.75rem;
+  }
+
+  .landing__tabs {
+    order: 3;
+    width: 100%;
+  }
+
+  .landing__tabs .view-tabs__btn {
+    flex: 1;
   }
 }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import ViewTabs from "./ViewTabs";
 import "./LandingPage.css";
 
 const REPO_URL = "https://github.com/yjmm10/tech-digest";
@@ -143,7 +144,15 @@ function FeatureIcon({ name }: { name: string }) {
   }
 }
 
-export default function LandingPage({ onEnter }: { onEnter: () => void }) {
+export default function LandingPage({
+  onEnter,
+  onOpenMarkdown,
+  onOpenAbout,
+}: {
+  onEnter: () => void;
+  onOpenMarkdown: () => void;
+  onOpenAbout: () => void;
+}) {
   const [stats, setStats] = useState<SiteStats | null>(null);
 
   useEffect(() => {
@@ -172,11 +181,15 @@ export default function LandingPage({ onEnter }: { onEnter: () => void }) {
           />
           <span>技术周报归档</span>
         </a>
-        <nav className="landing__links" aria-label="页面导航">
-          <a href="#features">功能</a>
-          <a href="#how">运作方式</a>
-          <a href="#about">关于</a>
-        </nav>
+        <ViewTabs
+          className="landing__tabs"
+          active={null}
+          onNavigate={(view) => {
+            if (view === "entries") onEnter();
+            else if (view === "markdown") onOpenMarkdown();
+            else onOpenAbout();
+          }}
+        />
         <div className="landing__nav-actions">
           <ThemeToggle />
           <button type="button" className="landing__cta landing__cta--sm" onClick={onEnter}>
@@ -315,6 +328,8 @@ export default function LandingPage({ onEnter }: { onEnter: () => void }) {
       <footer className="landing__footer">
         <span>技术周报归档 · 个人独立运营的非商业开源项目</span>
         <nav aria-label="页脚链接">
+          <a href="#features">功能</a>
+          <a href="#how">运作方式</a>
           <a href="#about">关于</a>
           <a href={REPO_URL} target="_blank" rel="noreferrer">
             GitHub

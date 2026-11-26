@@ -77,6 +77,29 @@ class CDP {
     await cdp.send("Page.navigate", { url: BASE });
     await wait(`document.body.innerText.includes("进入数据站")`, "landing");
     check("① 落地页渲染", true);
+    const landingNav = await evalJS(`(() => {
+      const btns = [...document.querySelectorAll(".landing__nav .view-tabs__btn")];
+      return {
+        n: btns.length,
+        labels: btns.map((b) => b.textContent.trim()).join("/"),
+        sameAsSite: (() => {
+          const radius = getComputedStyle(document.querySelector(".landing__nav .view-tabs")).borderRadius;
+          return radius.includes("999");
+        })(),
+        cta: !!document.querySelector(".landing__nav-actions .landing__cta"),
+        footerAnchors: [...document.querySelectorAll(".landing__footer nav a")].map((a) => a.textContent.trim()).join("/"),
+      };
+    })()`);
+    check("① 落地页与数据站导航一致（" + landingNav.labels + "）",
+      landingNav.n === 3 && landingNav.sameAsSite && landingNav.cta, JSON.stringify(landingNav));
+    check("① 页内锚点降级到页脚", landingNav.footerAnchors.includes("功能") && landingNav.footerAnchors.includes("运作方式"), landingNav.footerAnchors);
+    // 落地页点 Markdown tab 可直达
+    await evalJS(`[...document.querySelectorAll(".landing__nav .view-tabs__btn")].find(b => b.textContent.includes("Markdown"))?.click()`);
+    await wait(`location.hash.includes("markdown")`, "landing -> markdown");
+    check("① 落地页 Markdown tab 直达", true);
+    await evalJS(`window.location.hash = "#/"`);
+    await sleep(500);
+    await wait(`document.body.innerText.includes("进入数据站")`, "back to landing");
     await shot("verify-1-landing");
 
     // ===== 2) 数据站：日历 =====

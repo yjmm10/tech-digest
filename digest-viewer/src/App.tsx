@@ -19,6 +19,7 @@ import { loadFavoriteIds, toggleFavoriteId } from "./favorites";
 import { parseDay } from "./dateUtils";
 import { loadRecentQueries, pushRecentQuery } from "./recentSearch";
 import { parseRouteHash, setRouteHash, type PageView } from "./routeHash";
+import ViewTabs from "./ViewTabs";
 import { copyShareUrl, parseFilterFromUrl, syncFilterToUrl } from "./searchUrlState";
 import { digestEntryMatchesSearchTokens, hasSearchQuery, parseSearchTokens } from "./searchQuery";
 import { type SortKey, sortEntries } from "./sortEntries";
@@ -49,34 +50,6 @@ const SOURCE_LABEL: Record<DigestSource, string> = {
 
 function sourceBadgeClass(s: DigestSource): string {
   return `source-badge source-badge--${s}`;
-}
-
-/* 顶部视图切换小图标（随 currentColor 变色） */
-function TabIcon({ kind }: { kind: "entries" | "markdown" | "about" }) {
-  const p = {
-    viewBox: "0 0 16 16",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: 1.6,
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-    "aria-hidden": true,
-  };
-  if (kind === "entries") return <svg {...p}><path d="M2.5 4h11M2.5 8h11M2.5 12h7" /></svg>;
-  if (kind === "markdown")
-    return (
-      <svg {...p}>
-        <rect x="2.5" y="2.5" width="11" height="11" rx="1.5" />
-        <path d="M5.5 6h5M5.5 9h5M5.5 12h3" />
-      </svg>
-    );
-  return (
-    <svg {...p}>
-      <circle cx="8" cy="8" r="5.5" />
-      <path d="M8 7.5v3" />
-      <path d="M8 5.2v.1" />
-    </svg>
-  );
 }
 
 function entriesToMarkdownList(entries: DigestEntry[]): string {
@@ -469,6 +442,14 @@ export default function App() {
           setPageView("entries");
           setRouteHash("entries");
         }}
+        onOpenMarkdown={() => {
+          setPageView("markdown");
+          setRouteHash("markdown");
+        }}
+        onOpenAbout={() => {
+          setPageView("about");
+          setRouteHash("about");
+        }}
       />
     );
   }
@@ -532,43 +513,23 @@ export default function App() {
               RSS
             </a>
             <ThemeToggle />
-            <nav className="view-tabs" aria-label="视图切换">
-              <button
-                type="button"
-                className={`view-tabs__btn ${pageView === "entries" ? "view-tabs__btn--active" : ""}`}
-                onClick={() => {
+            <ViewTabs
+              active={pageView}
+              onNavigate={(view) => {
+                if (view === "entries") {
                   setPageView("entries");
                   setRouteHash("entries");
-                }}
-              >
-                <TabIcon kind="entries" />
-                条目浏览
-              </button>
-              <button
-                type="button"
-                className={`view-tabs__btn ${pageView === "markdown" ? "view-tabs__btn--active" : ""}`}
-                onClick={() => {
+                } else if (view === "markdown") {
                   setPageView("markdown");
                   if (selectedDigestSlug) setMarkdownSlug(selectedDigestSlug);
                   else if (!markdownSlug && data.updates[0]) setMarkdownSlug(data.updates[0].slug);
                   setRouteHash("markdown", markdownSlug || selectedDigestSlug || data.updates[0]?.slug);
-                }}
-              >
-                <TabIcon kind="markdown" />
-                Markdown 原文
-              </button>
-              <button
-                type="button"
-                className={`view-tabs__btn ${pageView === "about" ? "view-tabs__btn--active" : ""}`}
-                onClick={() => {
+                } else {
                   setPageView("about");
                   setRouteHash("about");
-                }}
-              >
-                <TabIcon kind="about" />
-                关于
-              </button>
-            </nav>
+                }
+              }}
+            />
           </div>
         </div>
       </header>
