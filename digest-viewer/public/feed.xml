@@ -5,14 +5,14 @@
     <link>https://yjmm10.github.io/tech-digest/</link>
     <description>每周技术周报 Markdown 全文：Arxiv、Semantic Scholar、OpenAlex、RSS 资讯、GitHub 等来源汇总。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 26 Nov 2026 06:54:51 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 09:03:53 GMT</lastBuildDate>
     <generator>tech-digest digest-viewer</generator>
     <atom:link href="https://yjmm10.github.io/tech-digest/feed.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>技术周报 2026-04-13 ~ 2026-04-13</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-04-13_2026-04-13_20260817T045403Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-04-13_2026-04-13_20260817T045403Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-04-13_2026-04-13_20260817T045403Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-04-13_2026-04-13_20260817T045403Z.html</guid>
       <pubDate>Mon, 17 Aug 2026 04:54:03 GMT</pubDate>
       <description><![CDATA[本期周报（共 18 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -110,8 +110,8 @@
     </item>
     <item>
       <title>技术周报 2026-04-15 ~ 2026-04-15</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-04-15_2026-04-15_20260817T045348Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-04-15_2026-04-15_20260817T045348Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-04-15_2026-04-15_20260817T045348Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-04-15_2026-04-15_20260817T045348Z.html</guid>
       <pubDate>Mon, 17 Aug 2026 04:53:48 GMT</pubDate>
       <description><![CDATA[本板块数据来自 arXiv（library 后端），按检索式 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)` 在 2026-04-15～2026-04-15 时间窗内抓取；本周命中 0 条，无条目可列（下表仅保留表头）。（共 17 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -201,8 +201,8 @@
     </item>
     <item>
       <title>技术周报 2026-04-14 ~ 2026-04-14</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-04-14_2026-04-14_20260817T045303Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-04-14_2026-04-14_20260817T045303Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-04-14_2026-04-14_20260817T045303Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-04-14_2026-04-14_20260817T045303Z.html</guid>
       <pubDate>Mon, 17 Aug 2026 04:53:03 GMT</pubDate>
       <description><![CDATA[本期周报（共 17 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -297,8 +297,8 @@
     </item>
     <item>
       <title>技术周报 2026-04-02 ~ 2026-04-02</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-04-02_2026-04-02_20260817T044723Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-04-02_2026-04-02_20260817T044723Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-04-02_2026-04-02_20260817T044723Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-04-02_2026-04-02_20260817T044723Z.html</guid>
       <pubDate>Mon, 17 Aug 2026 04:47:23 GMT</pubDate>
       <description><![CDATA[板块说明：本表数据来自 arXiv 检索（library 后端），检索式为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗 2026-04-02 ~ 2026-04-02。本期命中 0 条，仅保留表头，未虚构条目。（共 21 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -397,8 +397,8 @@
     </item>
     <item>
       <title>技术周报 2026-08-03 ~ 2026-08-09</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-08-03_2026-08-09_20260817T043410Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-08-03_2026-08-09_20260817T043410Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-08-03_2026-08-09_20260817T043410Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-08-03_2026-08-09_20260817T043410Z.html</guid>
       <pubDate>Mon, 17 Aug 2026 04:34:10 GMT</pubDate>
       <description><![CDATA[本板块数据来自 arXiv library 后端检索，关键词 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗 2026-08-03 ~ 2026-08-09。本周该检索命中 0 条，表体为空。（共 14 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -478,8 +478,8 @@
     </item>
     <item>
       <title>技术周报 2026-07-27 ~ 2026-08-02</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-07-27_2026-08-02_20260817T042921Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-07-27_2026-08-02_20260817T042921Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-07-27_2026-08-02_20260817T042921Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-07-27_2026-08-02_20260817T042921Z.html</guid>
       <pubDate>Mon, 17 Aug 2026 04:29:21 GMT</pubDate>
       <description><![CDATA[本表数据来自 arXiv 库检索（后端 library），检索式 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗 2026-07-27 ~ 2026-08-02。本周窗口内命中 0 条，故仅保留表头。（共 20 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -587,8 +587,8 @@
     </item>
     <item>
       <title>技术周报 2026-07-20 ~ 2026-07-26</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-07-20_2026-07-26_20260817T042545Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-07-20_2026-07-26_20260817T042545Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-07-20_2026-07-26_20260817T042545Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-07-20_2026-07-26_20260817T042545Z.html</guid>
       <pubDate>Mon, 17 Aug 2026 04:25:45 GMT</pubDate>
       <description><![CDATA[数据来自 arXiv（library 后端），按 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)` 检索并限定 2026-07-20～07-26 窗口，本周命中 1 条；「发表时间」「学科类别」取自原始条目。（共 26 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -697,8 +697,8 @@
     </item>
     <item>
       <title>技术周报 2026-07-13 ~ 2026-07-19</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-07-13_2026-07-19_20260817T042106Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-07-13_2026-07-19_20260817T042106Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-07-13_2026-07-19_20260817T042106Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-07-13_2026-07-19_20260817T042106Z.html</guid>
       <pubDate>Mon, 17 Aug 2026 04:21:06 GMT</pubDate>
       <description><![CDATA[主题聚焦：无人机/低空 × 视觉-语言模型（VLM/LLM/MLLM）× 强化学习。（共 22 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h1>技术周报（2026-07-13 ~ 2026-07-19）</h1>
@@ -804,8 +804,8 @@
     </item>
     <item>
       <title>技术周报 2026-07-06 ~ 2026-07-12</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-07-06_2026-07-12_20260817T041625Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-07-06_2026-07-12_20260817T041625Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-07-06_2026-07-12_20260817T041625Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-07-06_2026-07-12_20260817T041625Z.html</guid>
       <pubDate>Mon, 17 Aug 2026 04:16:25 GMT</pubDate>
       <description><![CDATA[本期周报（共 15 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -879,8 +879,8 @@
     </item>
     <item>
       <title>技术周报 2026-06-29 ~ 2026-07-05</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-06-29_2026-07-05_20260817T041147Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-06-29_2026-07-05_20260817T041147Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-06-29_2026-07-05_20260817T041147Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-06-29_2026-07-05_20260817T041147Z.html</guid>
       <pubDate>Mon, 17 Aug 2026 04:11:47 GMT</pubDate>
       <description><![CDATA[本表数据来自 arXiv（library 后端）检索，关键词为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗 2026-06-29 ~ 2026-07-05。本周该检索命中 0 条，未虚构条目。（共 41 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -984,8 +984,8 @@
     </item>
     <item>
       <title>技术周报 2026-08-10 ~ 2026-08-16</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-08-10_2026-08-16_20260817T040709Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-08-10_2026-08-16_20260817T040709Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-08-10_2026-08-16_20260817T040709Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-08-10_2026-08-16_20260817T040709Z.html</guid>
       <pubDate>Mon, 17 Aug 2026 04:07:09 GMT</pubDate>
       <description><![CDATA[本期周报（共 30 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -1103,8 +1103,8 @@
     </item>
     <item>
       <title>技术周报 2026-06-05 ~ 2026-06-11</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-06-05_2026-06-11_20260706T033446Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-06-05_2026-06-11_20260706T033446Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-06-05_2026-06-11_20260706T033446Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-06-05_2026-06-11_20260706T033446Z.html</guid>
       <pubDate>Mon, 06 Jul 2026 03:34:46 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 论文库，检索关键词为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口为 2026-06-05 ~ 2026-06-11。根据检索条件，本周无相关论文。（共 18 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -1204,8 +1204,8 @@
     </item>
     <item>
       <title>技术周报 2026-06-26 ~ 2026-06-28</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-06-26_2026-06-28_20260706T033201Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-06-26_2026-06-28_20260706T033201Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-06-26_2026-06-28_20260706T033201Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-06-26_2026-06-28_20260706T033201Z.html</guid>
       <pubDate>Mon, 06 Jul 2026 03:32:01 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 论文库，使用关键词 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)` 在指定时间窗口（2026-06-26 ~ 2026-06-28）内检索，未匹配到相关论文。（共 9 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -1287,8 +1287,8 @@
     </item>
     <item>
       <title>技术周报 2026-06-19 ~ 2026-06-25</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-06-19_2026-06-25_20260706T033017Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-06-19_2026-06-25_20260706T033017Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-06-19_2026-06-25_20260706T033017Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-06-19_2026-06-25_20260706T033017Z.html</guid>
       <pubDate>Mon, 06 Jul 2026 03:30:17 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv，根据关键词 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)` 在指定时间窗口（2026-06-19 ~ 2026-06-25）内检索。本周未检索到符合条件的前沿论文。（共 26 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -1396,8 +1396,8 @@
     </item>
     <item>
       <title>技术周报 2026-06-12 ~ 2026-06-18</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-06-12_2026-06-18_20260706T032805Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-06-12_2026-06-18_20260706T032805Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-06-12_2026-06-18_20260706T032805Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-06-12_2026-06-18_20260706T032805Z.html</guid>
       <pubDate>Mon, 06 Jul 2026 03:28:05 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 论文库，检索关键词为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口为 2026-06-12 ~ 2026-06-18。本周未检索到符合关键词组合的论文。（共 20 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -1499,8 +1499,8 @@
     </item>
     <item>
       <title>技术周报 2026-05-29 ~ 2026-06-04</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-05-29_2026-06-04_20260706T032301Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-05-29_2026-06-04_20260706T032301Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-05-29_2026-06-04_20260706T032301Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-05-29_2026-06-04_20260706T032301Z.html</guid>
       <pubDate>Mon, 06 Jul 2026 03:23:01 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv，根据关键词 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)` 检索，时间窗口为 2026-05-29 ~ 2026-06-04。（共 41 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -1609,8 +1609,8 @@
     </item>
     <item>
       <title>技术周报 2026-05-15 ~ 2026-05-21</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-05-15_2026-05-21_20260529T085939Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-05-15_2026-05-21_20260529T085939Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-05-15_2026-05-21_20260529T085939Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-05-15_2026-05-21_20260529T085939Z.html</guid>
       <pubDate>Fri, 29 May 2026 08:59:39 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 检索，关键词组「(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)」，时间窗口 2026-05-15 ~ 2026-05-21。（共 37 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -1735,8 +1735,8 @@
     </item>
     <item>
       <title>技术周报 2026-05-08 ~ 2026-05-14</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-05-08_2026-05-14_20260529T085607Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-05-08_2026-05-14_20260529T085607Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-05-08_2026-05-14_20260529T085607Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-05-08_2026-05-14_20260529T085607Z.html</guid>
       <pubDate>Fri, 29 May 2026 08:56:07 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 论文检索，关键词组为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口 2026-05-08 ~ 2026-05-14。本周期内无匹配论文。（共 36 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -1865,8 +1865,8 @@
     </item>
     <item>
       <title>技术周报 2026-05-01 ~ 2026-05-07</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-05-01_2026-05-07_20260529T085016Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-05-01_2026-05-07_20260529T085016Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-05-01_2026-05-07_20260529T085016Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-05-01_2026-05-07_20260529T085016Z.html</guid>
       <pubDate>Fri, 29 May 2026 08:50:16 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 检索，关键词组为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口 2026-05-01 ~ 2026-05-07。本周期内无符合关键词的论文更新。（共 23 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -1982,8 +1982,8 @@
     </item>
     <item>
       <title>技术周报 2026-04-30 ~ 2026-04-30</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-04-30_2026-04-30_20260529T081716Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-04-30_2026-04-30_20260529T081716Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-04-30_2026-04-30_20260529T081716Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-04-30_2026-04-30_20260529T081716Z.html</guid>
       <pubDate>Fri, 29 May 2026 08:17:16 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 论文检索，关键词组为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口 2026-04-30。本周无符合关键词条件的论文更新。（共 35 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -2111,8 +2111,8 @@
     </item>
     <item>
       <title>技术周报 2026-04-23 ~ 2026-04-29</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-04-23_2026-04-29_20260529T081424Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-04-23_2026-04-29_20260529T081424Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-04-23_2026-04-29_20260529T081424Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-04-23_2026-04-29_20260529T081424Z.html</guid>
       <pubDate>Fri, 29 May 2026 08:14:24 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 论文检索，关键词组为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口 2026-04-23 ~ 2026-04-29。本周期内无符合关键词条件的论文更新。（共 38 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -2244,8 +2244,8 @@
     </item>
     <item>
       <title>技术周报 2026-03-26 ~ 2026-04-01</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-03-26_2026-04-01_20260529T080731Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-03-26_2026-04-01_20260529T080731Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-03-26_2026-04-01_20260529T080731Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-03-26_2026-04-01_20260529T080731Z.html</guid>
       <pubDate>Fri, 29 May 2026 08:07:31 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 论文检索，关键词组为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口 2026-03-26 ~ 2026-04-01。本周期内无符合关键词的论文更新。（共 28 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -2352,8 +2352,8 @@
     </item>
     <item>
       <title>技术周报 2026-03-19 ~ 2026-03-25</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-03-19_2026-03-25_20260529T080440Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-03-19_2026-03-25_20260529T080440Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-03-19_2026-03-25_20260529T080440Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-03-19_2026-03-25_20260529T080440Z.html</guid>
       <pubDate>Fri, 29 May 2026 08:04:40 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 论文检索，关键词组为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口 2026-03-19 ~ 2026-03-25。本周期内无符合关键词组合的论文更新。（共 34 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -2480,8 +2480,8 @@
     </item>
     <item>
       <title>技术周报 2026-03-12 ~ 2026-03-18</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-03-12_2026-03-18_20260529T075901Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-03-12_2026-03-18_20260529T075901Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-03-12_2026-03-18_20260529T075901Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-03-12_2026-03-18_20260529T075901Z.html</guid>
       <pubDate>Fri, 29 May 2026 07:59:01 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 检索，关键词组为「(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)」，时间窗口 2026-03-12 ~ 2026-03-18。（共 32 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -2600,8 +2600,8 @@
     </item>
     <item>
       <title>技术周报 2026-03-05 ~ 2026-03-11</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-03-05_2026-03-11_20260529T075624Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-03-05_2026-03-11_20260529T075624Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-03-05_2026-03-11_20260529T075624Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-03-05_2026-03-11_20260529T075624Z.html</guid>
       <pubDate>Fri, 29 May 2026 07:56:24 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 论文检索，关键词组为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口 2026-03-05 ~ 2026-03-11。本周期内无符合关键词条件的 Arxiv 论文更新。（共 35 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -2723,8 +2723,8 @@
     </item>
     <item>
       <title>技术周报 2026-02-26 ~ 2026-03-04</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-02-26_2026-03-04_20260529T075058Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-02-26_2026-03-04_20260529T075058Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-02-26_2026-03-04_20260529T075058Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-02-26_2026-03-04_20260529T075058Z.html</guid>
       <pubDate>Fri, 29 May 2026 07:50:58 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 论文检索，关键词组为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口 2026-02-26 ~ 2026-03-04。本周期内无符合关键词条件的论文更新。（共 34 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -2851,8 +2851,8 @@
     </item>
     <item>
       <title>技术周报 2026-02-19 ~ 2026-02-25</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-02-19_2026-02-25_20260529T074538Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-02-19_2026-02-25_20260529T074538Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-02-19_2026-02-25_20260529T074538Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-02-19_2026-02-25_20260529T074538Z.html</guid>
       <pubDate>Fri, 29 May 2026 07:45:38 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 论文检索，关键词组为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口 2026-02-19 ~ 2026-02-25。本周无符合关键词组合的论文更新。（共 31 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -2976,8 +2976,8 @@
     </item>
     <item>
       <title>技术周报 2026-02-12 ~ 2026-02-18</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-02-12_2026-02-18_20260529T073947Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-02-12_2026-02-18_20260529T073947Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-02-12_2026-02-18_20260529T073947Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-02-12_2026-02-18_20260529T073947Z.html</guid>
       <pubDate>Fri, 29 May 2026 07:39:47 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 论文检索，关键词组为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口 2026-02-12 ~ 2026-02-18。当周无符合关键词的论文更新。（共 33 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -3106,8 +3106,8 @@
     </item>
     <item>
       <title>技术周报 2026-02-05 ~ 2026-02-11</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-02-05_2026-02-11_20260529T073448Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-02-05_2026-02-11_20260529T073448Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-02-05_2026-02-11_20260529T073448Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-02-05_2026-02-11_20260529T073448Z.html</guid>
       <pubDate>Fri, 29 May 2026 07:34:48 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 论文检索，关键词组为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口 2026-02-05 ~ 2026-02-11。本周期内无符合关键词条件的论文。（共 33 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -3233,8 +3233,8 @@
     </item>
     <item>
       <title>技术周报 2026-01-29 ~ 2026-02-04</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-01-29_2026-02-04_20260529T072727Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-01-29_2026-02-04_20260529T072727Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-01-29_2026-02-04_20260529T072727Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-01-29_2026-02-04_20260529T072727Z.html</guid>
       <pubDate>Fri, 29 May 2026 07:27:27 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 检索，关键词组为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口 2026-01-29 ~ 2026-02-04。（共 29 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -3341,8 +3341,8 @@
     </item>
     <item>
       <title>技术周报 2026-01-22 ~ 2026-01-28</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-01-22_2026-01-28_20260529T072501Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-01-22_2026-01-28_20260529T072501Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-01-22_2026-01-28_20260529T072501Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-01-22_2026-01-28_20260529T072501Z.html</guid>
       <pubDate>Fri, 29 May 2026 07:25:01 GMT</pubDate>
       <description><![CDATA[*本表数据来自 Arxiv 检索，关键词组为 (uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)，时间窗口 2026-01-22 ~ 2026-01-28。本周期内无符合关键词条件的论文更新。*（共 35 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -3470,8 +3470,8 @@
     </item>
     <item>
       <title>技术周报 2026-01-15 ~ 2026-01-21</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-01-15_2026-01-21_20260529T071518Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-01-15_2026-01-21_20260529T071518Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-01-15_2026-01-21_20260529T071518Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-01-15_2026-01-21_20260529T071518Z.html</guid>
       <pubDate>Fri, 29 May 2026 07:15:18 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 官方 API，检索关键词为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口 2026-01-15 ~ 2026-01-21。（共 21 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -3563,8 +3563,8 @@
     </item>
     <item>
       <title>技术周报 2026-01-08 ~ 2026-01-14</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-01-08_2026-01-14_20260529T071246Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-01-08_2026-01-14_20260529T071246Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-01-08_2026-01-14_20260529T071246Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-01-08_2026-01-14_20260529T071246Z.html</guid>
       <pubDate>Fri, 29 May 2026 07:12:46 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 论文检索，关键词组为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口 2026-01-08 ~ 2026-01-14。（共 36 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -3689,8 +3689,8 @@
     </item>
     <item>
       <title>技术周报 2026-01-01 ~ 2026-01-07</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-01-01_2026-01-07_20260529T070847Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-01-01_2026-01-07_20260529T070847Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-01-01_2026-01-07_20260529T070847Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-01-01_2026-01-07_20260529T070847Z.html</guid>
       <pubDate>Fri, 29 May 2026 07:08:47 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 检索，关键词组为 `(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)`，时间窗口 2026-01-01 ~ 2026-01-07。（共 52 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -3810,8 +3810,8 @@
     </item>
     <item>
       <title>技术周报 2026-05-22 ~ 2026-05-28</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-05-22_2026-05-28_20260529T052355Z</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-05-22_2026-05-28_20260529T052355Z</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-05-22_2026-05-28_20260529T052355Z.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-05-22_2026-05-28_20260529T052355Z.html</guid>
       <pubDate>Fri, 29 May 2026 05:23:55 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 检索，关键词组为「(uav|aerial) & (vlm|llm|mllm) & (rl|reinforcement learning)」无结果，补充「dla|ocr」关键词下相关论文，时间窗 2026-05-22～2026-05-28。（共 23 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -3908,8 +3908,8 @@
     </item>
     <item>
       <title>技术周报 2026-04-16 ~ 2026-04-22</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-04-16_2026-04-22</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-04-16_2026-04-22</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-04-16_2026-04-22.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-04-16_2026-04-22.html</guid>
       <pubDate>Thu, 23 Apr 2026 06:07:00 GMT</pubDate>
       <description><![CDATA[本表数据来自 arXiv 论文检索，关键词组为「dla|ocr」，时间窗口 2026-04-16 ~ 2026-04-22。（共 19 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -3979,8 +3979,8 @@
     </item>
     <item>
       <title>技术周报 2026-04-06 ~ 2026-04-12</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-04-06_2026-04-12</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-04-06_2026-04-12</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-04-06_2026-04-12.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-04-06_2026-04-12.html</guid>
       <pubDate>Mon, 13 Apr 2026 03:38:05 GMT</pubDate>
       <description><![CDATA[本表汇总 Arxiv 论文，来源为关键词组 `uav&llm` 与 `dla|ocr` 在 2026-04-06~2026-04-12 的检索结果，按评分降序排列。（共 26 条）]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>
@@ -4056,8 +4056,8 @@
     </item>
     <item>
       <title>技术周报 2026-04-03 ~ 2026-04-09</title>
-      <link>https://yjmm10.github.io/tech-digest/#markdown/2026-04-03_2026-04-09</link>
-      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/#markdown/2026-04-03_2026-04-09</guid>
+      <link>https://yjmm10.github.io/tech-digest/reports/2026-04-03_2026-04-09.html</link>
+      <guid isPermaLink="true">https://yjmm10.github.io/tech-digest/reports/2026-04-03_2026-04-09.html</guid>
       <pubDate>Fri, 10 Apr 2026 13:30:08 GMT</pubDate>
       <description><![CDATA[本表数据来自 Arxiv 论文库，检索关键词为「uav&llm」，时间窗口 2026-04-03 ~ 2026-04-09。本周该关键词组合无新增论文。]]></description>
       <content:encoded><![CDATA[<div style="font-family:system-ui,sans-serif;line-height:1.6"><h2>📄 Arxiv 前沿论文</h2>

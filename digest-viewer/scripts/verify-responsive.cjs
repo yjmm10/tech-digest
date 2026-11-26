@@ -93,7 +93,7 @@ class CDP {
 
     // 落地页手机
     await cdp.send("Page.navigate", { url: BASE });
-    await wait(`document.body.innerText.includes("进入数据站")`, "landing mobile");
+    await wait(`document.body.innerText.includes("进入数据站") && !!document.querySelector(".site-nav .view-tabs__btn")`, "landing mobile");
     audits.push(["手机 落地页无横向溢出", await overflowCheck()]);
 
     const shot = async (name) => {
@@ -107,7 +107,7 @@ class CDP {
     await sleep(400);
     await shot("verify-6-mobile-entries");
     await cdp.send("Page.navigate", { url: BASE });
-    await wait(`document.body.innerText.includes("进入数据站")`, "landing mobile 2");
+    await wait(`document.body.innerText.includes("进入数据站") && !!document.querySelector(".site-nav .view-tabs__btn")`, "landing mobile 2");
     await sleep(400);
     await shot("verify-7-mobile-landing");
 

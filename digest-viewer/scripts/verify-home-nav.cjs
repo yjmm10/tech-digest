@@ -69,7 +69,7 @@ class CDP {
 
     // ① 落地页初始态：四 tab 齐全，首页高亮
     await cdp.send("Page.navigate", { url: BASE });
-    await wait(`document.body.innerText.includes("把散落的技术情报")`, "landing");
+    await wait(`document.body.innerText.includes("把散落的技术情报") && !!document.querySelector(".site-nav .view-tabs__btn")`, "landing");
     let s = await state();
     check(`① 落地页含四项导航（${s.tabs}）`, s.tabs === "首页/条目浏览/Markdown 原文/关于", s.tabs);
     check("① 落地页「首页」tab 高亮", s.activeTab === "首页", s.activeTab);

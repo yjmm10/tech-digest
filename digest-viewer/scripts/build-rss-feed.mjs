@@ -46,8 +46,9 @@ function digestTitle(update) {
   return `技术周报 ${update.slug}`;
 }
 
+/** 周报静态全文页真实 URL（可索引、可引用的永久链接；由 build-static-seo.mjs 生成） */
 function digestLink(siteUrl, slug) {
-  return `${siteUrl}#markdown/${encodeURIComponent(slug)}`;
+  return `${siteUrl}reports/${encodeURIComponent(slug)}.html`;
 }
 
 function plainDescription(markdown, update) {

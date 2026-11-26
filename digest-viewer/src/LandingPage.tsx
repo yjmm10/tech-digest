@@ -97,6 +97,26 @@ const STEPS = [
   { n: "04", title: "归档发布", desc: "按 Schema v1 落盘，CI 构建 Pages 站点与 RSS 并推送上线" },
 ];
 
+/** 常见问题（与 scripts/build-static-seo.mjs FAQ 保持同步） */
+const FAQ = [
+  {
+    q: "tech-digest 是什么？",
+    a: "tech-digest 是一份每周自动生成的中文技术情报周报与配套开源管线：聚合六类公开信息源，由 GLM 大模型生成中文摘要与相关性评分，三级去重后结构化归档，支持全文检索、日历回溯与 RSS 订阅。",
+  },
+  {
+    q: "周报覆盖哪些数据来源？",
+    a: "arXiv 前沿论文、Semantic Scholar、OpenAlex 学术数据、GitHub Trending 周榜、GitHub 关键词检索与自定义 RSS 订阅源，共用关键词与时间窗配置，一次运行全量覆盖。",
+  },
+  {
+    q: "周报多久更新一次？",
+    a: "每周五 UTC 12:00 由 GitHub Actions 定时触发，抓取完成后自动构建发布到 GitHub Pages，并同步生成 RSS 订阅源与 JSON 归档。",
+  },
+  {
+    q: "如何订阅或引用本站内容？",
+    a: `通过 feed.xml 订阅 RSS 可获取每期全文；本站内容公开，欢迎引用，引用时请注明来源链接 ${SITE_URL}。`,
+  },
+];
+
 function FeatureIcon({ name }: { name: string }) {
   const common = {
     width: 20,
@@ -395,6 +415,26 @@ export default function LandingPage({
           </div>
         </section>
 
+        <section id="faq" className="landing__section">
+          <div className="landing__section-head" data-reveal>
+            <h2>常见问题</h2>
+            <p className="landing__section-sub">关于本项目的快速答案</p>
+          </div>
+          <div className="landing__grid">
+            {FAQ.map((f, i) => (
+              <article
+                className="landing__card"
+                key={f.q}
+                data-reveal
+                style={{ transitionDelay: `${(i % 3) * 70}ms` }}
+              >
+                <h3>{f.q}</h3>
+                <p>{f.a}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section className="landing__final" data-reveal>
           <h2>本周的技术动向，已经帮你整理好了</h2>
           <p>打开数据站按评分浏览、按日历回溯，或在阅读器里订阅每周 RSS。</p>
@@ -450,6 +490,9 @@ export default function LandingPage({
             <a href={SITE_URL + "feed.xml"} target="_blank" rel="noreferrer">
               feed.xml
             </a>
+            <a href={SITE_URL + "llms.txt"}>llms.txt</a>
+            <a href={SITE_URL + "sitemap.xml"}>sitemap.xml</a>
+            <a href={SITE_URL + "viewer-data.json"}>viewer-data.json</a>
           </nav>
           <div className="landing__footer-col">
             <h4>说明</h4>

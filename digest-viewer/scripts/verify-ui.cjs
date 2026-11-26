@@ -75,7 +75,7 @@ class CDP {
 
     // ===== 1) 落地页 =====
     await cdp.send("Page.navigate", { url: BASE });
-    await wait(`document.body.innerText.includes("进入数据站")`, "landing");
+    await wait(`document.body.innerText.includes("进入数据站") && !!document.querySelector(".site-nav .view-tabs__btn")`, "landing");
     check("① 落地页渲染", true);
     const landingNav = await evalJS(`(() => {
       const btns = [...document.querySelectorAll(".site-nav .view-tabs__btn")];
@@ -100,7 +100,7 @@ class CDP {
     check("① 落地页 Markdown tab 直达", true);
     await evalJS(`window.location.hash = "#/"`);
     await sleep(500);
-    await wait(`document.body.innerText.includes("进入数据站")`, "back to landing");
+    await wait(`document.body.innerText.includes("进入数据站") && !!document.querySelector(".site-nav .view-tabs__btn")`, "back to landing");
     await shot("verify-1-landing");
 
     // ===== 2) 数据站：日历 =====
