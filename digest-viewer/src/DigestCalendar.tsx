@@ -86,11 +86,14 @@ export function countEntriesOnDay(
   return buildDayActivityMap([], entries, mode).get(day)?.entryCount ?? 0;
 }
 
-function heatLevel(count: number): 0 | 1 | 2 | 3 {
+/** 热度分级：按当月峰值相对分 4 档，保证每个月都有完整深浅梯度（类 GitHub 热力图） */
+function heatLevel(count: number, monthMax: number): 0 | 1 | 2 | 3 | 4 {
   if (count <= 0) return 0;
-  if (count <= 3) return 1;
-  if (count <= 10) return 2;
-  return 3;
+  if (monthMax <= 0) return 1;
+  if (count >= monthMax * 0.75) return 4;
+  if (count >= monthMax * 0.5) return 3;
+  if (count >= monthMax * 0.25) return 2;
+  return 1;
 }
 
 export default function DigestCalendar({
@@ -154,7 +157,7 @@ export default function DigestCalendar({
   const CalDayButton = ({ day, modifiers, ...btnProps }: DayButtonProps) => {
     const dayStr = formatDay(day.date);
     const count = counts.get(dayStr) ?? 0;
-    const tier = heatLevel(count);
+    const tier = heatLevel(count, monthMax);
     const hasCrawl = crawlDays.has(dayStr);
     const isSelected = Boolean(modifiers.selected);
     const isToday = Boolean(modifiers.today);
@@ -180,6 +183,9 @@ export default function DigestCalendar({
         title={title}
       >
         <span className="cal-day-btn__num">{day.date.getDate()}</span>
+        {count > 0 && (
+          <span className="cal-day-btn__badge">{count > 99 ? "99+" : count}</span>
+        )}
         {hasCrawl && <span className="cal-day-btn__dot" aria-hidden />}
       </button>
     );
@@ -251,6 +257,7 @@ export default function DigestCalendar({
           <span className="calendar__swatch calendar__swatch--t1" />
           <span className="calendar__swatch calendar__swatch--t2" />
           <span className="calendar__swatch calendar__swatch--t3" />
+          <span className="calendar__swatch calendar__swatch--t4" />
           <span className="calendar__legend-scale-label">少 → 多</span>
         </li>
         <li>

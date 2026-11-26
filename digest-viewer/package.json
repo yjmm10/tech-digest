@@ -12,7 +12,8 @@
     "dev": "node scripts/migrate-docs-to-json.mjs && node scripts/build-viewer-data.mjs && node scripts/build-rss-feed.mjs && vite --port 5175",
     "preview": "vite preview",
     "verify": "node scripts/verify-ui.cjs",
-    "verify:responsive": "node scripts/verify-responsive.cjs"
+    "verify:responsive": "node scripts/verify-responsive.cjs",
+    "verify:nav": "node scripts/verify-home-nav.cjs"
   },
   "dependencies": {
     "react": "^19.0.0",

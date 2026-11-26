@@ -80,7 +80,7 @@ class CDP {
       const cols = getComputedStyle(card).gridTemplateColumns.split(" ").length;
       const side = card.querySelector(".card__list-side");
       const dir = side ? getComputedStyle(side).flexDirection : null;
-      const hero = document.querySelector(".hero--compact");
+      const hero = document.querySelector(".site-nav");
       const heroSticky = hero ? getComputedStyle(hero).position : null;
       return { cols, dir, heroSticky };
     })()`);

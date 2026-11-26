@@ -12,14 +12,14 @@ import ResultsHeader from "./ResultsHeader";
 import RunStrip from "./RunStrip";
 import ScrollToTop from "./ScrollToTop";
 import SidebarStats from "./SidebarStats";
-import ThemeToggle from "./ThemeToggle";
 import type { DigestEntry, DigestSection, DigestSource, DigestsPayload } from "./types";
 import { countBySource, digestWindowLabel } from "./entryDisplay";
 import { loadFavoriteIds, toggleFavoriteId } from "./favorites";
 import { parseDay } from "./dateUtils";
 import { loadRecentQueries, pushRecentQuery } from "./recentSearch";
 import { parseRouteHash, setRouteHash, type PageView } from "./routeHash";
-import ViewTabs from "./ViewTabs";
+import { type SiteNavView } from "./ViewTabs";
+import SiteHeader from "./SiteHeader";
 import { copyShareUrl, parseFilterFromUrl, syncFilterToUrl } from "./searchUrlState";
 import { digestEntryMatchesSearchTokens, hasSearchQuery, parseSearchTokens } from "./searchQuery";
 import { type SortKey, sortEntries } from "./sortEntries";
@@ -105,8 +105,6 @@ export default function App() {
     setToast(msg);
     window.setTimeout(() => setToast(null), 2200);
   }, []);
-
-  const feedUrl = `${import.meta.env.BASE_URL}feed.xml`;
 
   useEffect(() => {
     let link = document.querySelector<HTMLLinkElement>(
@@ -210,20 +208,7 @@ export default function App() {
     return () => io.disconnect();
   }, [filtered, hasMore]);
 
-  /* 固定抬头：测量 hero 高度写入 --hero-h，供筛选栏/侧栏 sticky 定位 */
-  const heroRef = useRef<HTMLElement | null>(null);
-  useEffect(() => {
-    const el = heroRef.current;
-    if (!el || typeof ResizeObserver === "undefined") return;
-    const setH = () => {
-      const h = Math.round(el.getBoundingClientRect().height);
-      if (h > 0) document.documentElement.style.setProperty("--hero-h", `${h}px`);
-    };
-    setH();
-    const ro = new ResizeObserver(setH);
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, [pageView, data]);
+  /* 固定抬头：高度测量已移入常驻的 SiteHeader 组件（全视图共享一份） */
 
   const digestOptions = useMemo(() => {
     if (!data) return [];
@@ -380,6 +365,11 @@ export default function App() {
     trackPageView();
   }, [pageView, markdownSlug]);
 
+  /* 切换视图后回到页面顶部（新视图从首屏开始，配合 handleNav 的同页平滑回顶） */
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [pageView]);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const tag = (e.target as HTMLElement)?.tagName;
@@ -435,104 +425,58 @@ export default function App() {
     setSources((prev) => ({ ...prev, [s]: !prev[s] }));
   };
 
-  if (pageView === "landing") {
-    return (
-      <LandingPage
-        onEnter={() => {
-          setPageView("entries");
-          setRouteHash("entries");
-        }}
-        onOpenMarkdown={() => {
-          setPageView("markdown");
-          setRouteHash("markdown");
-        }}
-        onOpenAbout={() => {
-          setPageView("about");
-          setRouteHash("about");
-        }}
-      />
-    );
-  }
+  /* 站点级导航：四个视图统一走这一个入口（SiteHeader 唯一回调源）。
+     重复点击当前视图 = 平滑回顶（否则落地页点「首页」会无任何反应） */
+  const handleNav = (view: SiteNavView) => {
+    if (view === pageView) {
+      const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+      return;
+    }
+    if (view === "landing") {
+      setPageView("landing");
+      setRouteHash("landing");
+    } else if (view === "entries") {
+      setPageView("entries");
+      setRouteHash("entries");
+    } else if (view === "markdown") {
+      setPageView("markdown");
+      if (selectedDigestSlug) setMarkdownSlug(selectedDigestSlug);
+      else if (!markdownSlug && data?.updates[0]) setMarkdownSlug(data.updates[0].slug);
+      setRouteHash("markdown", markdownSlug || selectedDigestSlug || data?.updates[0]?.slug);
+    } else {
+      setPageView("about");
+      setRouteHash("about");
+    }
+  };
 
-  if (loadError) {
-    return (
-      <div className="page">
-        <header className="hero">
-          <h1>技术周报归档</h1>
-          <p className="hero__sub">无法加载数据：{loadError}</p>
-        </header>
-      </div>
-    );
-  }
-
-  if (!data) {
-    return (
-      <div className="page page--center">
-        <p className="muted">正在加载周报数据…</p>
-      </div>
-    );
-  }
-
+  /* 全站唯一 return：顶栏 + 视图内容都在同一棵树里，
+     顶栏跨所有视图（含落地页）保持同一 DOM 实例，切换标签零重建 */
   return (
-    <div className={`page ${pageView === "markdown" ? "page--markdown" : ""}`}>
-      {toast && (
-        <div className="toast" role="status">
-          {toast}
+    <>
+      <SiteHeader active={pageView} onNavigate={handleNav} />
+      {pageView === "landing" ? (
+        <LandingPage
+          onEnter={() => {
+            setPageView("entries");
+            setRouteHash("entries");
+          }}
+        />
+      ) : loadError ? (
+        <div className="page page--center">
+          <p className="muted">无法加载数据：{loadError}</p>
         </div>
-      )}
-
-      <header ref={heroRef} className="hero hero--compact">
-        <div className="hero__row">
-          <div className="hero__brand">
-            <img
-              className="hero__logo"
-              src={`${import.meta.env.BASE_URL}favicon.svg`}
-              alt=""
-              width={40}
-              height={40}
-            />
-            <div>
-              <h1 className="hero__title">技术周报归档</h1>
-              <p className="hero__sub">
-                {data.digests.length} 次抓取 · {data.entries.length} 条
-                {data.generatedAt ? ` · 更新 ${data.generatedAt.slice(0, 10)}` : ""}
-                <span className="hero__kbd-hint"> · / 搜索 · Esc 清除</span>
-              </p>
-            </div>
-          </div>
-          <div className="hero__actions">
-            <a className="home-link" href="#/" title="返回首页">
-              首页
-            </a>
-            <a
-              className="rss-link"
-              href={feedUrl}
-              type="application/rss+xml"
-              title="订阅每周 Markdown 周报（RSS）"
-            >
-              RSS
-            </a>
-            <ThemeToggle />
-            <ViewTabs
-              active={pageView}
-              onNavigate={(view) => {
-                if (view === "entries") {
-                  setPageView("entries");
-                  setRouteHash("entries");
-                } else if (view === "markdown") {
-                  setPageView("markdown");
-                  if (selectedDigestSlug) setMarkdownSlug(selectedDigestSlug);
-                  else if (!markdownSlug && data.updates[0]) setMarkdownSlug(data.updates[0].slug);
-                  setRouteHash("markdown", markdownSlug || selectedDigestSlug || data.updates[0]?.slug);
-                } else {
-                  setPageView("about");
-                  setRouteHash("about");
-                }
-              }}
-            />
-          </div>
+      ) : !data ? (
+        <div className="page page--center">
+          <p className="muted">正在加载周报数据…</p>
         </div>
-      </header>
+      ) : (
+        <div className={`page ${pageView === "markdown" ? "page--markdown" : ""}`}>
+        {toast && (
+          <div className="toast" role="status">
+            {toast}
+          </div>
+        )}
 
       {pageView === "about" ? (
         <AboutPage />
@@ -722,5 +666,7 @@ export default function App() {
 
       <ScrollToTop />
     </div>
+      )}
+    </>
   );
 }

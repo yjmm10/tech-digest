@@ -216,7 +216,7 @@
   font-weight: 500;
 }
 
-/* 抓取日：底部小圆点 */
+/* 抓取日：底部居中小圆点（右上角留给数量角标） */
 .cal-day-btn__dot {
   position: absolute;
   bottom: 3px;
@@ -229,19 +229,63 @@
   opacity: 0.9;
 }
 
-/* 热度分级：格子底色直接承载强度 */
+/* 数量角标：右上角圆形徽章，直接展示当日条目数（99+ 封顶，沿用项目最初样式） */
+.cal-day-btn__badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 13px;
+  height: 13px;
+  padding: 0 3px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.55rem;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
+  color: var(--text);
+}
+
+/* 热度最高档：角标实底，数字反白 */
+.cal-day-btn--heat-4 .cal-day-btn__badge {
+  background: var(--accent);
+  color: var(--active-tab-text);
+}
+
+.cal-day-btn--selected .cal-day-btn__badge {
+  background: color-mix(in srgb, var(--active-tab-text) 24%, transparent);
+  color: var(--active-tab-text);
+}
+
+/* 热度分级：按当月峰值相对分 4 档，底色承载强度，数量越多越深 */
 .cal-day-btn--heat-1 {
-  background: color-mix(in srgb, var(--accent) 13%, transparent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
 }
 
 .cal-day-btn--heat-2 {
-  background: color-mix(in srgb, var(--accent) 26%, transparent);
+  background: color-mix(in srgb, var(--accent) 32%, transparent);
   color: var(--text);
 }
 
 .cal-day-btn--heat-3 {
-  background: color-mix(in srgb, var(--accent) 40%, transparent);
+  background: color-mix(in srgb, var(--accent) 52%, transparent);
   color: var(--text);
+}
+
+.cal-day-btn--heat-3 .cal-day-btn__num {
+  font-weight: 600;
+}
+
+.cal-day-btn--heat-4 {
+  background: color-mix(in srgb, var(--accent) 74%, transparent);
+  color: var(--active-tab-text);
+}
+
+.cal-day-btn--heat-4 .cal-day-btn__num {
+  font-weight: 700;
 }
 
 /* 悬停：描边提示可点 */
@@ -316,15 +360,19 @@
 }
 
 .calendar__swatch--t1 {
-  background: color-mix(in srgb, var(--accent) 13%, transparent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
 }
 
 .calendar__swatch--t2 {
-  background: color-mix(in srgb, var(--accent) 26%, transparent);
+  background: color-mix(in srgb, var(--accent) 32%, transparent);
 }
 
 .calendar__swatch--t3 {
-  background: color-mix(in srgb, var(--accent) 40%, transparent);
+  background: color-mix(in srgb, var(--accent) 52%, transparent);
+}
+
+.calendar__swatch--t4 {
+  background: color-mix(in srgb, var(--accent) 74%, transparent);
 }
 
 .calendar__legend-scale-label {

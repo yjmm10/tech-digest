@@ -12,19 +12,6 @@
   box-sizing: border-box;
 }
 
-.page--markdown .hero--compact {
-  margin-bottom: 0.35rem;
-  padding-bottom: 0.65rem;
-}
-
-.page--markdown .hero__sub {
-  display: none;
-}
-
-.page--markdown .hero__kbd-hint {
-  display: none;
-}
-
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -37,13 +24,20 @@
   border: 0;
 }
 
-.hero--compact {
+/* 站点顶栏：全视图共用单一常驻组件（SiteHeader），切换标签不卸载不重建。
+   外壳透明 sticky；内层容器复刻 .page 宽度体系（max-width 1080px + 同款内边距），
+   底色/底边线与旧版一致，任意视图下像素级同位 */
+.site-nav {
   position: sticky;
   top: 0;
   z-index: 30;
-  margin-bottom: 0.5rem;
-  padding-top: 0.65rem;
-  padding-bottom: 1.1rem;
+}
+
+.site-nav__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0.65rem clamp(0.65rem, 1.5vw, 1rem) 1.1rem;
+  box-sizing: border-box;
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
@@ -61,6 +55,14 @@
   align-items: center;
   gap: 0.7rem;
   min-width: 0;
+  text-decoration: none;
+  color: inherit;
+  border-radius: var(--radius-sm);
+  transition: opacity var(--transition-fast);
+}
+
+.hero__brand:hover .hero__title {
+  color: var(--accent);
 }
 
 .hero__logo {
@@ -71,16 +73,16 @@
   box-shadow: var(--shadow-sm), 0 0 0 1px var(--border);
 }
 
-.hero--compact .hero__title {
+.site-nav .hero__title {
   position: relative;
   display: inline-block;
   font-size: clamp(1.3rem, 3vw, 1.6rem);
   font-weight: 700;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0;
   letter-spacing: -0.015em;
 }
 
-.hero--compact .hero__title::after {
+.site-nav .hero__title::after {
   content: "";
   position: absolute;
   left: 0;
@@ -91,7 +93,7 @@
   background: linear-gradient(90deg, var(--accent), transparent);
 }
 
-.hero--compact .hero__sub {
+.site-nav .hero__sub {
   font-size: 0.85rem;
 }
 
@@ -158,8 +160,13 @@
   }
 }
 
-.hero--compact .view-tabs {
+.site-nav .view-tabs {
   margin-top: 0;
+}
+
+/* 顶栏瘦身后两侧等高居中，避免品牌块与操作区顶对齐的错位感 */
+.site-nav .hero__row {
+  align-items: center;
 }
 
 .page--center {
@@ -1079,11 +1086,6 @@
 
 .scroll-top:active {
   transform: translateY(0);
-}
-
-.hero__kbd-hint {
-  color: var(--muted);
-  font-size: 0.78em;
 }
 
 @media (max-width: 640px) {
@@ -2434,12 +2436,6 @@
   box-shadow: var(--shadow-sm);
 }
 
-@media (max-width: 640px) {
-  .hero__kbd-hint {
-    display: none;
-  }
-}
-
 /* --- 瀑布流布局：纯 CSS 多列，无 JS 测量、无定位重排 --- */
 .card-list--waterfall {
   display: block;
@@ -2539,27 +2535,3 @@
   transform: translateY(1px);
 }
 
-/* --- 数据站顶部返回首页链接 --- */
-.home-link {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.35rem 0.65rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 500;
-  text-decoration: none;
-  transition: border-color var(--transition-fast), color var(--transition-fast),
-    background var(--transition-fast), transform var(--transition-fast);
-}
-
-.home-link:hover {
-  border-color: var(--accent-border-soft);
-  color: var(--accent);
-  background: var(--accent-soft);
-}
-
-.home-link:active {
-  transform: translateY(1px);
-}

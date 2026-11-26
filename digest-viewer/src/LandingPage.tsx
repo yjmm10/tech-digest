@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
-import ThemeToggle from "./ThemeToggle";
-import ViewTabs from "./ViewTabs";
+import { useEffect, useRef, useState } from "react";
 import "./LandingPage.css";
 
 const REPO_URL = "https://github.com/yjmm10/tech-digest";
+const SITE_URL = "https://yjmm10.github.io/tech-digest/";
 const feedUrl = `${import.meta.env.BASE_URL}feed.xml`;
 
 interface SiteStats {
@@ -49,44 +48,53 @@ const PREVIEW_ROWS = [
   },
 ];
 
+const SOURCES = [
+  { name: "arXiv", cls: "arxiv" },
+  { name: "Semantic Scholar", cls: "semantic" },
+  { name: "OpenAlex", cls: "openalex" },
+  { name: "GitHub Trending", cls: "github_weekly" },
+  { name: "GitHub Search", cls: "github_search" },
+  { name: "RSS 订阅源", cls: "rss" },
+];
+
 const FEATURES = [
   {
     key: "sources",
-    title: "多源聚合",
-    desc: "Arxiv、Semantic Scholar、OpenAlex、技术 RSS 与 GitHub 趋势/检索，一站汇合，不用再挨个翻。",
+    title: "六源统一调度",
+    desc: "arXiv、Semantic Scholar、OpenAlex、GitHub Trending / 检索与 RSS 订阅源，共用关键词与时间窗配置，一次运行全量覆盖。",
   },
   {
     key: "ai",
     title: "AI 摘要与评分",
-    desc: "每条自动生成中文摘要与相关性评分，先看重点，再决定要不要点开原文。",
+    desc: "GLM 大模型为每条条目生成中文摘要与 0–10 相关性评分；主模型异常时自动切换备用网关，产出不中断。",
   },
   {
-    key: "calendar",
-    title: "日历回溯",
-    desc: "按发表/抓取日期翻查任意一天的历史归档，错过哪周就补哪周。",
+    key: "dedup",
+    title: "三级去重清洗",
+    desc: "同期次、单期内与跨期按链接三级去重，跨期保留最早记录，确保归档条目唯一、可追溯。",
   },
   {
-    key: "favorite",
-    title: "收藏与导出",
-    desc: "本地收藏夹不丢条目，筛选结果一键导出 Markdown 列表。",
+    key: "filter",
+    title: "多维检索回溯",
+    desc: "关键词、来源、评分、时间窗与日历自由组合筛选，数据一次加载、全量在客户端完成，交互零延迟。",
   },
   {
-    key: "rss",
-    title: "RSS 订阅",
-    desc: "每周自动生成 RSS 源，在阅读器或邮件里直接追更。",
+    key: "schema",
+    title: "Schema v1 结构化归档",
+    desc: "每期落盘为独立 JSON（含 Markdown 原文与元数据），历史数据可恢复、可迁移、可二次加工。",
   },
   {
-    key: "opensource",
-    title: "开源可自部署",
-    desc: "采集管线、数据构建与前端全部开源，fork 下来就能跑自己的周报。",
+    key: "publish",
+    title: "自动发布与订阅",
+    desc: "CI 自动构建 GitHub Pages 档案站并生成 RSS 源，抓取完成即上线，全程无需手动运维。",
   },
 ];
 
 const STEPS = [
-  { n: "01", title: "定时抓取", desc: "按排程抓取多个公开信息源的最新内容" },
-  { n: "02", title: "清洗去重", desc: "同期次与跨期按链接、标题去重，只留有效条目" },
-  { n: "03", title: "AI 摘要评分", desc: "生成中文摘要与相关性评分，标注来源与日期" },
-  { n: "04", title: "归档发布", desc: "生成周报页面、结构化 JSON 与 RSS，长期可回溯" },
+  { n: "01", title: "定时抓取", desc: "GitHub Actions 每周五 UTC 12:00 定时触发，多源并发拉取最新内容" },
+  { n: "02", title: "清洗去重", desc: "同期次 / 单期内 / 跨期三级去重，过滤无效与重复条目" },
+  { n: "03", title: "AI 摘要评分", desc: "GLM 生成中文摘要与相关性评分，备用模型自动接管异常" },
+  { n: "04", title: "归档发布", desc: "按 Schema v1 落盘，CI 构建 Pages 站点与 RSS 并推送上线" },
 ];
 
 function FeatureIcon({ name }: { name: string }) {
@@ -115,20 +123,27 @@ function FeatureIcon({ name }: { name: string }) {
           <circle cx="12" cy="12" r="3.2" />
         </svg>
       );
-    case "calendar":
+    case "dedup":
       return (
         <svg {...common}>
-          <rect x="3.5" y="5" width="17" height="16" rx="2.5" />
-          <path d="M3.5 10h17M8 3v4M16 3v4" />
+          <rect x="3" y="3" width="12" height="12" rx="2" opacity="0.5" />
+          <rect x="9" y="9" width="12" height="12" rx="2" />
         </svg>
       );
-    case "favorite":
+    case "filter":
       return (
         <svg {...common}>
-          <path d="m12 20.5-7.5-7.4a4.9 4.9 0 0 1 0-7 4.6 4.6 0 0 1 6.6 0l.9.9.9-.9a4.6 4.6 0 0 1 6.6 0 4.9 4.9 0 0 1 0 7Z" />
+          <path d="M4 6h16M7 12h10M10 18h4" />
         </svg>
       );
-    case "rss":
+    case "schema":
+      return (
+        <svg {...common}>
+          <path d="M6 3h9l4 4v14l-4-2.5L11 21l-5-2.5V3Z" />
+          <path d="M9 9h6M9 13h6" opacity="0.6" />
+        </svg>
+      );
+    case "publish":
       return (
         <svg {...common}>
           <path d="M4.5 11.5a8 8 0 0 1 8 8M4.5 5.5a14 14 0 0 1 14 14" />
@@ -144,14 +159,47 @@ function FeatureIcon({ name }: { name: string }) {
   }
 }
 
+/** 数字滚动：进入视口后从 0 计数到目标值（尊重 prefers-reduced-motion） */
+function CountUp({ value }: { value: number }) {
+  const [display, setDisplay] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDisplay(value);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting) && !started.current) {
+          started.current = true;
+          io.disconnect();
+          const t0 = performance.now();
+          const dur = 900;
+          const tick = (t: number) => {
+            const p = Math.min(1, (t - t0) / dur);
+            setDisplay(Math.round(value * (1 - Math.pow(1 - p, 3))));
+            if (p < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [value]);
+
+  return <span ref={ref}>{display}</span>;
+}
+
 export default function LandingPage({
   onEnter,
-  onOpenMarkdown,
-  onOpenAbout,
 }: {
   onEnter: () => void;
-  onOpenMarkdown: () => void;
-  onOpenAbout: () => void;
 }) {
   const [stats, setStats] = useState<SiteStats | null>(null);
 
@@ -168,45 +216,54 @@ export default function LandingPage({
     };
   }, []);
 
+  // 滚动渐显：单个 IntersectionObserver 驱动全部 [data-reveal] 元素
+  useEffect(() => {
+    const els = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+    if (!("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("is-in"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            (e.target as HTMLElement).classList.add("is-in");
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
+  const year = new Date().getFullYear();
+
   return (
     <div className="landing">
-      <header className="landing__nav">
-        <a className="landing__brand" href="#/">
-          <img
-            className="landing__logo"
-            src={`${import.meta.env.BASE_URL}favicon.svg`}
-            alt=""
-            width={30}
-            height={30}
-          />
-          <span>技术周报归档</span>
-        </a>
-        <ViewTabs
-          className="landing__tabs"
-          active={null}
-          onNavigate={(view) => {
-            if (view === "entries") onEnter();
-            else if (view === "markdown") onOpenMarkdown();
-            else onOpenAbout();
-          }}
-        />
-        <div className="landing__nav-actions">
-          <ThemeToggle />
-        </div>
-      </header>
 
       <main>
         <section className="landing__hero">
+          <div className="landing__aurora" aria-hidden="true">
+            <span className="landing__aurora-blob landing__aurora-blob--a" />
+            <span className="landing__aurora-blob landing__aurora-blob--b" />
+          </div>
+
           <div className="landing__hero-copy">
-            <span className="landing__badge">开源 · 每周定时更新</span>
+            <span className="landing__badge">
+              <span className="landing__badge-dot" aria-hidden="true" />
+              开源项目 · 每周五自动更新
+            </span>
             <h1>
               把散落的技术情报
               <br />
               收进<em>一份周报</em>
             </h1>
             <p className="landing__lead">
-              聚合 Arxiv、Semantic Scholar、OpenAlex、技术 RSS 与 GitHub
-              趋势，AI 生成中文摘要与相关性评分，按周归档、可检索、可订阅。
+              基于 GitHub Actions 定时抓取 arXiv、Semantic Scholar、OpenAlex、GitHub
+              趋势/检索与 RSS 六类公开信息源，由 GLM 大模型生成中文摘要与相关性评分，
+              经三级去重后结构化归档，支持全文检索、日历回溯与 RSS 订阅。
             </p>
             <div className="landing__actions">
               <button type="button" className="landing__cta" onClick={onEnter}>
@@ -259,12 +316,33 @@ export default function LandingPage({
           </div>
         </section>
 
+        <div className="landing__marquee" aria-hidden="true">
+          <div className="landing__marquee-track">
+            {[0, 1].map((copy) => (
+              <div className="landing__marquee-group" key={copy}>
+                {SOURCES.map((s) => (
+                  <span className={`landing__source-chip landing__source-chip--${s.cls}`} key={s.name}>
+                    {s.name}
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
         <section id="features" className="landing__section">
-          <h2>功能特性</h2>
-          <p className="landing__section-sub">为每周只想要半小时信息摄入的人准备</p>
+          <div className="landing__section-head" data-reveal>
+            <h2>能力特性</h2>
+            <p className="landing__section-sub">一套可自部署的技术情报自动化管线</p>
+          </div>
           <div className="landing__grid">
-            {FEATURES.map((f) => (
-              <article className="landing__card" key={f.key}>
+            {FEATURES.map((f, i) => (
+              <article
+                className="landing__card"
+                key={f.key}
+                data-reveal
+                style={{ transitionDelay: `${(i % 3) * 70}ms` }}
+              >
                 <span className="landing__card-icon">
                   <FeatureIcon name={f.key} />
                 </span>
@@ -276,11 +354,18 @@ export default function LandingPage({
         </section>
 
         <section id="how" className="landing__section">
-          <h2>运作方式</h2>
-          <p className="landing__section-sub">从信息源到归档，全流程自动完成</p>
+          <div className="landing__section-head" data-reveal>
+            <h2>运作方式</h2>
+            <p className="landing__section-sub">从信息源到归档发布，全流程由 CI 自动完成</p>
+          </div>
           <ol className="landing__steps">
-            {STEPS.map((s) => (
-              <li className="landing__step" key={s.n}>
+            {STEPS.map((s, i) => (
+              <li
+                className="landing__step"
+                key={s.n}
+                data-reveal
+                style={{ transitionDelay: `${i * 80}ms` }}
+              >
                 <span className="landing__step-n">{s.n}</span>
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>
@@ -289,28 +374,30 @@ export default function LandingPage({
           </ol>
         </section>
 
-        <section className="landing__band">
-          <div className="landing__band-item">
-            <strong>{stats?.runs ?? "—"}</strong>
-            <span>期归档</span>
-          </div>
-          <div className="landing__band-item">
-            <strong>{stats?.entries ?? "—"}</strong>
-            <span>条情报</span>
-          </div>
-          <div className="landing__band-item">
-            <strong>{stats?.sources ?? "—"}</strong>
-            <span>类来源</span>
-          </div>
-          <div className="landing__band-item">
-            <strong>每周</strong>
-            <span>定时更新</span>
+        <section className="landing__band-wrap">
+          <div className="landing__band" data-reveal>
+            <div className="landing__band-item">
+              <strong>{stats ? <CountUp value={stats.runs ?? 0} /> : "—"}</strong>
+              <span>期定时抓取</span>
+            </div>
+            <div className="landing__band-item">
+              <strong>{stats ? <CountUp value={stats.entries ?? 0} /> : "—"}</strong>
+              <span>条情报条目</span>
+            </div>
+            <div className="landing__band-item">
+              <strong>{stats ? <CountUp value={stats.sources ?? 0} /> : "—"}</strong>
+              <span>类公开信息源</span>
+            </div>
+            <div className="landing__band-item">
+              <strong>每周</strong>
+              <span>定时更新</span>
+            </div>
           </div>
         </section>
 
-        <section className="landing__final">
+        <section className="landing__final" data-reveal>
           <h2>本周的技术动向，已经帮你整理好了</h2>
-          <p>打开数据站，按分数浏览、按日期回溯，或直接订阅 RSS。</p>
+          <p>打开数据站按评分浏览、按日历回溯，或在阅读器里订阅每周 RSS。</p>
           <div className="landing__actions landing__actions--center">
             <button type="button" className="landing__cta" onClick={onEnter}>
               进入数据站
@@ -323,16 +410,60 @@ export default function LandingPage({
       </main>
 
       <footer className="landing__footer">
-        <span>技术周报归档 · 个人独立运营的非商业开源项目</span>
-        <nav aria-label="页脚链接">
-          <a href="#features">功能</a>
-          <a href="#how">运作方式</a>
-          <a href="#about">关于</a>
-          <a href={REPO_URL} target="_blank" rel="noreferrer">
-            GitHub
-          </a>
-          <a href={feedUrl}>RSS</a>
-        </nav>
+        <div className="landing__footer-main">
+          <div className="landing__footer-brand">
+            <img
+              className="landing__footer-logo"
+              src={`${import.meta.env.BASE_URL}favicon.svg`}
+              alt=""
+              width={28}
+              height={28}
+            />
+            <div>
+              <strong>技术周报归档</strong>
+              <span className="landing__footer-en">tech-digest</span>
+            </div>
+          </div>
+          <p className="landing__footer-desc">
+            多源技术情报抓取与 AI 汇总的开源自动化管线：Python 完成采集与 GLM
+            摘要评分，条目按 Schema v1 落盘为 JSON 归档，React 档案站提供检索 /
+            日历 / Markdown 阅读，GitHub Actions 定时构建并发布至 GitHub Pages。
+          </p>
+        </div>
+
+        <div className="landing__footer-cols">
+          <nav className="landing__footer-col" aria-label="产品入口">
+            <h4>产品</h4>
+            <a href="#entries">数据站 · 条目检索</a>
+            <a href="#markdown">Markdown 周报</a>
+            <a href="#about">关于本项目</a>
+            <a href={feedUrl}>RSS 订阅源</a>
+          </nav>
+          <nav className="landing__footer-col" aria-label="项目资源">
+            <h4>资源</h4>
+            <a href={REPO_URL} target="_blank" rel="noreferrer">
+              GitHub 仓库
+            </a>
+            <a href={SITE_URL} target="_blank" rel="noreferrer">
+              线上站点
+            </a>
+            <a href={SITE_URL + "feed.xml"} target="_blank" rel="noreferrer">
+              feed.xml
+            </a>
+          </nav>
+          <div className="landing__footer-col">
+            <h4>说明</h4>
+            <p>
+              条目均来自公开信息源，AI 摘要与评分由大模型生成、仅供参考；
+              项目为个人维护的非商业开源项目。
+            </p>
+          </div>
+        </div>
+
+        <div className="landing__footer-bottom">
+          <span>© {year} tech-digest</span>
+          <span>GitHub Actions 每周五自动构建 · GitHub Pages 托管</span>
+        </div>
       </footer>
     </div>
   );

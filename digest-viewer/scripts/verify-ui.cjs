@@ -78,27 +78,24 @@ class CDP {
     await wait(`document.body.innerText.includes("进入数据站")`, "landing");
     check("① 落地页渲染", true);
     const landingNav = await evalJS(`(() => {
-      const btns = [...document.querySelectorAll(".landing__nav .view-tabs__btn")];
+      const btns = [...document.querySelectorAll(".site-nav .view-tabs__btn")];
       return {
         n: btns.length,
         labels: btns.map((b) => b.textContent.trim()).join("/"),
         sameAsSite: (() => {
-          const radius = getComputedStyle(document.querySelector(".landing__nav .view-tabs")).borderRadius;
+          const radius = getComputedStyle(document.querySelector(".site-nav .view-tabs")).borderRadius;
           return radius.includes("999");
         })(),
-        noTopbarCta: !document.querySelector(".landing__nav-actions .landing__cta"),
-        themeIconOnly: (() => {
-          const el = document.querySelector(".landing__nav-actions .theme-toggle__label");
-          return !el || getComputedStyle(el).display === "none";
-        })(),
+        noTopbarCta: !document.querySelector(".site-nav .hero__actions .landing__cta"),
+        themeToggle: !!document.querySelector(".site-nav .hero__actions .theme-toggle"),
         footerAnchors: [...document.querySelectorAll(".landing__footer nav a")].map((a) => a.textContent.trim()).join("/"),
       };
     })()`);
     check("① 落地页与数据站导航一致（" + landingNav.labels + "）",
-      landingNav.n === 3 && landingNav.sameAsSite && landingNav.noTopbarCta && landingNav.themeIconOnly, JSON.stringify(landingNav));
-    check("① 页内锚点降级到页脚", landingNav.footerAnchors.includes("功能") && landingNav.footerAnchors.includes("运作方式"), landingNav.footerAnchors);
+      landingNav.n === 4 && landingNav.sameAsSite && landingNav.noTopbarCta && landingNav.themeToggle, JSON.stringify(landingNav));
+    check("① 页内锚点降级到页脚", landingNav.footerAnchors.includes("条目检索") && landingNav.footerAnchors.includes("关于本项目"), landingNav.footerAnchors);
     // 落地页点 Markdown tab 可直达
-    await evalJS(`[...document.querySelectorAll(".landing__nav .view-tabs__btn")].find(b => b.textContent.includes("Markdown"))?.click()`);
+    await evalJS(`[...document.querySelectorAll(".site-nav .view-tabs__btn")].find(b => b.textContent.includes("Markdown"))?.click()`);
     await wait(`location.hash.includes("markdown")`, "landing -> markdown");
     check("① 落地页 Markdown tab 直达", true);
     await evalJS(`window.location.hash = "#/"`);
@@ -120,13 +117,14 @@ class CDP {
         centered: cap && grid ? Math.abs((cap.getBoundingClientRect().left + cap.getBoundingClientRect().right) / 2 - (grid.getBoundingClientRect().left + grid.getBoundingClientRect().right) / 2) < 12 : false,
         heat2: getComputedStyle(document.querySelector(".cal-day-btn--heat-2") || document.body).backgroundColor,
         dots: document.querySelectorAll(".cal-day-btn__dot").length,
+        badges: document.querySelectorAll(".cal-day-btn__badge").length,
         legend: document.querySelectorAll(".calendar__legend-scale .calendar__swatch").length,
       };
     })()`);
     check("② 日历格渲染", cal.n >= 28, String(cal.n));
     check(`② 方块热力格 ${cal.w}x${cal.h}`, cal.w > 0 && Math.abs(cal.w - cal.h) <= 8);
     check(`② 月份标题（${cal.caption}）居中`, cal.centered);
-    check("② 热度色/抓取点/刻度", cal.heat2.includes("0.26") && cal.dots > 0 && cal.legend === 3, `${cal.heat2} dots=${cal.dots} legend=${cal.legend}`);
+    check("② 热度色/数量角标/抓取点/刻度", cal.heat2.includes("0.32") && cal.dots > 0 && cal.badges > 0 && cal.legend === 4, `${cal.heat2} dots=${cal.dots} badges=${cal.badges} legend=${cal.legend}`);
 
     // 翻月 + 选日 + 清除
     const c0 = cal.caption;

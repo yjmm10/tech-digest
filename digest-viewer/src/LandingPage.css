@@ -1,57 +1,15 @@
 /* ===== 落地页（首屏）===== */
+/* 顶栏已抽离为全站共用的 SiteHeader 常驻组件（样式见 App.css .site-nav），
+   此处不再定义任何导航样式，保证与数据站顶栏零差异 */
 .landing {
+  position: relative;
+  overflow-x: clip;
   min-height: 100vh;
   background:
     radial-gradient(ellipse 70% 45% at 0% -5%, var(--hero-glow), transparent 55%),
     radial-gradient(ellipse 50% 35% at 100% 0%, color-mix(in srgb, var(--arxiv) 6%, transparent), transparent 50%),
     var(--bg);
   color: var(--text);
-}
-
-.landing__nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  padding: 0.7rem clamp(1rem, 4vw, 2.5rem);
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
-  backdrop-filter: blur(12px) saturate(1.15);
-  -webkit-backdrop-filter: blur(12px) saturate(1.15);
-  border-bottom: 1px solid var(--border);
-}
-
-.landing__brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 0.98rem;
-  letter-spacing: -0.01em;
-}
-
-.landing__logo {
-  border-radius: 8px;
-  box-shadow: var(--shadow-sm), 0 0 0 1px var(--border);
-}
-
-/* 站点导航（与数据站共用 ViewTabs 组件）：贴右侧，与主题开关相邻 */
-.landing__tabs {
-  margin-left: auto;
-}
-
-.landing__nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* 顶栏主题开关图标化，与数据站一致，避免长文字撑宽顶栏 */
-.landing__nav-actions .theme-toggle__label {
-  display: none;
 }
 
 /* --- 按钮 --- */
@@ -102,6 +60,7 @@
 
 /* --- Hero --- */
 .landing__hero {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
   align-items: center;
@@ -111,8 +70,61 @@
   padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 4vw, 2.5rem) clamp(3rem, 7vw, 5rem);
 }
 
+/* 极光背景：两团大模糊色斑缓慢漂移，仅动 transform，GPU 友好 */
+.landing__aurora {
+  position: absolute;
+  inset: -12% -8% auto;
+  height: 130%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.landing__aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  opacity: 0.5;
+}
+
+.landing__aurora-blob--a {
+  width: 420px;
+  height: 420px;
+  left: -4%;
+  top: 12%;
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
+  animation: aurora-a 16s ease-in-out infinite alternate;
+}
+
+.landing__aurora-blob--b {
+  width: 360px;
+  height: 360px;
+  right: 2%;
+  top: -8%;
+  background: color-mix(in srgb, var(--arxiv) 18%, transparent);
+  animation: aurora-b 21s ease-in-out infinite alternate;
+}
+
+@keyframes aurora-a {
+  to {
+    transform: translate(70px, 34px) scale(1.12);
+  }
+}
+
+@keyframes aurora-b {
+  to {
+    transform: translate(-56px, 44px) scale(0.9);
+  }
+}
+
+.landing__hero-copy,
+.landing__frame {
+  position: relative;
+  z-index: 1;
+}
+
 .landing__badge {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   padding: 0.28rem 0.7rem;
   border-radius: var(--radius-pill);
   border: 1px solid var(--accent-border-soft);
@@ -121,6 +133,22 @@
   font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+}
+
+.landing__badge-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 0.45rem;
+  animation: badge-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  50% {
+    opacity: 0.4;
+    transform: scale(0.78);
+  }
 }
 
 .landing__hero-copy h1 {
@@ -190,6 +218,13 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md), 0 0 0 1px var(--border);
   overflow: hidden;
+  animation: af-float 7s ease-in-out infinite;
+}
+
+@keyframes af-float {
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .af__bar {
@@ -357,6 +392,92 @@
   color: var(--muted);
   background: var(--tag-bg);
   border: 1px solid var(--border);
+}
+
+/* --- 来源跑马灯 --- */
+.landing__marquee {
+  overflow: hidden;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 0 0.5rem;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.landing__marquee-track {
+  display: flex;
+  width: max-content;
+  animation: landing-marquee 32s linear infinite;
+}
+
+.landing__marquee:hover .landing__marquee-track {
+  animation-play-state: paused;
+}
+
+.landing__marquee-group {
+  display: flex;
+  gap: 0.6rem;
+  padding-right: 0.6rem;
+}
+
+@keyframes landing-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.landing__source-chip {
+  padding: 0.32rem 0.8rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.landing__source-chip--arxiv {
+  color: var(--arxiv);
+  border-color: color-mix(in srgb, var(--arxiv) 35%, transparent);
+  background: color-mix(in srgb, var(--arxiv) 10%, transparent);
+}
+
+.landing__source-chip--semantic {
+  color: var(--semantic);
+  border-color: color-mix(in srgb, var(--semantic) 35%, transparent);
+  background: color-mix(in srgb, var(--semantic) 10%, transparent);
+}
+
+.landing__source-chip--openalex {
+  color: var(--openalex);
+  border-color: color-mix(in srgb, var(--openalex) 35%, transparent);
+  background: color-mix(in srgb, var(--openalex) 10%, transparent);
+}
+
+.landing__source-chip--github_weekly,
+.landing__source-chip--github_search {
+  color: var(--github);
+  border-color: color-mix(in srgb, var(--github) 35%, transparent);
+  background: color-mix(in srgb, var(--github) 10%, transparent);
+}
+
+.landing__source-chip--rss {
+  color: var(--rss);
+  border-color: color-mix(in srgb, var(--rss) 35%, transparent);
+  background: color-mix(in srgb, var(--rss) 10%, transparent);
+}
+
+/* --- 滚动渐显 --- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+}
+
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
 }
 
 /* --- 通用分区 --- */
@@ -562,31 +683,104 @@
 
 /* --- 页脚 --- */
 .landing__footer {
+  max-width: 1120px;
+  margin: 2.5rem auto 0;
+  padding: 2rem clamp(1rem, 4vw, 2.5rem) 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.landing__footer-main {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.6rem 1.5rem;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 1.25rem clamp(1rem, 4vw, 2.5rem) 2rem;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 0.8rem;
+  align-items: flex-start;
+  gap: 1.25rem;
 }
 
-.landing__footer nav {
+.landing__footer-brand {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 200px;
 }
 
-.landing__footer a {
+.landing__footer-logo {
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm), 0 0 0 1px var(--border);
+}
+
+.landing__footer-brand strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.landing__footer-en {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.landing__footer-desc {
+  flex: 1;
+  min-width: 260px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.7;
+}
+
+.landing__footer-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--border);
+}
+
+.landing__footer-col h4 {
+  margin: 0 0 0.6rem;
+  font-size: 0.8rem;
+  color: var(--text);
+}
+
+.landing__footer-col a {
+  display: block;
+  padding: 0.18rem 0;
   color: var(--muted);
   text-decoration: none;
+  font-size: 0.82rem;
+  transition: color var(--transition-fast);
 }
 
-.landing__footer a:hover {
+.landing__footer-col a:hover {
   color: var(--accent);
+}
+
+.landing__footer-col p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.landing__footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.4rem 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+@media (max-width: 720px) {
+  .landing__footer-cols {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* --- 响应式 --- */
@@ -602,23 +796,5 @@
 }
 
 @media (max-width: 720px) {
-  /* 窄屏：导航 tabs 换行到第二行占满，避免拥挤 */
-  .landing__nav {
-    flex-wrap: wrap;
-    gap: 0.5rem 0.75rem;
-  }
-
-  .landing__tabs {
-    order: 3;
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .landing__tabs .view-tabs__btn {
-    flex: 1;
-  }
-
-  .landing__nav-actions {
-    margin-left: auto;
-  }
+  /* hero__row 自带 flex-wrap，窄屏自动换行，无需额外规则 */
 }
