@@ -192,9 +192,6 @@ export default function LandingPage({
         />
         <div className="landing__nav-actions">
           <ThemeToggle />
-          <button type="button" className="landing__cta landing__cta--sm" onClick={onEnter}>
-            进入数据站
-          </button>
         </div>
       </header>
 

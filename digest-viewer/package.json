@@ -9,7 +9,7 @@
     "build-rss": "node scripts/build-rss-feed.mjs",
     "prebuild": "node scripts/migrate-docs-to-json.mjs && node scripts/build-viewer-data.mjs && node scripts/build-rss-feed.mjs",
     "build": "vite build",
-    "dev": "node scripts/migrate-docs-to-json.mjs && node scripts/build-viewer-data.mjs && node scripts/build-rss-feed.mjs && vite",
+    "dev": "node scripts/migrate-docs-to-json.mjs && node scripts/build-viewer-data.mjs && node scripts/build-rss-feed.mjs && vite --port 5175",
     "preview": "vite preview",
     "verify": "node scripts/verify-ui.cjs",
     "verify:responsive": "node scripts/verify-responsive.cjs"

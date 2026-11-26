@@ -86,12 +86,16 @@ class CDP {
           const radius = getComputedStyle(document.querySelector(".landing__nav .view-tabs")).borderRadius;
           return radius.includes("999");
         })(),
-        cta: !!document.querySelector(".landing__nav-actions .landing__cta"),
+        noTopbarCta: !document.querySelector(".landing__nav-actions .landing__cta"),
+        themeIconOnly: (() => {
+          const el = document.querySelector(".landing__nav-actions .theme-toggle__label");
+          return !el || getComputedStyle(el).display === "none";
+        })(),
         footerAnchors: [...document.querySelectorAll(".landing__footer nav a")].map((a) => a.textContent.trim()).join("/"),
       };
     })()`);
     check("① 落地页与数据站导航一致（" + landingNav.labels + "）",
-      landingNav.n === 3 && landingNav.sameAsSite && landingNav.cta, JSON.stringify(landingNav));
+      landingNav.n === 3 && landingNav.sameAsSite && landingNav.noTopbarCta && landingNav.themeIconOnly, JSON.stringify(landingNav));
     check("① 页内锚点降级到页脚", landingNav.footerAnchors.includes("功能") && landingNav.footerAnchors.includes("运作方式"), landingNav.footerAnchors);
     // 落地页点 Markdown tab 可直达
     await evalJS(`[...document.querySelectorAll(".landing__nav .view-tabs__btn")].find(b => b.textContent.includes("Markdown"))?.click()`);

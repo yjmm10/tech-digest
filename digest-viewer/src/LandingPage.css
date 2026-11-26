@@ -38,19 +38,20 @@
   box-shadow: var(--shadow-sm), 0 0 0 1px var(--border);
 }
 
-/* 站点导航（与数据站共用 ViewTabs 组件）：贴右侧，与操作区相邻 */
+/* 站点导航（与数据站共用 ViewTabs 组件）：贴右侧，与主题开关相邻 */
 .landing__tabs {
   margin-left: auto;
-}
-
-.landing__tabs + .landing__nav-actions {
-  margin-left: 0;
 }
 
 .landing__nav-actions {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+/* 顶栏主题开关图标化，与数据站一致，避免长文字撑宽顶栏 */
+.landing__nav-actions .theme-toggle__label {
+  display: none;
 }
 
 /* --- 按钮 --- */
@@ -610,9 +611,14 @@
   .landing__tabs {
     order: 3;
     width: 100%;
+    margin-left: 0;
   }
 
   .landing__tabs .view-tabs__btn {
     flex: 1;
+  }
+
+  .landing__nav-actions {
+    margin-left: auto;
   }
 }
