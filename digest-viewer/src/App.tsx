@@ -517,6 +517,8 @@ export default function App() {
           </aside>
 
           <div className="main">
+            {/* 顶部控制区：整体 sticky 固定，仅下方条目列表滚动 */}
+            <div className="main__head">
             <DigestFilterBar
               keyword={keyword}
               onKeywordChange={setKeyword}
@@ -567,6 +569,19 @@ export default function App() {
               onOpenMarkdown={goToMarkdownPage}
             />
 
+            <ResultsHeader
+              count={filtered.length}
+              calendarDay={calendarDay}
+              selectedDigestLabel={selectedDigestLabel}
+              sortKey={sortKey}
+              favOnly={favOnly}
+              entryLayout={entryLayout}
+              onEntryLayoutChange={setEntryLayout}
+              groupView={groupView}
+              onGroupViewChange={setGroupView}
+            />
+            </div>
+
             {visibleSections.length > 0 && (
               <details className="section-summaries section-summaries--collapsible">
                 <summary className="section-summaries__toggle">
@@ -585,18 +600,6 @@ export default function App() {
                 </ul>
               </details>
             )}
-
-            <ResultsHeader
-              count={filtered.length}
-              calendarDay={calendarDay}
-              selectedDigestLabel={selectedDigestLabel}
-              sortKey={sortKey}
-              favOnly={favOnly}
-              entryLayout={entryLayout}
-              onEntryLayoutChange={setEntryLayout}
-              groupView={groupView}
-              onGroupViewChange={setGroupView}
-            />
 
             {groupView ? (
               <GroupedEntryList

@@ -270,6 +270,26 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    /* 左栏随骨架固定；内容超高时仅侧栏内部滚动，不把条目区挤走 */
+    max-height: calc(100vh - var(--hero-h, 3.5rem) - 1.7rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    padding-right: 2px;
+  }
+
+  /* 主列顶部控制区（筛选/期次/结果头）整体固定，仅条目列表滚动 */
+  .main__head {
+    position: sticky;
+    top: var(--hero-h, 3.5rem);
+    z-index: 10;
+    background: var(--bg);
+    padding-bottom: 0.55rem;
+  }
+
+  /* 筛选条自身已有 sticky，在固定组内取消，避免双重位移 */
+  .main__head .filter-bar {
+    position: static;
   }
 }
 
@@ -513,7 +533,7 @@
   position: sticky;
   top: var(--hero-h, 3.5rem);
   z-index: 10;
-  padding: 0.65rem 0.75rem;
+  padding: 0.5rem 0.65rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -524,12 +544,12 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.45rem 0.65rem;
+  gap: 0.35rem 0.55rem;
 }
 
 .filter-bar__row--sources {
-  margin-top: 0.55rem;
-  padding-top: 0.55rem;
+  margin-top: 0.4rem;
+  padding-top: 0.45rem;
   border-top: 1px solid var(--border);
 }
 
@@ -542,12 +562,12 @@
 .filter-bar__select,
 .filter-bar__date {
   width: 100%;
-  padding: 0.42rem 0.6rem;
+  padding: 0.34rem 0.55rem;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   background: var(--bg-subtle);
   color: var(--text);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   transition: border-color var(--transition-fast), background var(--transition-fast),
     box-shadow var(--transition-fast);
 }
@@ -614,7 +634,7 @@
 .filter-bar__chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3rem;
+  gap: 0.22rem;
   flex: 1;
   min-width: 0;
 }
@@ -650,7 +670,7 @@
 
 /* --- Run strip head --- */
 .run-strip {
-  margin-top: 0.65rem;
+  margin-top: 0.5rem;
 }
 
 .run-strip__head {
@@ -1105,7 +1125,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 0.75rem;
-  margin: 0.85rem 0 0.5rem;
+  margin: 0.55rem 0 0.35rem;
   flex-wrap: wrap;
 }
 
@@ -1189,15 +1209,16 @@
 
 .run-pill__main {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.05rem;
-  padding: 0.35rem 0.65rem;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding: 0.26rem 0.55rem;
   border: none;
   background: transparent;
   color: var(--text);
-  font-size: 0.78rem;
-  line-height: 1.25;
+  font-size: 0.74rem;
+  line-height: 1.3;
+  white-space: nowrap;
 }
 
 .run-pill--active .run-pill__main {
@@ -1211,16 +1232,16 @@
 
 .run-pill__count {
   color: var(--muted);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
 }
 
 .run-pill__md {
-  padding: 0 0.55rem;
+  padding: 0 0.5rem;
   border: none;
   border-left: 1px solid var(--border);
   background: transparent;
   color: var(--accent);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
 }
 
@@ -1229,8 +1250,8 @@
 }
 
 .chip--sm {
-  padding: 0.22rem 0.55rem;
-  font-size: 0.72rem;
+  padding: 0.16rem 0.48rem;
+  font-size: 0.68rem;
   font-weight: 600;
 }
 
